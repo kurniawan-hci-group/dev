@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5247116A15C69B4A005F0FF3 /* cmu07a.dic in Resources */ = {isa = PBXBuildFile; fileRef = 5247115C15C69B4A005F0FF3 /* cmu07a.dic */; };
-		5247116B15C69B4A005F0FF3 /* feat.params in Resources */ = {isa = PBXBuildFile; fileRef = 5247115E15C69B4A005F0FF3 /* feat.params */; };
-		5247116C15C69B4A005F0FF3 /* mdef in Resources */ = {isa = PBXBuildFile; fileRef = 5247115F15C69B4A005F0FF3 /* mdef */; };
-		5247116D15C69B4A005F0FF3 /* means in Resources */ = {isa = PBXBuildFile; fileRef = 5247116015C69B4A005F0FF3 /* means */; };
-		5247116E15C69B4A005F0FF3 /* noisedict in Resources */ = {isa = PBXBuildFile; fileRef = 5247116115C69B4A005F0FF3 /* noisedict */; };
-		5247116F15C69B4A005F0FF3 /* sendump in Resources */ = {isa = PBXBuildFile; fileRef = 5247116215C69B4A005F0FF3 /* sendump */; };
-		5247117015C69B4A005F0FF3 /* transition_matrices in Resources */ = {isa = PBXBuildFile; fileRef = 5247116315C69B4A005F0FF3 /* transition_matrices */; };
-		5247117115C69B4A005F0FF3 /* variances in Resources */ = {isa = PBXBuildFile; fileRef = 5247116415C69B4A005F0FF3 /* variances */; };
-		5247117215C69B4A005F0FF3 /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5247116515C69B4A005F0FF3 /* OpenEars.framework */; };
-		5247117315C69B4A005F0FF3 /* OpenEars1.dic in Resources */ = {isa = PBXBuildFile; fileRef = 5247116615C69B4A005F0FF3 /* OpenEars1.dic */; };
-		5247117415C69B4A005F0FF3 /* OpenEars1.gram in Resources */ = {isa = PBXBuildFile; fileRef = 5247116715C69B4A005F0FF3 /* OpenEars1.gram */; };
-		5247117515C69B4A005F0FF3 /* OpenEars1.languagemodel in Resources */ = {isa = PBXBuildFile; fileRef = 5247116815C69B4A005F0FF3 /* OpenEars1.languagemodel */; };
-		5247117615C69B4A005F0FF3 /* OpenEars2.gram in Resources */ = {isa = PBXBuildFile; fileRef = 5247116915C69B4A005F0FF3 /* OpenEars2.gram */; };
+		5216F1DF15C9D05000BE2ACB /* cmu07a.dic in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1D115C9D05000BE2ACB /* cmu07a.dic */; };
+		5216F1E015C9D05000BE2ACB /* feat.params in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1D315C9D05000BE2ACB /* feat.params */; };
+		5216F1E115C9D05000BE2ACB /* mdef in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1D415C9D05000BE2ACB /* mdef */; };
+		5216F1E215C9D05000BE2ACB /* means in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1D515C9D05000BE2ACB /* means */; };
+		5216F1E315C9D05000BE2ACB /* noisedict in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1D615C9D05000BE2ACB /* noisedict */; };
+		5216F1E415C9D05000BE2ACB /* sendump in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1D715C9D05000BE2ACB /* sendump */; };
+		5216F1E515C9D05000BE2ACB /* transition_matrices in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1D815C9D05000BE2ACB /* transition_matrices */; };
+		5216F1E615C9D05000BE2ACB /* variances in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1D915C9D05000BE2ACB /* variances */; };
+		5216F1E715C9D05000BE2ACB /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5216F1DA15C9D05000BE2ACB /* OpenEars.framework */; };
+		5216F1E815C9D05000BE2ACB /* OpenEars1.dic in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1DB15C9D05000BE2ACB /* OpenEars1.dic */; };
+		5216F1E915C9D05000BE2ACB /* OpenEars1.gram in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1DC15C9D05000BE2ACB /* OpenEars1.gram */; };
+		5216F1EA15C9D05000BE2ACB /* OpenEars1.languagemodel in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1DD15C9D05000BE2ACB /* OpenEars1.languagemodel */; };
+		5216F1EB15C9D05000BE2ACB /* OpenEars2.gram in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1DE15C9D05000BE2ACB /* OpenEars2.gram */; };
 		52836FFE15C695CF00118B5E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52836FFD15C695CF00118B5E /* QuartzCore.framework */; };
 		5283700015C695CF00118B5E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52836FFF15C695CF00118B5E /* OpenGLES.framework */; };
 		5283700215C695CF00118B5E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5283700115C695CF00118B5E /* OpenAL.framework */; };
@@ -151,19 +151,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5247115C15C69B4A005F0FF3 /* cmu07a.dic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cmu07a.dic; sourceTree = "<group>"; };
-		5247115E15C69B4A005F0FF3 /* feat.params */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = feat.params; sourceTree = "<group>"; };
-		5247115F15C69B4A005F0FF3 /* mdef */ = {isa = PBXFileReference; lastKnownFileType = file; path = mdef; sourceTree = "<group>"; };
-		5247116015C69B4A005F0FF3 /* means */ = {isa = PBXFileReference; lastKnownFileType = file; path = means; sourceTree = "<group>"; };
-		5247116115C69B4A005F0FF3 /* noisedict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = noisedict; sourceTree = "<group>"; };
-		5247116215C69B4A005F0FF3 /* sendump */ = {isa = PBXFileReference; lastKnownFileType = file; path = sendump; sourceTree = "<group>"; };
-		5247116315C69B4A005F0FF3 /* transition_matrices */ = {isa = PBXFileReference; lastKnownFileType = file; path = transition_matrices; sourceTree = "<group>"; };
-		5247116415C69B4A005F0FF3 /* variances */ = {isa = PBXFileReference; lastKnownFileType = file; path = variances; sourceTree = "<group>"; };
-		5247116515C69B4A005F0FF3 /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEars.framework; sourceTree = "<group>"; };
-		5247116615C69B4A005F0FF3 /* OpenEars1.dic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenEars1.dic; sourceTree = "<group>"; };
-		5247116715C69B4A005F0FF3 /* OpenEars1.gram */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenEars1.gram; sourceTree = "<group>"; };
-		5247116815C69B4A005F0FF3 /* OpenEars1.languagemodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenEars1.languagemodel; sourceTree = "<group>"; };
-		5247116915C69B4A005F0FF3 /* OpenEars2.gram */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenEars2.gram; sourceTree = "<group>"; };
+		5216F1D115C9D05000BE2ACB /* cmu07a.dic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cmu07a.dic; sourceTree = "<group>"; };
+		5216F1D315C9D05000BE2ACB /* feat.params */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = feat.params; sourceTree = "<group>"; };
+		5216F1D415C9D05000BE2ACB /* mdef */ = {isa = PBXFileReference; lastKnownFileType = file; path = mdef; sourceTree = "<group>"; };
+		5216F1D515C9D05000BE2ACB /* means */ = {isa = PBXFileReference; lastKnownFileType = file; path = means; sourceTree = "<group>"; };
+		5216F1D615C9D05000BE2ACB /* noisedict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = noisedict; sourceTree = "<group>"; };
+		5216F1D715C9D05000BE2ACB /* sendump */ = {isa = PBXFileReference; lastKnownFileType = file; path = sendump; sourceTree = "<group>"; };
+		5216F1D815C9D05000BE2ACB /* transition_matrices */ = {isa = PBXFileReference; lastKnownFileType = file; path = transition_matrices; sourceTree = "<group>"; };
+		5216F1D915C9D05000BE2ACB /* variances */ = {isa = PBXFileReference; lastKnownFileType = file; path = variances; sourceTree = "<group>"; };
+		5216F1DA15C9D05000BE2ACB /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEars.framework; sourceTree = "<group>"; };
+		5216F1DB15C9D05000BE2ACB /* OpenEars1.dic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenEars1.dic; sourceTree = "<group>"; };
+		5216F1DC15C9D05000BE2ACB /* OpenEars1.gram */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenEars1.gram; sourceTree = "<group>"; };
+		5216F1DD15C9D05000BE2ACB /* OpenEars1.languagemodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenEars1.languagemodel; sourceTree = "<group>"; };
+		5216F1DE15C9D05000BE2ACB /* OpenEars2.gram */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenEars2.gram; sourceTree = "<group>"; };
 		52836FF915C695CF00118B5E /* SpeechAdventure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeechAdventure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52836FFD15C695CF00118B5E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		52836FFF15C695CF00118B5E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -463,38 +463,38 @@
 				5283700A15C695CF00118B5E /* Foundation.framework in Frameworks */,
 				5283700C15C695CF00118B5E /* CoreGraphics.framework in Frameworks */,
 				5283700E15C695CF00118B5E /* GameKit.framework in Frameworks */,
-				5247117215C69B4A005F0FF3 /* OpenEars.framework in Frameworks */,
+				5216F1E715C9D05000BE2ACB /* OpenEars.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5247115B15C69B4A005F0FF3 /* framework */ = {
+		5216F1D015C9D05000BE2ACB /* framework */ = {
 			isa = PBXGroup;
 			children = (
-				5247115C15C69B4A005F0FF3 /* cmu07a.dic */,
-				5247115D15C69B4A005F0FF3 /* hub4wsj_sc_8k */,
-				5247116515C69B4A005F0FF3 /* OpenEars.framework */,
-				5247116615C69B4A005F0FF3 /* OpenEars1.dic */,
-				5247116715C69B4A005F0FF3 /* OpenEars1.gram */,
-				5247116815C69B4A005F0FF3 /* OpenEars1.languagemodel */,
-				5247116915C69B4A005F0FF3 /* OpenEars2.gram */,
+				5216F1D115C9D05000BE2ACB /* cmu07a.dic */,
+				5216F1D215C9D05000BE2ACB /* hub4wsj_sc_8k */,
+				5216F1DA15C9D05000BE2ACB /* OpenEars.framework */,
+				5216F1DB15C9D05000BE2ACB /* OpenEars1.dic */,
+				5216F1DC15C9D05000BE2ACB /* OpenEars1.gram */,
+				5216F1DD15C9D05000BE2ACB /* OpenEars1.languagemodel */,
+				5216F1DE15C9D05000BE2ACB /* OpenEars2.gram */,
 			);
 			name = framework;
-			path = ../../Libraries/OpenEarsDistribution/OpenEars/framework;
-			sourceTree = SOURCE_ROOT;
+			path = libs/OpenEarsDistribution/OpenEars/framework;
+			sourceTree = "<group>";
 		};
-		5247115D15C69B4A005F0FF3 /* hub4wsj_sc_8k */ = {
+		5216F1D215C9D05000BE2ACB /* hub4wsj_sc_8k */ = {
 			isa = PBXGroup;
 			children = (
-				5247115E15C69B4A005F0FF3 /* feat.params */,
-				5247115F15C69B4A005F0FF3 /* mdef */,
-				5247116015C69B4A005F0FF3 /* means */,
-				5247116115C69B4A005F0FF3 /* noisedict */,
-				5247116215C69B4A005F0FF3 /* sendump */,
-				5247116315C69B4A005F0FF3 /* transition_matrices */,
-				5247116415C69B4A005F0FF3 /* variances */,
+				5216F1D315C9D05000BE2ACB /* feat.params */,
+				5216F1D415C9D05000BE2ACB /* mdef */,
+				5216F1D515C9D05000BE2ACB /* means */,
+				5216F1D615C9D05000BE2ACB /* noisedict */,
+				5216F1D715C9D05000BE2ACB /* sendump */,
+				5216F1D815C9D05000BE2ACB /* transition_matrices */,
+				5216F1D915C9D05000BE2ACB /* variances */,
 			);
 			path = hub4wsj_sc_8k;
 			sourceTree = "<group>";
@@ -502,7 +502,6 @@
 		52836FEE15C695CF00118B5E = {
 			isa = PBXGroup;
 			children = (
-				5247115B15C69B4A005F0FF3 /* framework */,
 				5283700F15C695CF00118B5E /* SpeechAdventure */,
 				52836FFC15C695CF00118B5E /* Frameworks */,
 				52836FFA15C695CF00118B5E /* Products */,
@@ -562,6 +561,7 @@
 		5283702A15C695D000118B5E /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				5216F1D015C9D05000BE2ACB /* framework */,
 				5283714115C695D300118B5E /* LICENSE_cocos2d.txt */,
 				5283715015C695D300118B5E /* LICENSE_CocosDenshion.txt */,
 				5283718215C695D400118B5E /* LICENSE_Kazmath.txt */,
@@ -1036,18 +1036,18 @@
 				528371F515C6974800118B5E /* SamNormal.png in Resources */,
 				528371F615C6974800118B5E /* WholeStage.png in Resources */,
 				528371F915C6975100118B5E /* PoppingBalloon1.wav in Resources */,
-				5247116A15C69B4A005F0FF3 /* cmu07a.dic in Resources */,
-				5247116B15C69B4A005F0FF3 /* feat.params in Resources */,
-				5247116C15C69B4A005F0FF3 /* mdef in Resources */,
-				5247116D15C69B4A005F0FF3 /* means in Resources */,
-				5247116E15C69B4A005F0FF3 /* noisedict in Resources */,
-				5247116F15C69B4A005F0FF3 /* sendump in Resources */,
-				5247117015C69B4A005F0FF3 /* transition_matrices in Resources */,
-				5247117115C69B4A005F0FF3 /* variances in Resources */,
-				5247117315C69B4A005F0FF3 /* OpenEars1.dic in Resources */,
-				5247117415C69B4A005F0FF3 /* OpenEars1.gram in Resources */,
-				5247117515C69B4A005F0FF3 /* OpenEars1.languagemodel in Resources */,
-				5247117615C69B4A005F0FF3 /* OpenEars2.gram in Resources */,
+				5216F1DF15C9D05000BE2ACB /* cmu07a.dic in Resources */,
+				5216F1E015C9D05000BE2ACB /* feat.params in Resources */,
+				5216F1E115C9D05000BE2ACB /* mdef in Resources */,
+				5216F1E215C9D05000BE2ACB /* means in Resources */,
+				5216F1E315C9D05000BE2ACB /* noisedict in Resources */,
+				5216F1E415C9D05000BE2ACB /* sendump in Resources */,
+				5216F1E515C9D05000BE2ACB /* transition_matrices in Resources */,
+				5216F1E615C9D05000BE2ACB /* variances in Resources */,
+				5216F1E815C9D05000BE2ACB /* OpenEars1.dic in Resources */,
+				5216F1E915C9D05000BE2ACB /* OpenEars1.gram in Resources */,
+				5216F1EA15C9D05000BE2ACB /* OpenEars1.languagemodel in Resources */,
+				5216F1EB15C9D05000BE2ACB /* OpenEars2.gram in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1220,9 +1220,7 @@
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../Libraries/OpenEarsDistribution/OpenEars/framework\"",
-					"\"$(SRCROOT)/../../Developer/Libraries/OpenEarsDistribution/OpenEars/framework\"",
-					"\"$(SRCROOT)/../../Libraries/OpenEarsDistribution/OpenEars/framework\"",
+					"\"$(SRCROOT)/SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1245,9 +1243,7 @@
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../Libraries/OpenEarsDistribution/OpenEars/framework\"",
-					"\"$(SRCROOT)/../../Developer/Libraries/OpenEarsDistribution/OpenEars/framework\"",
-					"\"$(SRCROOT)/../../Libraries/OpenEarsDistribution/OpenEars/framework\"",
+					"\"$(SRCROOT)/SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SpeechAdventure/Prefix.pch;
