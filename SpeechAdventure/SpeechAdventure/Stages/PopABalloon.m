@@ -40,7 +40,7 @@
         self.sam = [CCSprite spriteWithFile:@"SamNormal.png"];
         //put sam slightly offscreen bottom-left
         int x = 0 - (self.sam.contentSize.width/2);
-        int y = 0 - (self.sam.contentSize.height/2);
+        int y = (self.sam.contentSize.height/2);
         self.sam.position = ccp(x,y);
         [self.activityLayer addChild:self.sam];
         
@@ -88,8 +88,14 @@
 
 - (void)intro{
     //create Sam's move
-    id moveSamBeforeBridge = [CCMoveTo actionWithDuration:3 position:ccp(202,115)];
-    id samBeforeBridgeDone = [CCCallFuncN actionWithTarget:self selector:@selector(prompt)];
+    ccBezierConfig beforeBridgeBezier;
+    beforeBridgeBezier.controlPoint_1 = ccp(77,30);
+    beforeBridgeBezier.controlPoint_2 = ccp(146,78);
+    beforeBridgeBezier.endPosition = ccp(202,115);
+    id moveSamBeforeBridge = [CCBezierTo actionWithDuration:3 bezier:beforeBridgeBezier];
+    //id samBeforeBridgeDone = [CCCallFuncN actionWithTarget:self selector:@selector(prompt)];
+    //troubleshooting action
+    id samBeforeBridgeDone = [CCCallFuncN actionWithTarget:self selector:@selector(rewardAndExit)];
     id beforeBridgeSeq = [CCSequence actions:moveSamBeforeBridge, samBeforeBridgeDone, nil];
     [self.sam runAction:beforeBridgeSeq];
 }
@@ -118,10 +124,20 @@
 
 - (void)rewardAndExit{
     [[OEManager sharedManager] pauseListening];
-    int x = 480 + (self.sam.contentSize.width/2);
-    int y = 320 + (self.sam.contentSize.height/2);
-    id moveSamOffStage = [CCMoveTo actionWithDuration:4 position:ccp(x,y)];
-    [self.sam runAction:moveSamOffStage];
+    
+    //offscreen destination point
+    //int x = 480 + (self.sam.contentSize.width/2);
+    //int y = 320 + (self.sam.contentSize.height/2);
+    
+    //actions list
+    ccBezierConfig bridgeBezier;
+    bridgeBezier.controlPoint_1 = ccp(227,161);
+    bridgeBezier.controlPoint_2 = ccp(280,214);
+    bridgeBezier.endPosition = ccp(327,244);
+    id samCrossBridge = [CCBezierTo actionWithDuration:3 bezier:bridgeBezier];
+    id samFarRoad = [CCMoveTo actionWithDuration:3 position:ccp(527,370)];
+    id exitAction = [CCSequence actions:samCrossBridge, samFarRoad, nil];
+    [self.sam runAction:exitAction];
     [[SimpleAudioEngine sharedEngine] playEffect:@"S1Reward.wav"];
 }
 
