@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52008A6A15D075C10023BD59 /* GameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52008A6915D075C10023BD59 /* GameModel.m */; };
+		52008A6E15D076820023BD59 /* GameCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52008A6D15D076820023BD59 /* GameCharacter.m */; };
 		5216F1DF15C9D05000BE2ACB /* cmu07a.dic in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1D115C9D05000BE2ACB /* cmu07a.dic */; };
 		5216F1E015C9D05000BE2ACB /* feat.params in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1D315C9D05000BE2ACB /* feat.params */; };
 		5216F1E115C9D05000BE2ACB /* mdef in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1D415C9D05000BE2ACB /* mdef */; };
@@ -148,9 +150,15 @@
 		528371F515C6974800118B5E /* SamNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 528371EE15C6974800118B5E /* SamNormal.png */; };
 		528371F615C6974800118B5E /* WholeStage.png in Resources */ = {isa = PBXBuildFile; fileRef = 528371EF15C6974800118B5E /* WholeStage.png */; };
 		528371F915C6975100118B5E /* PoppingBalloon1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 528371F815C6975100118B5E /* PoppingBalloon1.wav */; };
+		52E6483A15CB2908001CBE34 /* SamSheet_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52E6483815CB2908001CBE34 /* SamSheet_default.plist */; };
+		52E6483B15CB2908001CBE34 /* SamSheet_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E6483915CB2908001CBE34 /* SamSheet_default.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52008A6815D075C10023BD59 /* GameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameModel.h; path = SpeechAdventure/GameModel/GameModel.h; sourceTree = SOURCE_ROOT; };
+		52008A6915D075C10023BD59 /* GameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameModel.m; path = SpeechAdventure/GameModel/GameModel.m; sourceTree = SOURCE_ROOT; };
+		52008A6C15D076820023BD59 /* GameCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCharacter.h; path = GameModel/GameCharacter.h; sourceTree = "<group>"; };
+		52008A6D15D076820023BD59 /* GameCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCharacter.m; path = GameModel/GameCharacter.m; sourceTree = "<group>"; };
 		5216F1D115C9D05000BE2ACB /* cmu07a.dic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cmu07a.dic; sourceTree = "<group>"; };
 		5216F1D315C9D05000BE2ACB /* feat.params */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = feat.params; sourceTree = "<group>"; };
 		5216F1D415C9D05000BE2ACB /* mdef */ = {isa = PBXFileReference; lastKnownFileType = file; path = mdef; sourceTree = "<group>"; };
@@ -447,6 +455,8 @@
 		528371EE15C6974800118B5E /* SamNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SamNormal.png; sourceTree = "<group>"; };
 		528371EF15C6974800118B5E /* WholeStage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WholeStage.png; sourceTree = "<group>"; };
 		528371F815C6975100118B5E /* PoppingBalloon1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = PoppingBalloon1.wav; sourceTree = "<group>"; };
+		52E6483815CB2908001CBE34 /* SamSheet_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SamSheet_default.plist; sourceTree = "<group>"; };
+		52E6483915CB2908001CBE34 /* SamSheet_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SamSheet_default.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -470,6 +480,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52008A6B15D075DF0023BD59 /* GameModel */ = {
+			isa = PBXGroup;
+			children = (
+				52008A6C15D076820023BD59 /* GameCharacter.h */,
+				52008A6D15D076820023BD59 /* GameCharacter.m */,
+				52008A6815D075C10023BD59 /* GameModel.h */,
+				52008A6915D075C10023BD59 /* GameModel.m */,
+			);
+			name = GameModel;
+			sourceTree = "<group>";
+		};
 		5216F1D015C9D05000BE2ACB /* framework */ = {
 			isa = PBXGroup;
 			children = (
@@ -537,6 +558,7 @@
 			children = (
 				5283718715C695D400118B5E /* AppDelegate.h */,
 				5283718815C695D400118B5E /* AppDelegate.m */,
+				52008A6B15D075DF0023BD59 /* GameModel */,
 				528371A015C6967100118B5E /* Stages */,
 				5283719515C6963800118B5E /* OECustom */,
 				5283701015C695CF00118B5E /* Resources */,
@@ -549,6 +571,7 @@
 		5283701015C695CF00118B5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				52E6483715CB2908001CBE34 /* Art */,
 				528371F715C6975100118B5E /* SoundEffects */,
 				528371E815C6974800118B5E /* PopABalloon */,
 				528371B315C696B200118B5E /* Icon */,
@@ -976,6 +999,16 @@
 			path = Resources/SoundEffects;
 			sourceTree = "<group>";
 		};
+		52E6483715CB2908001CBE34 /* Art */ = {
+			isa = PBXGroup;
+			children = (
+				52E6483815CB2908001CBE34 /* SamSheet_default.plist */,
+				52E6483915CB2908001CBE34 /* SamSheet_default.png */,
+			);
+			name = Art;
+			path = Resources/Art;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1048,6 +1081,8 @@
 				5216F1E915C9D05000BE2ACB /* OpenEars1.gram in Resources */,
 				5216F1EA15C9D05000BE2ACB /* OpenEars1.languagemodel in Resources */,
 				5216F1EB15C9D05000BE2ACB /* OpenEars2.gram in Resources */,
+				52E6483A15CB2908001CBE34 /* SamSheet_default.plist in Resources */,
+				52E6483B15CB2908001CBE34 /* SamSheet_default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1167,6 +1202,8 @@
 				528371AA15C6967200118B5E /* IntroLayer.m in Sources */,
 				528371AB15C6967200118B5E /* PopABalloon.m in Sources */,
 				528371AC15C6967200118B5E /* SAGameLayer.m in Sources */,
+				52008A6A15D075C10023BD59 /* GameModel.m in Sources */,
+				52008A6E15D076820023BD59 /* GameCharacter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

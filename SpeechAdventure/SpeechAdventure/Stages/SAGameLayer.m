@@ -15,6 +15,13 @@
 
 @implementation SAGameLayer
 
+
+/*It is helpful to assign sprites to preestablished layers. This stratification helps you keep sprites in front of or behind other sprites without having to get involved with the ordering of layer children. The layers have the following purposes:
+    backgroundLayer -- for the sky or deep background
+    baseStageLayer -- for most of the scenery
+    activityLayer -- for the player & any objects (s)he interacts with
+    foregroundLayer -- for any UI as well as masking scenery (i.e. the player would be behind such scenery were (s)he to go across this scenery)
+ */
 @synthesize backgroundLayer = _backgroundLayer;
 @synthesize baseStageLayer = _baseStageLayer;
 @synthesize activityLayer = _activityLayer;
@@ -69,16 +76,16 @@
 
 - (void)receiveOEEvent:(OEEvent*) speechEvent{
     //abstract method for dealing with speech events
-    /*[NSException raise:NSInternalInconsistencyException
-                format:@"You must overide %@ in a subclass", NSStringFromSelector(_cmd)];*/
+    [NSException raise:NSInternalInconsistencyException
+                format:@"You must overide %@ in a subclass", NSStringFromSelector(_cmd)];
 }
 
 // Helper class method that creates a Scene with the current layer as the only child.
 +(CCScene *) scene
 {
 	//abstract method for integration with Cocos2D
-    /*[NSException raise:NSInternalInconsistencyException
-                format:@"You must overide %@ in a subclass", NSStringFromSelector(_cmd)];*/
+    [NSException raise:NSInternalInconsistencyException
+                format:@"You must overide %@ in a subclass", NSStringFromSelector(_cmd)];
     return nil;
 }
 

@@ -12,6 +12,7 @@
 #import "cocos2d.h"
 
 #import "SAGameLayer.h"
+#import "GameCharacter.h"
 
 @interface PopABalloon : SAGameLayer
     
