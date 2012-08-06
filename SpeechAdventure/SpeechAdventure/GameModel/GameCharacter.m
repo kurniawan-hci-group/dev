@@ -10,7 +10,9 @@
 
 @implementation GameCharacter
 
+@synthesize name = _name;
 @synthesize spriteBatchNode = _spriteBatchNode;
+@synthesize stillImage = _stillImage;
 @synthesize walkActions = _walkActions;
 @synthesize walkActionKeys = _walkActionKeys;
 @synthesize currentWalkAction = _currentWalkAction;
@@ -20,6 +22,8 @@
     //This method loads the sprites for the character and sets up associated actions & animations. In order for it to work, the name of your PLIST & sprite sheet PNG must be the same with different extentions--called the "file prefix". The number of animation frames dictates how many frames will be loaded for each animation (e.g. there could be 5 frames in the "walk stage right" series).
     if (self=[super init]) {
         
+        self.name = characterName;
+        
         //Configuration
         double frameDelay = 0.5f;
         
@@ -28,6 +32,10 @@
         
         //create sprite batch
         self.spriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.png",filePrefix]];
+        
+        //SETUP STILL FRAMES
+        self.stillImage = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"%@Normal.png",characterName]];
+        [self.spriteBatchNode addChild:self.stillImage];
         
         //SETUP VARIOUS ACTIONS
         //Walk
@@ -43,8 +51,9 @@
             for(int i = 1; i<=numberOfAnimationFrames; i++){
                 [walkFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"%@Walk%@%d.png",characterName,key,i]]];
             }
-            CCAnimation *walkAnim = [CCAnimation animationWithSpriteFrames:walkFrames delay:frameDelay];
-            CCAction *walkAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkAnim]];
+            CCAnimation *walkAnimation = [CCAnimation animationWithSpriteFrames:walkFrames delay:frameDelay];
+            walkAnimation.restoreOriginalFrame = YES;
+            CCAction *walkAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkAnimation]];
             [self.walkActions setObject:walkAction forKey:key];
         }
     }
@@ -53,20 +62,27 @@
 }
 
 - (void) walkTo:(CGPoint) destinationPoint withDirection:(NSString*)direction{
-    self.currentMoveAction = [CCMoveTo actionWithDuration:3 position:destinationPoint];
+    /*//Diagnostic code for inter-object point conversion
+     NSLog(@"WalkTo\nOriginal Point\nx:%f y:%f\n", destinationPoint.x, destinationPoint.y);
+    CGPoint convertedPoint = [self.spriteBatchNode convertToNodeSpace:destinationPoint];
+    NSLog(@"New Point\nx:%f y:%f", convertedPoint.x, convertedPoint.y);*/
+    
+    self.currentMoveAction = [CCMoveTo actionWithDuration:3 position:[self.spriteBatchNode convertToNodeSpace:destinationPoint]];
     id endMoveCall = [CCCallFuncN actionWithTarget:self selector:@selector(moveDone)];
-    id moveSequence = [CCSequence actions:endMoveCall, nil];
+    id moveSequence = [CCSequence actions:self.currentMoveAction, endMoveCall, nil];
     
     self.currentWalkAction = (CCAction*)[self.walkActions objectForKey:direction];
     
     
     //start moving before animating
-    [self.spriteBatchNode runAction:moveSequence];
-    [self.spriteBatchNode runAction:self.currentWalkAction];
+    [self.stillImage runAction:moveSequence];
+    [self.stillImage runAction:self.currentWalkAction];
 }
 
 - (void) moveDone {
-    [self.spriteBatchNode stopAction:self.currentWalkAction];
+    [self.stillImage stopAction:self.currentWalkAction];
+    CCSpriteFrame *stillFrameToRestore = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"%@Normal.png",self.name]];
+    [self.stillImage setDisplayFrame:stillFrameToRestore];
 }
 
 @end

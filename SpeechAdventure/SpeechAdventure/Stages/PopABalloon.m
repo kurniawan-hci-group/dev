@@ -29,7 +29,7 @@
 - (id) init {
     if (self=[super init])
     {
-        //SETUP CHARACTERS
+        //SETUP CHARACTER(S)
         self.samCharacter = [[GameCharacter alloc] initWithFilePrefix:@"SamSheet_default" withName:@"Sam" withNumberOfAnimationFrames:2];
         
         //******************ADD SPRITES TO THE PROPER LAYERS******************
@@ -48,6 +48,10 @@
         int y = (self.sam.contentSize.height/2);
         self.sam.position = ccp(x,y);
         [self.activityLayer addChild:self.sam];
+        
+        //sam2
+        self.samCharacter.spriteBatchNode.position = ccp(100,250);
+        [self.activityLayer addChild:self.samCharacter.spriteBatchNode];
         
         //balloons
         for (int i = 0; i<3; i++) {
@@ -99,6 +103,9 @@
  */
 
 - (void)intro{
+    //animate sam2
+    [self.samCharacter walkTo:ccp(300,250) withDirection:@"SL"];
+    
     //create Sam's move
     ccBezierConfig beforeBridgeBezier;
     beforeBridgeBezier.controlPoint_1 = ccp(77,30);
@@ -106,7 +113,7 @@
     beforeBridgeBezier.endPosition = ccp(202,115);
     id moveSamBeforeBridge = [CCBezierTo actionWithDuration:3 bezier:beforeBridgeBezier];
     id samBeforeBridgeDone = [CCCallFuncN actionWithTarget:self selector:@selector(prompt)];
-    //alternate action for troubleshooting
+    //alternate action for testing
     //id samBeforeBridgeDone = [CCCallFuncN actionWithTarget:self selector:@selector(rewardAndExit)];
     
     id beforeBridgeSequence = [CCSequence actions:moveSamBeforeBridge, samBeforeBridgeDone, nil];
@@ -170,8 +177,9 @@
  */
 - (void)receiveOEEvent:(OEEvent*) speechEvent{
     NSLog(@"PopABalloon received speechEvent.\ntext:%@\nscore:%@",speechEvent.text,speechEvent.recognitionScore);
+    
     //if ([speechEvent.text isEqualToString:@"LEFT"]) {
-    if ([speechEvent.text rangeOfString:@"LEFT"].length != NSNotFound) {
+    if ([speechEvent.text rangeOfString:@"LEFT"].location != NSNotFound) {
         [self performAction];
     }
 

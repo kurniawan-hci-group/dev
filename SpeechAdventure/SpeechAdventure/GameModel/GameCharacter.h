@@ -13,12 +13,15 @@
 
 @interface GameCharacter : NSObject
 
-@property (nonatomic,strong) CCSprite *spriteBatchNode;
+@property (nonatomic,strong) NSString *name;
+@property (nonatomic,strong) CCSpriteBatchNode *spriteBatchNode;
+@property (nonatomic,strong) CCSprite *stillImage;
 @property (nonatomic,strong) NSMutableDictionary *walkActions;
 @property (nonatomic,strong) NSMutableArray *walkActionKeys;
-@property (nonatomic,strong) CCAction *currentWalkAction;
-@property (nonatomic,strong) CCAction *currentMoveAction;
+@property (nonatomic,strong) id currentWalkAction;
+@property (nonatomic,strong) id currentMoveAction;
 
 - (id) initWithFilePrefix:(NSString*)filePrefix withName:(NSString*)characterName withNumberOfAnimationFrames:(int)numberOfAnimationFrames;
+- (void) walkTo:(CGPoint) destinationPoint withDirection:(NSString*)direction;
 
 @end
