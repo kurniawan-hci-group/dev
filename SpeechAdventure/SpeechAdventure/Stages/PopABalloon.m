@@ -74,6 +74,7 @@
         
         //SETUP RECOGNITION
         //[[OEManager sharedManager] pauseListening]; //don't want events right now
+        [[OEManager sharedManager] stopListening];
         [[OEManager sharedManager] registerDelegate:self];
         
         //BEGIN ACTIONS
@@ -124,6 +125,7 @@
     [[SimpleAudioEngine sharedEngine] playEffect:@"S1Prompt.wav"];
     //WOULD LIKE INPUT TO BE ENABLED AFTER WAV IS DONE PLAYING
     //[[OEManager sharedManager] resumeListening];
+    [[OEManager sharedManager] startListening];
 }
 
 - (void)performAction{
@@ -138,6 +140,7 @@
     //trigger exit if done
     if (self.balloons.count == 0) {
         //[[OEManager sharedManager] pauseListening];
+        [[OEManager sharedManager] stopListening];
         [self rewardAndExit];
     }
 }
@@ -148,8 +151,6 @@
 }
 
 - (void)rewardAndExit{
-    [[OEManager sharedManager] pauseListening];
-    
     //offscreen destination point
     //int x = 480 + (self.sam.contentSize.width/2);
     //int y = 320 + (self.sam.contentSize.height/2);
