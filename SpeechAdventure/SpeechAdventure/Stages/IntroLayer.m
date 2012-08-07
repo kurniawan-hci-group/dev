@@ -65,4 +65,9 @@
 {
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[PopABalloon scene] withColor:ccWHITE]];
 }
+
+- (void)receiveOEEvent:(OEEvent*) speechEvent{
+    NSLog(@"IntroLayer received speechEvent.\ntext:%@\nscore:%@",speechEvent.text,speechEvent.recognitionScore);
+}
+
 @end

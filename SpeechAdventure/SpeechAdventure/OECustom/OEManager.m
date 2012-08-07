@@ -237,7 +237,7 @@ static OEManager *theManager = nil;
 #pragma mark OpenEarsEventsObserver delegate methods
 
 - (void) pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
-	NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID); // Log it.
+	NSLog(@"OpenEars received hypothesis %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID); // Log it.
     /*if ([hypothesis isEqualToString:@"STOP"])
     {
         [self stopListening];
