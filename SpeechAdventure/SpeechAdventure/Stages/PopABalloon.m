@@ -142,6 +142,11 @@
     }
 }
 
+- (void)performAction2{
+    id secondaryAction = [CCRotateBy actionWithDuration:2 angle:360];
+    [self.sam runAction:secondaryAction];
+}
+
 - (void)rewardAndExit{
     [[OEManager sharedManager] pauseListening];
     
@@ -181,6 +186,8 @@
     //if ([speechEvent.text isEqualToString:@"LEFT"]) {
     if ([speechEvent.text rangeOfString:@"LEFT"].location != NSNotFound) {
         [self performAction];
+    } else if ([speechEvent.text rangeOfString:@"RIGHT"].location != NSNotFound) {
+        [self performAction2];
     }
 
 }

@@ -116,19 +116,22 @@
 - (void) startListening {
     NSLog(@"About to start listening");
     [self.pocketsphinxController startListeningWithLanguageModelAtPath:self.modelGrammarPath dictionaryAtPath:self.modelDictionaryPath languageModelIsJSGF:FALSE];
-    NSLog(@"Now listening");
+    NSLog(@"Started listening");
 }
 
 - (void) stopListening {
     [self.pocketsphinxController stopListening];
+    NSLog(@"Stopped listening");
 }
 
 - (void) pauseListening {
     [self.pocketsphinxController resumeRecognition];
+    NSLog(@"Paused listening");
 }
 
 - (void) resumeListening {
     [self.pocketsphinxController suspendRecognition];
+    NSLog(@"Resumed listening");
 }
 
 - (void) addModel:(OEModel *)newModel withKeyword:(NSString *)keyword {

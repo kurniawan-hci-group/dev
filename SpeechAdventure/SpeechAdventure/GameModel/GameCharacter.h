@@ -15,7 +15,7 @@
 
 @property (nonatomic,strong) NSString *name;
 @property (nonatomic,strong) CCSpriteBatchNode *spriteBatchNode;
-@property (nonatomic,strong) CCSprite *stillImage;
+@property (nonatomic,strong) CCSprite *actualSprite;
 @property (nonatomic,strong) NSMutableDictionary *walkActions;
 @property (nonatomic,strong) NSMutableArray *walkActionKeys;
 @property (nonatomic,strong) id currentWalkAction;

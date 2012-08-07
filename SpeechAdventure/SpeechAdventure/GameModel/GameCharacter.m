@@ -12,7 +12,7 @@
 
 @synthesize name = _name;
 @synthesize spriteBatchNode = _spriteBatchNode;
-@synthesize stillImage = _stillImage;
+@synthesize actualSprite = _actualSprite;
 @synthesize walkActions = _walkActions;
 @synthesize walkActionKeys = _walkActionKeys;
 @synthesize currentWalkAction = _currentWalkAction;
@@ -34,8 +34,8 @@
         self.spriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.png",filePrefix]];
         
         //SETUP STILL FRAMES
-        self.stillImage = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"%@Normal.png",characterName]];
-        [self.spriteBatchNode addChild:self.stillImage];
+        self.actualSprite = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"%@Normal.png",characterName]];
+        [self.spriteBatchNode addChild:self.actualSprite];
         
         //SETUP VARIOUS ACTIONS
         //Walk
@@ -75,14 +75,14 @@
     
     
     //start moving before animating
-    [self.stillImage runAction:moveSequence];
-    [self.stillImage runAction:self.currentWalkAction];
+    [self.actualSprite runAction:moveSequence];
+    [self.actualSprite runAction:self.currentWalkAction];
 }
 
 - (void) moveDone {
-    [self.stillImage stopAction:self.currentWalkAction];
+    [self.actualSprite stopAction:self.currentWalkAction];
     CCSpriteFrame *stillFrameToRestore = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"%@Normal.png",self.name]];
-    [self.stillImage setDisplayFrame:stillFrameToRestore];
+    [self.actualSprite setDisplayFrame:stillFrameToRestore];
 }
 
 @end
