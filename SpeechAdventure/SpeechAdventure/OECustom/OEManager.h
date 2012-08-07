@@ -40,6 +40,7 @@
 @property (nonatomic, copy) NSString *modelKeyword;
 @property (nonatomic, copy) NSString *modelDictionaryPath;
 @property (nonatomic, copy) NSString *modelGrammarPath;
+@property (nonatomic, assign) BOOL debuggingMode;
 
 @end
 

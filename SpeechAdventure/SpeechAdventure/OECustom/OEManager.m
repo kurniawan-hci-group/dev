@@ -30,6 +30,7 @@
 @synthesize modelGrammarPath = _modelGrammarPath;
 @synthesize notificationRegistrants = _notificationRegistrants;
 @synthesize modelsDictionary = _modelsDictionary;
+@synthesize debuggingMode = _debuggingMode;
 
 
 
@@ -114,24 +115,24 @@
 #pragma mark PocketSphinx Control
 
 - (void) startListening {
-    NSLog(@"About to start listening");
+    NSLog(@"OpenEars: About to start listening");
     [self.pocketsphinxController startListeningWithLanguageModelAtPath:self.modelGrammarPath dictionaryAtPath:self.modelDictionaryPath languageModelIsJSGF:FALSE];
-    NSLog(@"Started listening");
+    NSLog(@"OpenEars: Started listening");
 }
 
 - (void) stopListening {
     [self.pocketsphinxController stopListening];
-    NSLog(@"Stopped listening");
+    NSLog(@"OpenEars: Stopped listening");
 }
 
 - (void) pauseListening {
     [self.pocketsphinxController resumeRecognition];
-    NSLog(@"Paused listening");
+    NSLog(@"OpenEars: Paused listening");
 }
 
 - (void) resumeListening {
     [self.pocketsphinxController suspendRecognition];
-    NSLog(@"Resumed listening");
+    NSLog(@"OpenEars: Resumed listening");
 }
 
 - (void) addModel:(OEModel *)newModel withKeyword:(NSString *)keyword {
@@ -190,7 +191,7 @@
 #pragma mark Notification Registration
 - (void) registerDelegate:(id<OEDelegate>)delegate {
     [self.notificationRegistrants addObject:delegate];
-    NSLog(@"Delegate registered");
+    NSLog(@"OpenEars Delegate registered");
 }
 
 - (void) removeDelegate:(id<OEDelegate>)delegate {
@@ -257,6 +258,28 @@ static OEManager *theManager = nil;
         {
             [currentRegistrant receiveOEEvent:voiceEvent];
         }
+    }
+}
+
+- (void) pocketSphinxContinuousSetupDidFail {
+    NSLog(@"OpenEars setup failed");
+}
+
+- (void) pocketsphinxDidCompleteCalibration {
+    if (self.debuggingMode) {
+        NSLog(@"OpenEars calibration complete");
+    }
+}
+
+- (void) pocketsphinxDidResumeRecognition {
+    if (self.debuggingMode) {
+        NSLog(@"OpenEars resume complete");
+    }
+}
+
+- (void) pocketsphinxDidDetectSpeech {
+    if (self.debuggingMode) {
+        NSLog(@"OpenEars detected speech");
     }
 }
     

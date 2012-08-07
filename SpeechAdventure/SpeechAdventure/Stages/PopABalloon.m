@@ -73,7 +73,7 @@
         [self.foregroundLayer addChild:fore];
         
         //SETUP RECOGNITION
-        [[OEManager sharedManager] pauseListening]; //don't want events right now
+        //[[OEManager sharedManager] pauseListening]; //don't want events right now
         [[OEManager sharedManager] registerDelegate:self];
         
         //BEGIN ACTIONS
@@ -123,7 +123,7 @@
 - (void)prompt{
     [[SimpleAudioEngine sharedEngine] playEffect:@"S1Prompt.wav"];
     //WOULD LIKE INPUT TO BE ENABLED AFTER WAV IS DONE PLAYING
-    [[OEManager sharedManager] resumeListening];
+    //[[OEManager sharedManager] resumeListening];
 }
 
 - (void)performAction{
@@ -137,7 +137,7 @@
     
     //trigger exit if done
     if (self.balloons.count == 0) {
-        [[OEManager sharedManager] pauseListening];
+        //[[OEManager sharedManager] pauseListening];
         [self rewardAndExit];
     }
 }
