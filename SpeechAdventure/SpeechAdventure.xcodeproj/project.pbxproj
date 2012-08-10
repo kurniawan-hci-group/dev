@@ -150,6 +150,8 @@
 		528371F515C6974800118B5E /* SamNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 528371EE15C6974800118B5E /* SamNormal.png */; };
 		528371F615C6974800118B5E /* WholeStage.png in Resources */ = {isa = PBXBuildFile; fileRef = 528371EF15C6974800118B5E /* WholeStage.png */; };
 		528371F915C6975100118B5E /* PoppingBalloon1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 528371F815C6975100118B5E /* PoppingBalloon1.wav */; };
+		52D198B215D5CE0400AE2520 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D198B115D5CE0400AE2520 /* GDataXMLNode.m */; };
+		52D198B415D5D1A700AE2520 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D198B315D5D1A700AE2520 /* libxml2.dylib */; };
 		52E6483A15CB2908001CBE34 /* SamSheet_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52E6483815CB2908001CBE34 /* SamSheet_default.plist */; };
 		52E6483B15CB2908001CBE34 /* SamSheet_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E6483915CB2908001CBE34 /* SamSheet_default.png */; };
 /* End PBXBuildFile section */
@@ -455,6 +457,9 @@
 		528371EE15C6974800118B5E /* SamNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SamNormal.png; sourceTree = "<group>"; };
 		528371EF15C6974800118B5E /* WholeStage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WholeStage.png; sourceTree = "<group>"; };
 		528371F815C6975100118B5E /* PoppingBalloon1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = PoppingBalloon1.wav; sourceTree = "<group>"; };
+		52D198B015D5CE0400AE2520 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
+		52D198B115D5CE0400AE2520 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
+		52D198B315D5D1A700AE2520 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		52E6483815CB2908001CBE34 /* SamSheet_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SamSheet_default.plist; sourceTree = "<group>"; };
 		52E6483915CB2908001CBE34 /* SamSheet_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SamSheet_default.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -464,6 +469,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52D198B415D5D1A700AE2520 /* libxml2.dylib in Frameworks */,
 				52836FFE15C695CF00118B5E /* QuartzCore.framework in Frameworks */,
 				5283700015C695CF00118B5E /* OpenGLES.framework in Frameworks */,
 				5283700215C695CF00118B5E /* OpenAL.framework in Frameworks */,
@@ -523,6 +529,7 @@
 		52836FEE15C695CF00118B5E = {
 			isa = PBXGroup;
 			children = (
+				52D198B315D5D1A700AE2520 /* libxml2.dylib */,
 				5283700F15C695CF00118B5E /* SpeechAdventure */,
 				52836FFC15C695CF00118B5E /* Frameworks */,
 				52836FFA15C695CF00118B5E /* Products */,
@@ -584,6 +591,7 @@
 		5283702A15C695D000118B5E /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				52D198AF15D5CE0400AE2520 /* GDataXML */,
 				5216F1D015C9D05000BE2ACB /* framework */,
 				5283714115C695D300118B5E /* LICENSE_cocos2d.txt */,
 				5283715015C695D300118B5E /* LICENSE_CocosDenshion.txt */,
@@ -999,6 +1007,16 @@
 			path = Resources/SoundEffects;
 			sourceTree = "<group>";
 		};
+		52D198AF15D5CE0400AE2520 /* GDataXML */ = {
+			isa = PBXGroup;
+			children = (
+				52D198B015D5CE0400AE2520 /* GDataXMLNode.h */,
+				52D198B115D5CE0400AE2520 /* GDataXMLNode.m */,
+			);
+			name = GDataXML;
+			path = SpeechAdventure/libs/GDataXML;
+			sourceTree = SOURCE_ROOT;
+		};
 		52E6483715CB2908001CBE34 /* Art */ = {
 			isa = PBXGroup;
 			children = (
@@ -1204,6 +1222,7 @@
 				528371AC15C6967200118B5E /* SAGameLayer.m in Sources */,
 				52008A6A15D075C10023BD59 /* GameModel.m in Sources */,
 				52008A6E15D076820023BD59 /* GameCharacter.m in Sources */,
+				52D198B215D5CE0400AE2520 /* GDataXMLNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1225,7 +1244,9 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = "-lxml2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1244,7 +1265,9 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = "-lxml2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1258,17 +1281,23 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework\"",
+					/usr/lib/libxml2.dylib,
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SpeechAdventure/Prefix.pch;
-				HEADER_SEARCH_PATHS = "\"SpeechAdventure/libs/kazmath/include\"";
+				HEADER_SEARCH_PATHS = (
+					"\"SpeechAdventure/libs/kazmath/include\"",
+					"$(SDKROOT)/usr/include/libxml2",
+				);
 				INFOPLIST_FILE = SpeechAdventure/Resources/Info.plist;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
+					"-lxml2",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1281,16 +1310,22 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework\"",
+					/usr/lib/libxml2.dylib,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SpeechAdventure/Prefix.pch;
-				HEADER_SEARCH_PATHS = "\"SpeechAdventure/libs/kazmath/include\"";
+				HEADER_SEARCH_PATHS = (
+					"\"SpeechAdventure/libs/kazmath/include\"",
+					"$(SDKROOT)/usr/include/libxml2",
+				);
 				INFOPLIST_FILE = SpeechAdventure/Resources/Info.plist;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
+					"-lxml2",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

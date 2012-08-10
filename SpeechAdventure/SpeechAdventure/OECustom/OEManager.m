@@ -126,12 +126,12 @@
 }
 
 - (void) pauseListening {
-    [self.pocketsphinxController resumeRecognition];
+    [self.pocketsphinxController suspendRecognition];
     NSLog(@"OpenEars: Paused listening");
 }
 
 - (void) resumeListening {
-    [self.pocketsphinxController suspendRecognition];
+    [self.pocketsphinxController resumeRecognition];
     NSLog(@"OpenEars: Resumed listening");
 }
 

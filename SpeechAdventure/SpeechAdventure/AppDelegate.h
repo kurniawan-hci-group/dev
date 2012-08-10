@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "cocos2d.h"
+#import "GDataXMLNode.h"
 
 #import "OEManager.h"
 #import "OEEvent.h"
