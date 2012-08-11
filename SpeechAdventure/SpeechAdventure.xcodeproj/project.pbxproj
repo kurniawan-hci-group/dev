@@ -150,6 +150,11 @@
 		528371F515C6974800118B5E /* SamNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 528371EE15C6974800118B5E /* SamNormal.png */; };
 		528371F615C6974800118B5E /* WholeStage.png in Resources */ = {isa = PBXBuildFile; fileRef = 528371EF15C6974800118B5E /* WholeStage.png */; };
 		528371F915C6975100118B5E /* PoppingBalloon1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 528371F815C6975100118B5E /* PoppingBalloon1.wav */; };
+		52A1C47415D5D4FF00F5BFC2 /* GameAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A1C47315D5D4FF00F5BFC2 /* GameAnimation.m */; };
+		52A1C47715D5D51800F5BFC2 /* GameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A1C47615D5D51800F5BFC2 /* GameAction.m */; };
+		52A1C47A15D5D52700F5BFC2 /* GameCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A1C47915D5D52700F5BFC2 /* GameCommand.m */; };
+		52A1C47D15D5D7F600F5BFC2 /* GameActor.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A1C47C15D5D7F600F5BFC2 /* GameActor.m */; };
+		52A1C48015D5D8AA00F5BFC2 /* GameActorEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A1C47F15D5D8AA00F5BFC2 /* GameActorEmotion.m */; };
 		52D198B215D5CE0400AE2520 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D198B115D5CE0400AE2520 /* GDataXMLNode.m */; };
 		52D198B415D5D1A700AE2520 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D198B315D5D1A700AE2520 /* libxml2.dylib */; };
 		52E6483A15CB2908001CBE34 /* SamSheet_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52E6483815CB2908001CBE34 /* SamSheet_default.plist */; };
@@ -457,6 +462,16 @@
 		528371EE15C6974800118B5E /* SamNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SamNormal.png; sourceTree = "<group>"; };
 		528371EF15C6974800118B5E /* WholeStage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WholeStage.png; sourceTree = "<group>"; };
 		528371F815C6975100118B5E /* PoppingBalloon1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = PoppingBalloon1.wav; sourceTree = "<group>"; };
+		52A1C47215D5D4FF00F5BFC2 /* GameAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameAnimation.h; path = GameModel/GameAnimation.h; sourceTree = "<group>"; };
+		52A1C47315D5D4FF00F5BFC2 /* GameAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameAnimation.m; path = GameModel/GameAnimation.m; sourceTree = "<group>"; };
+		52A1C47515D5D51800F5BFC2 /* GameAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameAction.h; path = GameModel/GameAction.h; sourceTree = "<group>"; };
+		52A1C47615D5D51800F5BFC2 /* GameAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameAction.m; path = GameModel/GameAction.m; sourceTree = "<group>"; };
+		52A1C47815D5D52700F5BFC2 /* GameCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCommand.h; path = GameModel/GameCommand.h; sourceTree = "<group>"; };
+		52A1C47915D5D52700F5BFC2 /* GameCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCommand.m; path = GameModel/GameCommand.m; sourceTree = "<group>"; };
+		52A1C47B15D5D7F600F5BFC2 /* GameActor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameActor.h; path = GameModel/GameActor.h; sourceTree = "<group>"; };
+		52A1C47C15D5D7F600F5BFC2 /* GameActor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameActor.m; path = GameModel/GameActor.m; sourceTree = "<group>"; };
+		52A1C47E15D5D8AA00F5BFC2 /* GameActorEmotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameActorEmotion.h; path = GameModel/GameActorEmotion.h; sourceTree = "<group>"; };
+		52A1C47F15D5D8AA00F5BFC2 /* GameActorEmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameActorEmotion.m; path = GameModel/GameActorEmotion.m; sourceTree = "<group>"; };
 		52D198B015D5CE0400AE2520 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
 		52D198B115D5CE0400AE2520 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
 		52D198B315D5D1A700AE2520 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -493,6 +508,16 @@
 				52008A6D15D076820023BD59 /* GameCharacter.m */,
 				52008A6815D075C10023BD59 /* GameModel.h */,
 				52008A6915D075C10023BD59 /* GameModel.m */,
+				52A1C47B15D5D7F600F5BFC2 /* GameActor.h */,
+				52A1C47C15D5D7F600F5BFC2 /* GameActor.m */,
+				52A1C47E15D5D8AA00F5BFC2 /* GameActorEmotion.h */,
+				52A1C47F15D5D8AA00F5BFC2 /* GameActorEmotion.m */,
+				52A1C47215D5D4FF00F5BFC2 /* GameAnimation.h */,
+				52A1C47315D5D4FF00F5BFC2 /* GameAnimation.m */,
+				52A1C47515D5D51800F5BFC2 /* GameAction.h */,
+				52A1C47615D5D51800F5BFC2 /* GameAction.m */,
+				52A1C47815D5D52700F5BFC2 /* GameCommand.h */,
+				52A1C47915D5D52700F5BFC2 /* GameCommand.m */,
 			);
 			name = GameModel;
 			sourceTree = "<group>";
@@ -1223,6 +1248,11 @@
 				52008A6A15D075C10023BD59 /* GameModel.m in Sources */,
 				52008A6E15D076820023BD59 /* GameCharacter.m in Sources */,
 				52D198B215D5CE0400AE2520 /* GDataXMLNode.m in Sources */,
+				52A1C47415D5D4FF00F5BFC2 /* GameAnimation.m in Sources */,
+				52A1C47715D5D51800F5BFC2 /* GameAction.m in Sources */,
+				52A1C47A15D5D52700F5BFC2 /* GameCommand.m in Sources */,
+				52A1C47D15D5D7F600F5BFC2 /* GameActor.m in Sources */,
+				52A1C48015D5D8AA00F5BFC2 /* GameActorEmotion.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

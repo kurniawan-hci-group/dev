@@ -12,7 +12,7 @@
 
 //References to the sprites we'll be manipulating
 @property (nonatomic, strong) CCSprite *sam;
-@property (nonatomic, strong) GameCharacter *samCharacter;
+@property (nonatomic, strong) GameCharacter *samActor;
 @property (nonatomic, strong) NSMutableArray *balloons;
 
 @end
@@ -20,7 +20,7 @@
 @implementation PopABalloon
 
 @synthesize sam = _sam;
-@synthesize samCharacter = _samCharacter;
+@synthesize samActor = _samActor;
 @synthesize balloons = _balloons;
 
 #pragma mark -
@@ -30,7 +30,7 @@
     if (self=[super init])
     {
         //SETUP CHARACTER(S)
-        self.samCharacter = [[GameCharacter alloc] initWithFilePrefix:@"SamSheet_default" withName:@"Sam" withNumberOfAnimationFrames:2];
+        self.samActor = [[GameCharacter alloc] initWithFilePrefix:@"SamSheet_default" withName:@"Sam" withNumberOfAnimationFrames:2];
         
         //******************ADD SPRITES TO THE PROPER LAYERS******************
         
@@ -50,8 +50,8 @@
         [self.activityLayer addChild:self.sam];
         
         //sam2
-        self.samCharacter.spriteBatchNode.position = ccp(100,250);
-        [self.activityLayer addChild:self.samCharacter.spriteBatchNode];
+        self.samActor.spriteBatchNode.position = ccp(100,250);
+        [self.activityLayer addChild:self.samActor.spriteBatchNode];
         
         //balloons
         for (int i = 0; i<3; i++) {
@@ -105,7 +105,7 @@
 
 - (void)intro{
     //animate sam2
-    [self.samCharacter walkTo:ccp(300,250) withDirection:@"SL"];
+    [self.samActor walkTo:ccp(300,250) withDirection:@"SL"];
     
     //create Sam's move
     ccBezierConfig beforeBridgeBezier;
