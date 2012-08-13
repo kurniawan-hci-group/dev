@@ -11,7 +11,7 @@
 #import "cocos2d.h"
 #import "IntroLayer.h"
 
-
+#import "GameModel/GameStage.h"
 
 @implementation AppController
 
@@ -111,6 +111,9 @@ void uncaughtExceptionHandler(NSException *exception) {
     //[self.voiceInputManager startListening];
     [[OEManager sharedManager] registerDelegate:self];
     [[OEManager sharedManager] startListening];
+    
+    //Stage Loader/Google XML Test
+    GameStage *myStage = [[GameStage alloc] initWithXMLFilePrefix:@"PopABalloon2-2"];
 	
 	return YES;
 }

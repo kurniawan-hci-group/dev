@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		52008A6A15D075C10023BD59 /* GameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52008A6915D075C10023BD59 /* GameModel.m */; };
+		52008A6A15D075C10023BD59 /* GameStage.m in Sources */ = {isa = PBXBuildFile; fileRef = 52008A6915D075C10023BD59 /* GameStage.m */; };
 		52008A6E15D076820023BD59 /* GameCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52008A6D15D076820023BD59 /* GameCharacter.m */; };
 		5216F1DF15C9D05000BE2ACB /* cmu07a.dic in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1D115C9D05000BE2ACB /* cmu07a.dic */; };
 		5216F1E015C9D05000BE2ACB /* feat.params in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1D315C9D05000BE2ACB /* feat.params */; };
@@ -159,11 +159,13 @@
 		52D198B415D5D1A700AE2520 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D198B315D5D1A700AE2520 /* libxml2.dylib */; };
 		52E6483A15CB2908001CBE34 /* SamSheet_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52E6483815CB2908001CBE34 /* SamSheet_default.plist */; };
 		52E6483B15CB2908001CBE34 /* SamSheet_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E6483915CB2908001CBE34 /* SamSheet_default.png */; };
+		52EC246915D90F770096B898 /* StageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC246815D90F770096B898 /* StageLoader.m */; };
+		52EC246B15D918C30096B898 /* PopABalloon2-2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 52EC246A15D918C30096B898 /* PopABalloon2-2.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		52008A6815D075C10023BD59 /* GameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameModel.h; path = SpeechAdventure/GameModel/GameModel.h; sourceTree = SOURCE_ROOT; };
-		52008A6915D075C10023BD59 /* GameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameModel.m; path = SpeechAdventure/GameModel/GameModel.m; sourceTree = SOURCE_ROOT; };
+		52008A6815D075C10023BD59 /* GameStage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameStage.h; path = SpeechAdventure/GameModel/GameStage.h; sourceTree = SOURCE_ROOT; };
+		52008A6915D075C10023BD59 /* GameStage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameStage.m; path = SpeechAdventure/GameModel/GameStage.m; sourceTree = SOURCE_ROOT; };
 		52008A6C15D076820023BD59 /* GameCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCharacter.h; path = GameModel/GameCharacter.h; sourceTree = "<group>"; };
 		52008A6D15D076820023BD59 /* GameCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCharacter.m; path = GameModel/GameCharacter.m; sourceTree = "<group>"; };
 		5216F1D115C9D05000BE2ACB /* cmu07a.dic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cmu07a.dic; sourceTree = "<group>"; };
@@ -477,6 +479,9 @@
 		52D198B315D5D1A700AE2520 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		52E6483815CB2908001CBE34 /* SamSheet_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SamSheet_default.plist; sourceTree = "<group>"; };
 		52E6483915CB2908001CBE34 /* SamSheet_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SamSheet_default.png; sourceTree = "<group>"; };
+		52EC246715D90F770096B898 /* StageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageLoader.h; sourceTree = "<group>"; };
+		52EC246815D90F770096B898 /* StageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageLoader.m; sourceTree = "<group>"; };
+		52EC246A15D918C30096B898 /* PopABalloon2-2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PopABalloon2-2.xml"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -506,8 +511,8 @@
 			children = (
 				52008A6C15D076820023BD59 /* GameCharacter.h */,
 				52008A6D15D076820023BD59 /* GameCharacter.m */,
-				52008A6815D075C10023BD59 /* GameModel.h */,
-				52008A6915D075C10023BD59 /* GameModel.m */,
+				52008A6815D075C10023BD59 /* GameStage.h */,
+				52008A6915D075C10023BD59 /* GameStage.m */,
 				52A1C47B15D5D7F600F5BFC2 /* GameActor.h */,
 				52A1C47C15D5D7F600F5BFC2 /* GameActor.m */,
 				52A1C47E15D5D8AA00F5BFC2 /* GameActorEmotion.h */,
@@ -590,6 +595,8 @@
 			children = (
 				5283718715C695D400118B5E /* AppDelegate.h */,
 				5283718815C695D400118B5E /* AppDelegate.m */,
+				52EC246715D90F770096B898 /* StageLoader.h */,
+				52EC246815D90F770096B898 /* StageLoader.m */,
 				52008A6B15D075DF0023BD59 /* GameModel */,
 				528371A015C6967100118B5E /* Stages */,
 				5283719515C6963800118B5E /* OECustom */,
@@ -1011,6 +1018,7 @@
 		528371E815C6974800118B5E /* PopABalloon */ = {
 			isa = PBXGroup;
 			children = (
+				52EC246A15D918C30096B898 /* PopABalloon2-2.xml */,
 				528371E915C6974800118B5E /* Balloon2.png */,
 				528371EA15C6974800118B5E /* S1BaseStage.png */,
 				528371EB15C6974800118B5E /* S1Foreground.png */,
@@ -1126,6 +1134,7 @@
 				5216F1EB15C9D05000BE2ACB /* OpenEars2.gram in Resources */,
 				52E6483A15CB2908001CBE34 /* SamSheet_default.plist in Resources */,
 				52E6483B15CB2908001CBE34 /* SamSheet_default.png in Resources */,
+				52EC246B15D918C30096B898 /* PopABalloon2-2.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1245,7 +1254,7 @@
 				528371AA15C6967200118B5E /* IntroLayer.m in Sources */,
 				528371AB15C6967200118B5E /* PopABalloon.m in Sources */,
 				528371AC15C6967200118B5E /* SAGameLayer.m in Sources */,
-				52008A6A15D075C10023BD59 /* GameModel.m in Sources */,
+				52008A6A15D075C10023BD59 /* GameStage.m in Sources */,
 				52008A6E15D076820023BD59 /* GameCharacter.m in Sources */,
 				52D198B215D5CE0400AE2520 /* GDataXMLNode.m in Sources */,
 				52A1C47415D5D4FF00F5BFC2 /* GameAnimation.m in Sources */,
@@ -1253,6 +1262,7 @@
 				52A1C47A15D5D52700F5BFC2 /* GameCommand.m in Sources */,
 				52A1C47D15D5D7F600F5BFC2 /* GameActor.m in Sources */,
 				52A1C48015D5D8AA00F5BFC2 /* GameActorEmotion.m in Sources */,
+				52EC246915D90F770096B898 /* StageLoader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
