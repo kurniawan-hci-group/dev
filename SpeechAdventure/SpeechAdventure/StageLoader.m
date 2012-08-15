@@ -111,8 +111,7 @@
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	// 'layer' is an autorelease object.
-	GameStage *layer = [GameStage node];
-    [layer loadStageWithXMLFilePrefix:XMLPrefix];
+	GameStage *layer = [StageLoader loadStageWithXMLFilePrefix:XMLPrefix];
     
 	// add layer as a child to scene
 	[scene addChild: layer];

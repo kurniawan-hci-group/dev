@@ -24,10 +24,5 @@
 @property (nonatomic,strong) NSMutableDictionary *layersDictionary;
 
 - (id) init;
-- (void) loadStageWithXMLFilePrefix: (NSString*) XMLStageDescriptor;
-- (void) receiveOEEvent:(OEEvent*) speechEvent;
-
-// returns a CCScene that contains the created stage as the only child
-+(CCScene *) sceneWithXMLPrefix:(NSString*)XMLPrefix;
 
 @end
