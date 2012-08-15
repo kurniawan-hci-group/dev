@@ -158,6 +158,9 @@
 		52A1C48015D5D8AA00F5BFC2 /* GameActorEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A1C47F15D5D8AA00F5BFC2 /* GameActorEmotion.m */; };
 		52D198B215D5CE0400AE2520 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D198B115D5CE0400AE2520 /* GDataXMLNode.m */; };
 		52D198B415D5D1A700AE2520 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D198B315D5D1A700AE2520 /* libxml2.dylib */; };
+		52DF85E315DC40BE00684D83 /* PopABalloon2-4.xml in Resources */ = {isa = PBXBuildFile; fileRef = 52DF85E215DC40BE00684D83 /* PopABalloon2-4.xml */; };
+		52DF85E615DC40C700684D83 /* SamSheet_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52DF85E415DC40C700684D83 /* SamSheet_2.plist */; };
+		52DF85E715DC40C700684D83 /* SamSheet_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 52DF85E515DC40C700684D83 /* SamSheet_2.png */; };
 		52E6483A15CB2908001CBE34 /* SamSheet_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52E6483815CB2908001CBE34 /* SamSheet_default.plist */; };
 		52E6483B15CB2908001CBE34 /* SamSheet_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E6483915CB2908001CBE34 /* SamSheet_default.png */; };
 		52EC246915D90F770096B898 /* StageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC246815D90F770096B898 /* StageLoader.m */; };
@@ -479,6 +482,9 @@
 		52D198B015D5CE0400AE2520 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
 		52D198B115D5CE0400AE2520 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
 		52D198B315D5D1A700AE2520 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		52DF85E215DC40BE00684D83 /* PopABalloon2-4.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PopABalloon2-4.xml"; sourceTree = "<group>"; };
+		52DF85E415DC40C700684D83 /* SamSheet_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SamSheet_2.plist; path = SpeechAdventure/Resources/Art/SamSheet_2.plist; sourceTree = SOURCE_ROOT; };
+		52DF85E515DC40C700684D83 /* SamSheet_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SamSheet_2.png; path = SpeechAdventure/Resources/Art/SamSheet_2.png; sourceTree = SOURCE_ROOT; };
 		52E6483815CB2908001CBE34 /* SamSheet_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SamSheet_default.plist; sourceTree = "<group>"; };
 		52E6483915CB2908001CBE34 /* SamSheet_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SamSheet_default.png; sourceTree = "<group>"; };
 		52EC246715D90F770096B898 /* StageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageLoader.h; sourceTree = "<group>"; };
@@ -1020,6 +1026,7 @@
 		528371E815C6974800118B5E /* PopABalloon */ = {
 			isa = PBXGroup;
 			children = (
+				52DF85E215DC40BE00684D83 /* PopABalloon2-4.xml */,
 				5275108015DB3D270034A778 /* PopABalloon2-3.xml */,
 				52EC246A15D918C30096B898 /* PopABalloon2-2.xml */,
 				528371E915C6974800118B5E /* Balloon2.png */,
@@ -1056,6 +1063,8 @@
 		52E6483715CB2908001CBE34 /* Art */ = {
 			isa = PBXGroup;
 			children = (
+				52DF85E415DC40C700684D83 /* SamSheet_2.plist */,
+				52DF85E515DC40C700684D83 /* SamSheet_2.png */,
 				52E6483815CB2908001CBE34 /* SamSheet_default.plist */,
 				52E6483915CB2908001CBE34 /* SamSheet_default.png */,
 			);
@@ -1139,6 +1148,9 @@
 				52E6483B15CB2908001CBE34 /* SamSheet_default.png in Resources */,
 				52EC246B15D918C30096B898 /* PopABalloon2-2.xml in Resources */,
 				5275108115DB3D270034A778 /* PopABalloon2-3.xml in Resources */,
+				52DF85E315DC40BE00684D83 /* PopABalloon2-4.xml in Resources */,
+				52DF85E615DC40C700684D83 /* SamSheet_2.plist in Resources */,
+				52DF85E715DC40C700684D83 /* SamSheet_2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

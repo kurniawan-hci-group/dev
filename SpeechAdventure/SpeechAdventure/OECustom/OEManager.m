@@ -99,7 +99,9 @@
         //apply any parameters
         [self setModelWithKeyword:keyword];
     }
-    NSLog(@"Successfully initialized");
+    
+    self.debuggingMode? NSLog(@"Successfully initialized"): nil;
+    
     return self;
 }
 
@@ -115,24 +117,26 @@
 #pragma mark PocketSphinx Control
 
 - (void) startListening {
-    NSLog(@"OpenEars: About to start listening");
+    self.debuggingMode? NSLog(@"OpenEars: About to start listening"): nil;
+    
     [self.pocketsphinxController startListeningWithLanguageModelAtPath:self.modelGrammarPath dictionaryAtPath:self.modelDictionaryPath languageModelIsJSGF:FALSE];
-    NSLog(@"OpenEars: Started listening");
+    
+    self.debuggingMode? NSLog(@"OpenEars: Started listening"): nil;
 }
 
 - (void) stopListening {
     [self.pocketsphinxController stopListening];
-    NSLog(@"OpenEars: Stopped listening");
+    self.debuggingMode? NSLog(@"OpenEars: Stopped listening"): nil;
 }
 
 - (void) pauseListening {
     [self.pocketsphinxController suspendRecognition];
-    NSLog(@"OpenEars: Paused listening");
+    self.debuggingMode? NSLog(@"OpenEars: Paused listening"): nil;
 }
 
 - (void) resumeListening {
     [self.pocketsphinxController resumeRecognition];
-    NSLog(@"OpenEars: Resumed listening");
+    self.debuggingMode? NSLog(@"OpenEars: Resumed listening"): nil;
 }
 
 - (void) addModel:(OEModel *)newModel withKeyword:(NSString *)keyword {
@@ -191,7 +195,7 @@
 #pragma mark Notification Registration
 - (void) registerDelegate:(id<OEDelegate>)delegate {
     [self.notificationRegistrants addObject:delegate];
-    NSLog(@"OpenEars Delegate registered");
+    self.debuggingMode? NSLog(@"OpenEars Delegate registered"): nil;
 }
 
 - (void) removeDelegate:(id<OEDelegate>)delegate {
@@ -238,7 +242,7 @@ static OEManager *theManager = nil;
 #pragma mark OpenEarsEventsObserver delegate methods
 
 - (void) pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
-	NSLog(@"OpenEars received hypothesis %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID); // Log it.
+	self.debuggingMode? NSLog(@"OpenEars received hypothesis %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID): nil; // Log it.
     /*if ([hypothesis isEqualToString:@"STOP"])
     {
         [self stopListening];
@@ -266,21 +270,15 @@ static OEManager *theManager = nil;
 }
 
 - (void) pocketsphinxDidCompleteCalibration {
-    if (self.debuggingMode) {
-        NSLog(@"OpenEars calibration complete");
-    }
+    self.debuggingMode? NSLog(@"OpenEars calibration complete"): nil;
 }
 
 - (void) pocketsphinxDidResumeRecognition {
-    if (self.debuggingMode) {
-        NSLog(@"OpenEars resume complete");
-    }
+    self.debuggingMode? NSLog(@"OpenEars resume complete"): nil;
 }
 
 - (void) pocketsphinxDidDetectSpeech {
-    if (self.debuggingMode) {
-        NSLog(@"OpenEars detected speech");
-    }
+    self.debuggingMode? NSLog(@"OpenEars detected speech"): nil;
 }
     
 @end
