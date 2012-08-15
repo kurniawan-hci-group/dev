@@ -27,7 +27,7 @@
 - (void) loadStageWithXMLFilePrefix: (NSString*) XMLStageDescriptor;
 - (void) receiveOEEvent:(OEEvent*) speechEvent;
 
-// returns a CCScene that contains the HelloWorldLayer as the only child
+// returns a CCScene that contains the created stage as the only child
 +(CCScene *) sceneWithXMLPrefix:(NSString*)XMLPrefix;
 
 @end
