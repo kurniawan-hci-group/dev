@@ -11,6 +11,7 @@
 #import "IntroLayer.h"
 #import "HelloWorldLayer.h"
 #import "PopABalloon.h"
+#import "GameStage.h"
 
 
 #pragma mark - IntroLayer
@@ -56,7 +57,7 @@
 	[self addChild: background];
 	
 	// In one second transition to the new scene
-	//[self scheduleOnce:@selector(makeTransition:) delay:1];
+	[self scheduleOnce:@selector(makeTransition:) delay:1];
     //CGSize winSize = [[CCDirector sharedDirector] winSize];
     //NSLog(@"Width %g Height %g", winSize.width, winSize.height);
     [[OEManager sharedManager] registerDelegate:self];
@@ -65,6 +66,9 @@
 -(void) makeTransition:(ccTime)dt
 {
     [[OEManager sharedManager] removeDelegate:self];
+    //
+    //CCScene *customStage = [GameStage scene];
+    //[customStage.node ]
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[PopABalloon scene] withColor:ccWHITE]];
 }
 

@@ -21,9 +21,13 @@
 
 @interface GameStage : CCLayerColor<OEDelegate>
 
-@property (nonatomic,strong) NSMutableDictionary *layers;
+@property (nonatomic,strong) NSMutableDictionary *layersDictionary;
 
-- (id) initWithXMLFilePrefix: (NSString*) XMLStageDescriptor;
+- (id) init;
+- (void) loadStageWithXMLFilePrefix: (NSString*) XMLStageDescriptor;
 - (void) receiveOEEvent:(OEEvent*) speechEvent;
+
+// returns a CCScene that contains the HelloWorldLayer as the only child
++(CCScene *) sceneWithXMLPrefix:(NSString*)XMLPrefix;
 
 @end

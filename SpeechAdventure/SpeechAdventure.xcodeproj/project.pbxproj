@@ -22,6 +22,7 @@
 		5216F1E915C9D05000BE2ACB /* OpenEars1.gram in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1DC15C9D05000BE2ACB /* OpenEars1.gram */; };
 		5216F1EA15C9D05000BE2ACB /* OpenEars1.languagemodel in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1DD15C9D05000BE2ACB /* OpenEars1.languagemodel */; };
 		5216F1EB15C9D05000BE2ACB /* OpenEars2.gram in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1DE15C9D05000BE2ACB /* OpenEars2.gram */; };
+		5275108115DB3D270034A778 /* PopABalloon2-3.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5275108015DB3D270034A778 /* PopABalloon2-3.xml */; };
 		52836FFE15C695CF00118B5E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52836FFD15C695CF00118B5E /* QuartzCore.framework */; };
 		5283700015C695CF00118B5E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52836FFF15C695CF00118B5E /* OpenGLES.framework */; };
 		5283700215C695CF00118B5E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5283700115C695CF00118B5E /* OpenAL.framework */; };
@@ -181,6 +182,7 @@
 		5216F1DC15C9D05000BE2ACB /* OpenEars1.gram */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenEars1.gram; sourceTree = "<group>"; };
 		5216F1DD15C9D05000BE2ACB /* OpenEars1.languagemodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenEars1.languagemodel; sourceTree = "<group>"; };
 		5216F1DE15C9D05000BE2ACB /* OpenEars2.gram */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenEars2.gram; sourceTree = "<group>"; };
+		5275108015DB3D270034A778 /* PopABalloon2-3.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PopABalloon2-3.xml"; sourceTree = "<group>"; };
 		52836FF915C695CF00118B5E /* SpeechAdventure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeechAdventure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52836FFD15C695CF00118B5E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		52836FFF15C695CF00118B5E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1018,6 +1020,7 @@
 		528371E815C6974800118B5E /* PopABalloon */ = {
 			isa = PBXGroup;
 			children = (
+				5275108015DB3D270034A778 /* PopABalloon2-3.xml */,
 				52EC246A15D918C30096B898 /* PopABalloon2-2.xml */,
 				528371E915C6974800118B5E /* Balloon2.png */,
 				528371EA15C6974800118B5E /* S1BaseStage.png */,
@@ -1135,6 +1138,7 @@
 				52E6483A15CB2908001CBE34 /* SamSheet_default.plist in Resources */,
 				52E6483B15CB2908001CBE34 /* SamSheet_default.png in Resources */,
 				52EC246B15D918C30096B898 /* PopABalloon2-2.xml in Resources */,
+				5275108115DB3D270034A778 /* PopABalloon2-3.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

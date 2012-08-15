@@ -90,7 +90,8 @@ void uncaughtExceptionHandler(NSException *exception) {
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
 
 	// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
-	[director_ pushScene: [IntroLayer scene]]; 
+	//[director_ pushScene: [IntroLayer scene]];
+    [director_ pushScene: [GameStage sceneWithXMLPrefix:@"PopABalloon2-3"]];
 
 	
 	// Create a Navigation Controller with the Director
@@ -112,9 +113,6 @@ void uncaughtExceptionHandler(NSException *exception) {
     [[OEManager sharedManager] registerDelegate:self];
     [[OEManager sharedManager] startListening];
     
-    //Stage Loader/Google XML Test
-    GameStage *myStage = [[GameStage alloc] initWithXMLFilePrefix:@"PopABalloon2-2"];
-	
 	return YES;
 }
 
