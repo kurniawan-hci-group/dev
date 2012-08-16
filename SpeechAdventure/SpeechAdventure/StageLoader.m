@@ -171,10 +171,14 @@
             
             if ([actionType isEqualToString:@"animation"]) {
                 newAction.animation = [[GameAnimation alloc] init];
-                NSString *frameNameFormat = [StageLoader singularXMLElementValueFrom:myXMLAction inTag:@"frameNameFormt"];
-                int numberOfFrames = [StageLoader singularXMLElementValueFrom:myXMLAction inTag:@"numberOfFrames"].intValue;
                 
+                GDataXMLElement *animationNode = [StageLoader singularXMLElementFrom:myXMLAction inTag:@"animation"];
+                
+                NSString *frameNameFormat = [StageLoader singularXMLElementValueFrom:animationNode inTag:@"frameNameFormat"];
+                int numberOfFrames = [StageLoader singularXMLElementValueFrom:animationNode inTag:@"numberOfFrames"].intValue;
                 [newAction.animation setFramesWithFrameNameFormat:frameNameFormat andNumberOfFrames:numberOfFrames];
+                
+                newAction.animation.frameDelay = [StageLoader singularXMLElementValueFrom:animationNode inTag:@"frameDelay"].doubleValue;
             }
             
             newAction.soundFile = [StageLoader singularXMLElementValueFrom:myXMLAction inTag:@"soundFile"];
@@ -211,6 +215,12 @@
     //set its keyword value in the stage
     newStage.OEModelKeyword = OEModelKeyword;
     
+    //Process commands specifically--------
+    
+    
+    //***The stage should learn to switch to its model independently of the StageLoader,
+    //but we'll keep the model change here for now since the StageLoader is the only way
+    //that I currently expect these stages to be switched to.
     [[OEManager sharedManager] changeToModelWithKeyword:OEModelKeyword];
     /////////////////////////////////////////////////////////////////////////////
     return newStage;

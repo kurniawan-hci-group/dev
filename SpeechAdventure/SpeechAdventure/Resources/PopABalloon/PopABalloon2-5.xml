@@ -31,7 +31,6 @@
         <spriteSheet>
           <imageFile>SamSheet_2.png</imageFile>
           <plistFile>SamSheet_2.plist</plistFile>
-          <frameDelay>0.5f</frameDelay>
         </spriteSheet>
       </imageSource>
       <stillFrame>
@@ -57,6 +56,7 @@
         <animation>
           <frameNameFormat>SamWalkLeft%d.png</frameNameFormat>
           <numberOfFrames>2</numberOfFrames>
+          <frameDelay>0.5f</frameDelay>
         </animation>
       </action>
       <action>
@@ -66,6 +66,7 @@
           <name>walkRight</name>
           <frameNameFormat>SamWalkRight%d.png</frameNameFormat>
           <numberOfFrames>2</numberOfFrames>
+          <frameDelay>0.5f</frameDelay>
         </animation>
       </action>
       <action>
@@ -74,6 +75,7 @@
         <animation>
           <frameNameFormat>SamWalkUp%d.png</frameNameFormat>
           <numberOfFrames>2</numberOfFrames>
+          <frameDelay>0.5f</frameDelay>
         </animation>
       </action>
       <action>
@@ -82,6 +84,7 @@
         <animation>
           <frameNameFormat>SamWalkDown%d.png</frameNameFormat>
           <numberOfFrames>2</numberOfFrames>
+          <frameDelay>0.5f</frameDelay>
         </animation>
       </action>
     </actor>
@@ -116,10 +119,11 @@
       <keyword>popABalloon</keyword>
       <dictionaryFile>PopABalloonOEModel.dic</dictionaryFile>
       <languageModelFile>PopABalloonOEModel.languagemodel</languageModelFile>
+      <!--WATCH OUT HERE!!! Xcode HATES the "lm" extention that comes default on these-->
     </model>
     <command>
       <name>popBalloon</name>
-      <activatingText>LEFT</activatingText>
+      <activatingText>POP A BALLOON</activatingText>
       <actionCall>
         <actor>balloon</actor>
         <action>pop</action>
