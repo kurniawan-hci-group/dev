@@ -12,6 +12,10 @@
 
 @synthesize name = _name;
 @synthesize frames = _frames;
-@synthesize lengthInTime = _lengthInTime;
+@synthesize frameDelay = _frameDelay;
+
+- (CCAnimation *) getCCAnimation; {
+    return [CCAnimation animationWithSpriteFrames:self.frames delay:self.frameDelay];
+}
 
 @end

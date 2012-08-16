@@ -8,10 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+#import <GameKit/GameKit.h>
+#import "cocos2d.h"
+
 @interface GameAnimation : NSObject
 
 @property (nonatomic,copy) NSString *name;
-@property (nonatomic,strong) NSMutableArray *frames;
-@property (nonatomic,strong) NSNumber *lengthInTime;
+@property (nonatomic,copy) NSMutableArray *frames;
+@property (nonatomic,assign) double frameDelay;
+
+- (CCAnimation *) getCCAnimation;
 
 @end

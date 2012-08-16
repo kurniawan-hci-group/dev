@@ -18,6 +18,7 @@
 #import "OEManager.h"
 #import "OEEvent.h"
 
+#import "GameModel/GameActor.h"
 #import "GameModel/GameStage.h"
 
 @interface StageLoader : NSObject

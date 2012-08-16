@@ -17,11 +17,22 @@
     return [[NSBundle mainBundle] pathForResource:prefix ofType:@"xml"];
 }
 
++ (NSArray *)bypassSingularXMLTag:(NSString *) singularTag toGroupTag:(NSString *) groupTag inNode:(GDataXMLElement *)enclosingNode {
+    return [[[enclosingNode elementsForName:singularTag] objectAtIndex:0] elementsForName:groupTag];
+}
+
 + (NSString *)singularXMLElementValueFrom:(GDataXMLElement*)encloser inTag:(NSString*)tag {
     //Returns the value contained in a singular XML element
     
     //Helpful because accessing these types of element values in GData is a bit cumbersome. GData returns an ARRAY of the nodes containing a certain name. That's great when you have an indefinite number of nodes, but when you are in a known structure where you have only ONE instance of a tag, this lets you querry its value without having to go through a lot of crap.
     return ((GDataXMLElement*)[[encloser elementsForName:tag] objectAtIndex:0]).stringValue;
+}
+
++ (GDataXMLElement *)singularXMLElementFrom:(GDataXMLElement*)encloser inTag:(NSString*)tag {
+    //Returns a singular XML node
+    
+    //Identical to the above method except that it returns the node itself instead of the string value
+    return ((GDataXMLElement*)[[encloser elementsForName:tag] objectAtIndex:0]);
 }
 
 + (CGPoint)pointForText:(NSString*)givenText {
@@ -52,22 +63,16 @@
     NSError *error;
     GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithData:xmlData
                                                            options:0 error:&error];
-    /*Old troubleshooting code for when code is not found
+    /*Old troubleshooting code for when file is not found
      if (doc == nil) {
      NSLog(@"XML file %@ not found", path);
      return nil;
      }*/
     
-    NSLog(@"XML Root Element: %@", doc.rootElement);
+    //NSLog(@"XML Root Element: %@", doc.rootElement);
     
     //PROCESS SCENERY*************************************************************
-    //Open Scenery Section
-    NSArray *scenerySectionArray = [doc.rootElement elementsForName:@"scenery"];
-    GDataXMLElement *sceneryElement = (GDataXMLElement*)[scenerySectionArray objectAtIndex:0];
-    
-    //Get XML layers
-    NSArray *layersArray = [sceneryElement elementsForName:@"layer"];
-    //GDataXMLElement *firstLayer = (GDataXMLElement*)[layersArray objectAtIndex:0];
+    NSArray *layersArray = [StageLoader bypassSingularXMLTag:@"scenery" toGroupTag:@"layer" inNode:doc.rootElement];
     
     //Process XML layer elements
     for (GDataXMLElement *myXMLLayer in layersArray) {
@@ -99,7 +104,71 @@
     }
     
     //PROCESS ACTORS*************************************************************
+    NSArray *actorsArray = [StageLoader bypassSingularXMLTag:@"actorList" toGroupTag:@"actor" inNode:doc.rootElement];
+
+    for (GDataXMLElement *myXMLActor in actorsArray) {
+        NSString *actorName = [StageLoader singularXMLElementValueFrom:myXMLActor inTag:@"name"];
+        NSLog(@"Actor name %@", actorName);
+        
+        GameActor *newActor = [[GameActor alloc] init];
+        
+        //Load images from ImageSource
+        //Process differently depending on whether is fixed image or sprite sheet style
+        GDataXMLElement *imageSource = [StageLoader singularXMLElementFrom:myXMLActor inTag:@"imageSource"];
+        NSString *sourceType = [StageLoader singularXMLElementValueFrom:imageSource inTag:@"type"];
+        newActor.imageSourceType = sourceType;
+        NSLog(@"Image source type: %@", sourceType);
+        
+        if ([sourceType isEqualToString:@"spriteSheet"]) {
+            //PROCESS AN ACTOR WITH SHEET
+            
+            //enter spriteSheet node
+            GDataXMLElement *spriteSheetNode = [StageLoader singularXMLElementFrom:imageSource inTag:@"spriteSheet"];
+            NSString *imageFile = [StageLoader singularXMLElementValueFrom:spriteSheetNode inTag:@"imageFile"];
+            NSString *plistFile = [StageLoader singularXMLElementValueFrom:spriteSheetNode inTag:@"plistFile"];
+            NSLog(@"PListFile value: %@", plistFile);
+            [newActor loadSpriteSheetWithImageFile:imageFile PlistFile:plistFile];
+            
+            newActor.frameDelay = [StageLoader singularXMLElementValueFrom:imageSource inTag:@"frameDelay"].doubleValue;
+            
+            //Add stillFrames (which are unique to sprite sheet actors)
+            NSArray *myXMLStillFramesArray = [myXMLActor elementsForName:@"stillFrame"];
+            for (GDataXMLElement *myXMLStillFrame in myXMLStillFramesArray) {
+                NSString *stillName = [StageLoader singularXMLElementValueFrom:myXMLStillFrame inTag:@"name"];
+                NSString *frameFile = [StageLoader singularXMLElementValueFrom:myXMLStillFrame inTag:@"frameFile"];
+                BOOL isDefaultStill = [[StageLoader singularXMLElementValueFrom:myXMLStillFrame inTag:@"isDefaultStill"] isEqualToString:@"YES"];
+                
+                CCSprite *newStill = [CCSprite spriteWithSpriteFrameName:frameFile];
+                [newActor.stillFramesDictionary setObject:newStill forKey:stillName];
+                
+                
+                //set initial sprite for actor
+                if (isDefaultStill) {
+                    newActor.actualSprite = newStill;
+                    [newActor.spriteBatchNode addChild:newActor.actualSprite];
+                }
+            }
+            
+        } else if ([sourceType isEqualToString:@"singleFrame"]) {
+            //PROCESS AN ACTOR WITH NO SHEET
+            
+            NSString *imageFile = [StageLoader singularXMLElementValueFrom:imageSource inTag:@"imageFile"];
+            [newActor setActualSpriteWithFile:imageFile];
+            
+        } else {
+            NSLog(@"ERROR: Image source type description for actor %@ invalid in the XML file", actorName);
+            return nil;
+        }
+        
+        NSArray *actionsArray = [myXMLActor elementsForName:@"action"];
+        for (GDataXMLElement *myXMLAction in actionsArray) {
+            
+        }
+        
+        
+    }
     
+    /////////////////////////////////////////////////////////////////////////////
     return newStage;
 }
 

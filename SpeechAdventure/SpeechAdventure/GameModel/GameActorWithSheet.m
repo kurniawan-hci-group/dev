@@ -1,34 +1,24 @@
 //
-//  GameActor.m
+//  GameActorWithSheet.m
 //  SpeechAdventure
 //
-//  Created by John Chambers on 8/10/12.
+//  Created by John Chambers on 8/15/12.
 //
 //
 
-#import "GameActor.h"
+#import "GameActorWithSheet.h"
 
-@implementation GameActor
+@implementation GameActorWithSheet
 
-@synthesize name = _name;
-@synthesize location = _location;
+@synthesize spriteBatchNode = _spriteBatchNode;
+@synthesize frameDelay = _frameDelay;
+@synthesize stillFramesDictionary = _stillFramesDictionary;
+@synthesize currentStillFrame = _currentStillFrame;
 
-@synthesize actualSprite = _actualSprite;
-@synthesize actionsDictionary = _actionsDictionary;
-
-@synthesize imageSourceType = _imageSourceType;
-
-///////////////////////////////////////////////////////////////////////////////
-// SingleFrame Image Source Stuff
-
-#pragma mark -
-#pragma mark Single frame setup
-- (void) setActualSpriteWithFile:(NSString*)fileName {
-    self.actualSprite = [CCSprite spriteWithFile:fileName];
-}
-
-/////////////////////////////////////////////////////////////////////////
-// Sprite Sheet Image Source Stuff
+@synthesize walkActions = _walkActions;
+@synthesize walkActionKeys = _walkActionKeys;
+@synthesize currentWalkAction = _currentWalkAction;
+@synthesize currentMoveAction = _currentMoveAction;
 
 #pragma mark -
 #pragma mark Still frame methods

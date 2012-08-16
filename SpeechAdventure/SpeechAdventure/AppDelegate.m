@@ -92,7 +92,7 @@ void uncaughtExceptionHandler(NSException *exception) {
 
 	// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
 	//[director_ pushScene: [IntroLayer scene]];
-    [director_ pushScene: [StageLoader sceneWithXMLPrefix:@"PopABalloon2-4"]];
+    [director_ pushScene: [StageLoader sceneWithXMLPrefix:@"PopABalloon2-5"]];
 
 	
 	// Create a Navigation Controller with the Director

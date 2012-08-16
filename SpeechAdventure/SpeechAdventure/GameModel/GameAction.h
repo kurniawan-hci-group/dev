@@ -8,9 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+#import <GameKit/GameKit.h>
+#import "cocos2d.h"
+
+#import "GameAnimation.h"
+
 @interface GameAction : NSObject
 
 @property (nonatomic,copy) NSString *name;
+@property (nonatomic,copy) NSString *type;
+@property (nonatomic,strong) GameAnimation *animation;
 @property (nonatomic,copy) NSString *sound;
+
+- (CCAction *) getCCAction;
 
 @end

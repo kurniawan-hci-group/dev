@@ -228,8 +228,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -329,16 +327,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {580, 260}}</string>
+								<string>{{0, 0}, {580, 242}}</string>
 								<key>RubberWindowFrame</key>
 								<string>351 274 788 504 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>260pt</string>
+							<string>242pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -349,14 +349,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 265}, {580, 198}}</string>
+								<string>{{0, 247}, {580, 216}}</string>
 								<key>RubberWindowFrame</key>
 								<string>351 274 788 504 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>198pt</string>
+							<string>216pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -375,9 +375,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>5247124615C69B4D005F0FF3</string>
+				<string>52809B2915DC9B310010497F</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>5247124715C69B4D005F0FF3</string>
+				<string>52809B2A15DC9B310010497F</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -596,7 +596,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>5247103915C6989A005F0FF3</string>
-				<string>5247124815C69B4D005F0FF3</string>
+				<string>52809B2B15DC9B310010497F</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>

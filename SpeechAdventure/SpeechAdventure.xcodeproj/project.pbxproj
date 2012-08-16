@@ -155,12 +155,12 @@
 		52A1C47715D5D51800F5BFC2 /* GameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A1C47615D5D51800F5BFC2 /* GameAction.m */; };
 		52A1C47A15D5D52700F5BFC2 /* GameCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A1C47915D5D52700F5BFC2 /* GameCommand.m */; };
 		52A1C47D15D5D7F600F5BFC2 /* GameActor.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A1C47C15D5D7F600F5BFC2 /* GameActor.m */; };
-		52A1C48015D5D8AA00F5BFC2 /* GameActorEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A1C47F15D5D8AA00F5BFC2 /* GameActorEmotion.m */; };
 		52D198B215D5CE0400AE2520 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D198B115D5CE0400AE2520 /* GDataXMLNode.m */; };
 		52D198B415D5D1A700AE2520 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D198B315D5D1A700AE2520 /* libxml2.dylib */; };
 		52DF85E315DC40BE00684D83 /* PopABalloon2-4.xml in Resources */ = {isa = PBXBuildFile; fileRef = 52DF85E215DC40BE00684D83 /* PopABalloon2-4.xml */; };
 		52DF85E615DC40C700684D83 /* SamSheet_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52DF85E415DC40C700684D83 /* SamSheet_2.plist */; };
 		52DF85E715DC40C700684D83 /* SamSheet_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 52DF85E515DC40C700684D83 /* SamSheet_2.png */; };
+		52DF85E915DC637000684D83 /* PopABalloon2-5.xml in Resources */ = {isa = PBXBuildFile; fileRef = 52DF85E815DC637000684D83 /* PopABalloon2-5.xml */; };
 		52E6483A15CB2908001CBE34 /* SamSheet_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52E6483815CB2908001CBE34 /* SamSheet_default.plist */; };
 		52E6483B15CB2908001CBE34 /* SamSheet_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E6483915CB2908001CBE34 /* SamSheet_default.png */; };
 		52EC246915D90F770096B898 /* StageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC246815D90F770096B898 /* StageLoader.m */; };
@@ -477,14 +477,13 @@
 		52A1C47915D5D52700F5BFC2 /* GameCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCommand.m; path = GameModel/GameCommand.m; sourceTree = "<group>"; };
 		52A1C47B15D5D7F600F5BFC2 /* GameActor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameActor.h; path = GameModel/GameActor.h; sourceTree = "<group>"; };
 		52A1C47C15D5D7F600F5BFC2 /* GameActor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameActor.m; path = GameModel/GameActor.m; sourceTree = "<group>"; };
-		52A1C47E15D5D8AA00F5BFC2 /* GameActorEmotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameActorEmotion.h; path = GameModel/GameActorEmotion.h; sourceTree = "<group>"; };
-		52A1C47F15D5D8AA00F5BFC2 /* GameActorEmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameActorEmotion.m; path = GameModel/GameActorEmotion.m; sourceTree = "<group>"; };
 		52D198B015D5CE0400AE2520 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
 		52D198B115D5CE0400AE2520 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
 		52D198B315D5D1A700AE2520 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		52DF85E215DC40BE00684D83 /* PopABalloon2-4.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PopABalloon2-4.xml"; sourceTree = "<group>"; };
 		52DF85E415DC40C700684D83 /* SamSheet_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SamSheet_2.plist; path = SpeechAdventure/Resources/Art/SamSheet_2.plist; sourceTree = SOURCE_ROOT; };
 		52DF85E515DC40C700684D83 /* SamSheet_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SamSheet_2.png; path = SpeechAdventure/Resources/Art/SamSheet_2.png; sourceTree = SOURCE_ROOT; };
+		52DF85E815DC637000684D83 /* PopABalloon2-5.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PopABalloon2-5.xml"; sourceTree = "<group>"; };
 		52E6483815CB2908001CBE34 /* SamSheet_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SamSheet_default.plist; sourceTree = "<group>"; };
 		52E6483915CB2908001CBE34 /* SamSheet_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SamSheet_default.png; sourceTree = "<group>"; };
 		52EC246715D90F770096B898 /* StageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageLoader.h; sourceTree = "<group>"; };
@@ -523,8 +522,6 @@
 				52008A6915D075C10023BD59 /* GameStage.m */,
 				52A1C47B15D5D7F600F5BFC2 /* GameActor.h */,
 				52A1C47C15D5D7F600F5BFC2 /* GameActor.m */,
-				52A1C47E15D5D8AA00F5BFC2 /* GameActorEmotion.h */,
-				52A1C47F15D5D8AA00F5BFC2 /* GameActorEmotion.m */,
 				52A1C47215D5D4FF00F5BFC2 /* GameAnimation.h */,
 				52A1C47315D5D4FF00F5BFC2 /* GameAnimation.m */,
 				52A1C47515D5D51800F5BFC2 /* GameAction.h */,
@@ -1026,6 +1023,7 @@
 		528371E815C6974800118B5E /* PopABalloon */ = {
 			isa = PBXGroup;
 			children = (
+				52DF85E815DC637000684D83 /* PopABalloon2-5.xml */,
 				52DF85E215DC40BE00684D83 /* PopABalloon2-4.xml */,
 				5275108015DB3D270034A778 /* PopABalloon2-3.xml */,
 				52EC246A15D918C30096B898 /* PopABalloon2-2.xml */,
@@ -1151,6 +1149,7 @@
 				52DF85E315DC40BE00684D83 /* PopABalloon2-4.xml in Resources */,
 				52DF85E615DC40C700684D83 /* SamSheet_2.plist in Resources */,
 				52DF85E715DC40C700684D83 /* SamSheet_2.png in Resources */,
+				52DF85E915DC637000684D83 /* PopABalloon2-5.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1277,7 +1276,6 @@
 				52A1C47715D5D51800F5BFC2 /* GameAction.m in Sources */,
 				52A1C47A15D5D52700F5BFC2 /* GameCommand.m in Sources */,
 				52A1C47D15D5D7F600F5BFC2 /* GameActor.m in Sources */,
-				52A1C48015D5D8AA00F5BFC2 /* GameActorEmotion.m in Sources */,
 				52EC246915D90F770096B898 /* StageLoader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

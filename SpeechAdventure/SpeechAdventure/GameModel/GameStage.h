@@ -22,6 +22,7 @@
 @interface GameStage : CCLayerColor<OEDelegate>
 
 @property (nonatomic,strong) NSMutableDictionary *layersDictionary;
+@property (nonatomic,strong) NSMutableDictionary *actorsDictionary;
 
 - (id) init;
 

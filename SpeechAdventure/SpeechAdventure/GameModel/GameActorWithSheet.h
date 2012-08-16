@@ -1,33 +1,16 @@
 //
-//  GameActor.h
+//  GameActorWithSheet.h
 //  SpeechAdventure
 //
-//  Created by John Chambers on 8/10/12.
+//  Created by John Chambers on 8/15/12.
 //
 //
 
 #import <Foundation/Foundation.h>
 
-#import <GameKit/GameKit.h>
-#import "cocos2d.h"
+#import "GameActor.h"
 
-@interface GameActor : NSObject
-
-@property (nonatomic,copy) NSString *name;
-@property (nonatomic,assign) CGPoint location;
-
-@property (nonatomic,strong) CCSprite *actualSprite;
-@property (nonatomic,strong) NSMutableDictionary *actionsDictionary;
-
-@property (nonatomic,copy) NSString *imageSourceType;
-
-///////////////////////////////////////////////////////////////////////////////
-// SingleFrame Image Source Stuff
-
-- (void) setActualSpriteWithFile:(NSString*)fileName;
-
-///////////////////////////////////////////////////////////////////////////////
-// Sprite Sheet Image Source Stuff
+@interface GameActorWithSheet : GameActor
 
 @property (nonatomic,strong) CCSpriteBatchNode *spriteBatchNode;
 @property (nonatomic,strong) NSMutableDictionary *stillFramesDictionary;

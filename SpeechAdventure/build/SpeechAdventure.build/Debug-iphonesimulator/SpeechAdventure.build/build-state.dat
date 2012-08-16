@@ -222,6 +222,31 @@ c000000004CB3E48600000000000027D1
 t1286857862
 s10193
 
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/libxml2/libxml/parser.h
+c000000004CC10DA500000000000098A9
+t1287720357
+s39081
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/libxml2/libxml/tree.h
+c000000004CC10DA50000000000008F14
+t1287720357
+s36628
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/libxml2/libxml/xmlstring.h
+c000000004CC10DA5000000000000155A
+t1287720357
+s5466
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/libxml2/libxml/xpath.h
+c000000004CC10DA50000000000003F47
+t1287720357
+s16199
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/libxml2/libxml/xpathInternals.h
+c000000004CC10DA50000000000004BF8
+t1287720357
+s19448
+
 N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/math.h
 c000000004A5C14A000000000000004F1
 t1247548576
@@ -281,6 +306,11 @@ N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2
 c000000004CC109BF00000000000102A5
 t1287719359
 s66213
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/lib/libxml2.dylib
+c000000004CC10DA50000000000122A50
+t1287720357
+s1190480
 
 N/Users/john/Desktop/SpeechAdventure/../../../Libraries/OpenEarsDistribution/OpenEars/framework/OpenEars.framework/OpenEars
 c00000000000000000000000000000000
@@ -3505,22 +3535,126 @@ t1340032889
 s40012
 
 N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/AppDelegate.h
-c0000000050132EB800000000000002DD
-t1343434424
-s733
+c000000005025987600000000000002F6
+t1344641142
+s758
 i<UIKit/UIKit.h>
 i"cocos2d.h"
+i"GDataXMLNode.h"
 i"OEManager.h"
 i"OEEvent.h"
 i"OEDelegate.h"
 
 N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/AppDelegate.m
-c000000005013A13C00000000000015C9
-t1343463740
-s5577
+c00000000502C2C190000000000001653
+t1345072153
+s5715
 i"AppDelegate.h"
 i"cocos2d.h"
 i"IntroLayer.h"
+i"GameModel/GameStage.h"
+i"StageLoader.h"
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/GameModel/GameAction.h
+c00000000502C397100000000000001C8
+t1345075569
+s456
+i<Foundation/Foundation.h>
+i<GameKit/GameKit.h>
+i"cocos2d.h"
+i"GameAnimation.h"
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/GameModel/GameAction.m
+c00000000502C39A30000000000000198
+t1345075619
+s408
+i"GameAction.h"
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/GameModel/GameActor.h
+c00000000502C5EF700000000000006E0
+t1345085175
+s1760
+i<Foundation/Foundation.h>
+i<GameKit/GameKit.h>
+i"cocos2d.h"
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/GameModel/GameActor.m
+c00000000502C5EF500000000000014BD
+t1345085173
+s5309
+i"GameActor.h"
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/GameModel/GameActorWithSheet.h
+c00000000502C47D100000000000004AE
+t1345079249
+s1198
+i<Foundation/Foundation.h>
+i"GameActor.h"
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/GameModel/GameActorWithSheet.m
+c00000000502C47A2000000000000140B
+t1345079202
+s5131
+i"GameActorWithSheet.h"
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/GameModel/GameAnimation.h
+c00000000502C38E6000000000000018E
+t1345075430
+s398
+i<Foundation/Foundation.h>
+i<GameKit/GameKit.h>
+i"cocos2d.h"
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/GameModel/GameAnimation.m
+c00000000502C38FA0000000000000179
+t1345075450
+s377
+i"GameAnimation.h"
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/GameModel/GameCharacter.h
+c000000005025A060000000000000033D
+t1344643168
+s829
+i<Foundation/Foundation.h>
+i<GameKit/GameKit.h>
+i"cocos2d.h"
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/GameModel/GameCharacter.m
+c000000005025A05F0000000000001044
+t1344643167
+s4164
+i"GameCharacter.h"
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/GameModel/GameCommand.h
+c0000000050259DA600000000000000A7
+t1344642470
+s167
+i<Foundation/Foundation.h>
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/GameModel/GameCommand.m
+c0000000050259DA60000000000000097
+t1344642470
+s151
+i"GameCommand.h"
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/GameModel/GameStage.h
+c00000000502C1B3700000000000001F5
+t1345067831
+s501
+i<Foundation/Foundation.h>
+i<GameKit/GameKit.h>
+i"cocos2d.h"
+i"SimpleAudioEngine.h"
+i"GDataXMLNode.h"
+i"OEDelegate.h"
+i"OEManager.h"
+i"OEEvent.h"
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/GameModel/GameStage.m
+c00000000502C1B4300000000000001D0
+t1345067843
+s464
+i"GameStage.h"
 
 N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/OECustom/OEDelegate.h
 c000000005010651C0000000000000162
@@ -3542,18 +3676,18 @@ s467
 i"OEEvent.h"
 
 N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/OECustom/OEManager.h
-c0000000050147CC700000000000004B0
-t1343519943
-s1200
+c0000000050218D3100000000000004E2
+t1344376113
+s1250
 i<Foundation/Foundation.h>
 i<OpenEars/OpenEarsEventsObserver.h>
 i"OEDelegate.h"
 i"OEModel.h"
 
 N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/OECustom/OEManager.m
-c0000000050147D030000000000001F74
-t1343520003
-s8052
+c00000000502C0C3000000000000022C7
+t1345063984
+s8903
 i<OpenEars/PocketSphinxController.h>
 i<OpenEars/LanguageModelGenerator.h>
 i<OpenEars/OpenEarsLogging.h>
@@ -3579,10 +3713,50 @@ i<Availability.h>
 i<UIKit/UIKit.h>
 i<Foundation/Foundation.h>
 
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/Resources/Art/SamSheet_2.plist
+c00000000502C08CC0000000000002394
+t1345063116
+s9108
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/Resources/Art/SamSheet_2.png
+c00000000502C08CC0000000000016791
+t1345063116
+s92049
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/Resources/Art/SamSheet_default.plist
+c00000000501AEC8C000000000000242B
+t1343941772
+s9259
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/Resources/Art/SamSheet_default.png
+c00000000501AEC8C00000000000395E3
+t1343941772
+s234979
+
 N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/Resources/PopABalloon/Balloon2.png
 c000000005013A57700000000000004D6
 t1343464823
 s1238
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/Resources/PopABalloon/PopABalloon2-2.xml
+c000000005028D0DE0000000000001640
+t1344852190
+s5696
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/Resources/PopABalloon/PopABalloon2-3.xml
+c00000000502B090D00000000000015B5
+t1344997645
+s5557
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/Resources/PopABalloon/PopABalloon2-4.xml
+c00000000502C090F00000000000016C1
+t1345063183
+s5825
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/Resources/PopABalloon/PopABalloon2-5.xml
+c00000000502C6164000000000000170D
+t1345085796
+s5901
 
 N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/Resources/PopABalloon/S1BaseStage.png
 c000000005013A5B5000000000000EB2F
@@ -3624,6 +3798,27 @@ c00000000500B2CD5000000000000F21E
 t1342909653
 s61982
 
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/StageLoader.h
+c00000000502C5F69000000000000030B
+t1345085289
+s779
+i<Foundation/Foundation.h>
+i<GameKit/GameKit.h>
+i"cocos2d.h"
+i"SimpleAudioEngine.h"
+i"GDataXMLNode.h"
+i"OEDelegate.h"
+i"OEManager.h"
+i"OEEvent.h"
+i"GameModel/GameActor.h"
+i"GameModel/GameStage.h"
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/StageLoader.m
+c00000000502C62160000000000001DCE
+t1345085974
+s7630
+i"StageLoader.h"
+
 N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/Stages/HelloWorldLayer.h
 c00000000500B2D1D00000000000001F7
 t1342909725
@@ -3639,32 +3834,36 @@ i"HelloWorldLayer.h"
 i"AppDelegate.h"
 
 N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/Stages/IntroLayer.h
-c00000000500B2D1D0000000000000185
-t1342909725
-s389
+c00000000502063C300000000000001BC
+t1344299971
+s444
 i"cocos2d.h"
+i"OEDelegate.h"
+i"OEEvent.h"
 
 N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/Stages/IntroLayer.m
-c000000005013A0C80000000000000669
-t1343463624
-s1641
+c00000000502B1B1800000000000007E0
+t1345002264
+s2016
 i"IntroLayer.h"
 i"HelloWorldLayer.h"
 i"PopABalloon.h"
+i"GameStage.h"
 
 N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/Stages/PopABalloon.h
-c0000000050147DA60000000000000106
-t1343520166
-s262
+c000000005025A05F0000000000000120
+t1344643167
+s288
 i<Foundation/Foundation.h>
 i<GameKit/GameKit.h>
 i"cocos2d.h"
 i"SAGameLayer.h"
+i"GameCharacter.h"
 
 N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/Stages/PopABalloon.m
-c0000000050148DE7000000000000119D
-t1343524327
-s4509
+c000000005025A05F00000000000020CD
+t1344643167
+s8397
 i"PopABalloon.h"
 
 N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/Stages/SAGameLayer.h
@@ -3680,9 +3879,9 @@ i"OEManager.h"
 i"OEEvent.h"
 
 N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/Stages/SAGameLayer.m
-c0000000050139A7D00000000000007B4
-t1343462013
-s1972
+c0000000050200FC600000000000009E4
+t1344278470
+s2532
 i"SAGameLayer.h"
 
 N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/libs/CocosDenshion/CDAudioManager.h
@@ -3749,6 +3948,115 @@ c0000000050165E530000000000001387
 t1343643219
 s4999
 i"SimpleAudioEngine.h"
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/libs/GDataXML/GDataXMLNode.h
+c00000000502595CF0000000000001C3E
+t1344640463
+s7230
+i<Foundation/Foundation.h>
+i<libxml/tree.h>
+i<libxml/parser.h>
+i<libxml/xmlstring.h>
+i<libxml/xpath.h>
+i<libxml/xpathInternals.h>
+i"GDataDefines.h"
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/libs/GDataXML/GDataXMLNode.m
+c00000000502595CF000000000000C924
+t1344640463
+s51492
+i"GDataXMLNode.h"
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/OpenEars.framework/Headers/LanguageModelGenerator.h
+c000000004FDF477900000000000002D6
+t1340032889
+s726
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/OpenEars.framework/Headers/OpenEarsEventsObserver.h
+c000000004FDF47790000000000000D8F
+t1340032889
+s3471
+i<Foundation/NSObject.h>
+i"AudioConstants.h"
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/OpenEars.framework/Headers/OpenEarsLogging.h
+c000000004FDF477900000000000000D6
+t1340032889
+s214
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/OpenEars.framework/Headers/PocketsphinxController.h
+c000000004FDF477900000000000011AD
+t1340032889
+s4525
+i<Foundation/Foundation.h>
+i"OpenEarsEventsObserver.h"
+i"ContinuousModel.h"
+i"AudioConstants.h"
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/OpenEars.framework/OpenEars
+c000000004FDF47790000000004E686FC
+t1340032889
+s82216700
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/OpenEars1.dic
+c000000004FDF4779000000000000007F
+t1340032889
+s127
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/OpenEars1.gram
+c000000004FDF4779000000000000007A
+t1340032889
+s122
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/OpenEars1.languagemodel
+c000000004FDF4779000000000000046E
+t1340032889
+s1134
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/OpenEars2.gram
+c000000004FDF47790000000000000099
+t1340032889
+s153
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/cmu07a.dic
+c000000004FDF477900000000003185A4
+t1340032889
+s3245476
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/feat.params
+c000000004FDF477900000000000000B5
+t1340032889
+s181
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/mdef
+c000000004FDF477900000000002ED266
+t1340032889
+s3068518
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/means
+c000000004FDF47790000000000009C4C
+t1340032889
+s40012
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/noisedict
+c000000004FDF4779000000000000019B
+t1340032889
+s411
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/sendump
+c000000004FDF477900000000001E2F57
+t1340032889
+s1978199
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/transition_matrices
+c000000004FDF477900000000000009A0
+t1340032889
+s2464
+
+N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/variances
+c000000004FDF47790000000000009C4C
+t1340032889
+s40012
 
 N/Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/libs/cocos2d/CCAction.h
 c0000000050165E50000000000000176B
@@ -5893,6 +6201,22 @@ N/Users/john/Developer/dev/SpeechAdventure/build/Debug-iphonesimulator/SpeechAdv
 t1343644004
 s8
 
+N/Users/john/Developer/dev/SpeechAdventure/build/Debug-iphonesimulator/SpeechAdventure.app/PopABalloon2-2.xml
+t2
+s0
+
+N/Users/john/Developer/dev/SpeechAdventure/build/Debug-iphonesimulator/SpeechAdventure.app/PopABalloon2-3.xml
+t2
+s0
+
+N/Users/john/Developer/dev/SpeechAdventure/build/Debug-iphonesimulator/SpeechAdventure.app/PopABalloon2-4.xml
+t2
+s0
+
+N/Users/john/Developer/dev/SpeechAdventure/build/Debug-iphonesimulator/SpeechAdventure.app/PopABalloon2-5.xml
+t2
+s0
+
 N/Users/john/Developer/dev/SpeechAdventure/build/Debug-iphonesimulator/SpeechAdventure.app/PoppingBalloon1.wav
 t2
 s0
@@ -5914,6 +6238,22 @@ t2
 s0
 
 N/Users/john/Developer/dev/SpeechAdventure/build/Debug-iphonesimulator/SpeechAdventure.app/SamNormal.png
+t2
+s0
+
+N/Users/john/Developer/dev/SpeechAdventure/build/Debug-iphonesimulator/SpeechAdventure.app/SamSheet_2.plist
+t2
+s0
+
+N/Users/john/Developer/dev/SpeechAdventure/build/Debug-iphonesimulator/SpeechAdventure.app/SamSheet_2.png
+t2
+s0
+
+N/Users/john/Developer/dev/SpeechAdventure/build/Debug-iphonesimulator/SpeechAdventure.app/SamSheet_default.plist
+t2
+s0
+
+N/Users/john/Developer/dev/SpeechAdventure/build/Debug-iphonesimulator/SpeechAdventure.app/SamSheet_default.png
 t2
 s0
 
@@ -6265,6 +6605,38 @@ N/Users/john/Developer/dev/SpeechAdventure/build/SpeechAdventure.build/Debug-iph
 t2
 s0
 
+N/Users/john/Developer/dev/SpeechAdventure/build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.build/Objects-normal/i386/GDataXMLNode.o
+t2
+s0
+
+N/Users/john/Developer/dev/SpeechAdventure/build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.build/Objects-normal/i386/GameAction.o
+t2
+s0
+
+N/Users/john/Developer/dev/SpeechAdventure/build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.build/Objects-normal/i386/GameActor.o
+t2
+s0
+
+N/Users/john/Developer/dev/SpeechAdventure/build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.build/Objects-normal/i386/GameActorWithSheet.o
+t2
+s0
+
+N/Users/john/Developer/dev/SpeechAdventure/build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.build/Objects-normal/i386/GameAnimation.o
+t2
+s0
+
+N/Users/john/Developer/dev/SpeechAdventure/build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.build/Objects-normal/i386/GameCharacter.o
+t2
+s0
+
+N/Users/john/Developer/dev/SpeechAdventure/build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.build/Objects-normal/i386/GameCommand.o
+t2
+s0
+
+N/Users/john/Developer/dev/SpeechAdventure/build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.build/Objects-normal/i386/GameStage.o
+t2
+s0
+
 N/Users/john/Developer/dev/SpeechAdventure/build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.build/Objects-normal/i386/HelloWorldLayer.o
 t2
 s0
@@ -6305,6 +6677,10 @@ N/Users/john/Developer/dev/SpeechAdventure/build/SpeechAdventure.build/Debug-iph
 c00000000501661640000000000003CE3
 t1343644004
 s15587
+
+N/Users/john/Developer/dev/SpeechAdventure/build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.build/Objects-normal/i386/StageLoader.o
+t2
+s0
 
 N/Users/john/Developer/dev/SpeechAdventure/build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.build/Objects-normal/i386/TGAlib.o
 t2
@@ -6410,7 +6786,15 @@ N/var/folders/cz/4x77fs4x1xl1c7sxnmg1k24w0000gp/C/com.apple.Xcode.502/SharedPrec
 t2
 s0
 
+N/var/folders/cz/4x77fs4x1xl1c7sxnmg1k24w0000gp/C/com.apple.Xcode.502/SharedPrecompiledHeaders/Prefix-bazjbofwrfybjjeqpimykewhtrty/Prefix.pch.pth
+t2
+s0
+
 N/var/folders/cz/4x77fs4x1xl1c7sxnmg1k24w0000gp/C/com.apple.Xcode.502/SharedPrecompiledHeaders/Prefix-cibvcbhijkkrqbdovieskflerede/Prefix.pch.pth
+t2
+s0
+
+N/var/folders/cz/4x77fs4x1xl1c7sxnmg1k24w0000gp/C/com.apple.Xcode.502/SharedPrecompiledHeaders/Prefix-cpuqnoscwqwhzvanwqgweudvjbbk/Prefix.pch.pth
 t2
 s0
 
@@ -7419,6 +7803,30 @@ r0
 CCompileC build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.build/Objects-normal/i386/CocosDenshion.o /Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/libs/CocosDenshion/CocosDenshion.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 r0
 
+CCompileC build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.build/Objects-normal/i386/GDataXMLNode.o /Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/libs/GDataXML/GDataXMLNode.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.build/Objects-normal/i386/GameAction.o /Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/GameModel/GameAction.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.build/Objects-normal/i386/GameActor.o /Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/GameModel/GameActor.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.build/Objects-normal/i386/GameActorWithSheet.o /Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/GameModel/GameActorWithSheet.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.build/Objects-normal/i386/GameAnimation.o /Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/GameModel/GameAnimation.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.build/Objects-normal/i386/GameCharacter.o /Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/GameModel/GameCharacter.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.build/Objects-normal/i386/GameCommand.o /Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/GameModel/GameCommand.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.build/Objects-normal/i386/GameStage.o /Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/GameModel/GameStage.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
 CCompileC build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.build/Objects-normal/i386/HelloWorldLayer.o /Users/john/Desktop/SpeechAdventure/SpeechAdventure/Stages/HelloWorldLayer.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 r0
 
@@ -7471,6 +7879,9 @@ CCompileC build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.buil
 r0
 
 CCompileC build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.build/Objects-normal/i386/SimpleAudioEngine.o /Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/libs/CocosDenshion/SimpleAudioEngine.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.build/Objects-normal/i386/StageLoader.o /Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/StageLoader.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 r0
 
 CCompileC build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.build/Objects-normal/i386/TGAlib.o /Users/john/Desktop/SpeechAdventure/SpeechAdventure/libs/cocos2d/Support/TGAlib.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
@@ -7697,6 +8108,12 @@ r0
 CCompileC build/SpeechAdventure.build/Debug-iphonesimulator/SpeechAdventure.build/Objects-normal/i386/vec4.o /Users/john/Developer/dev/SpeechAdventure/SpeechAdventure/libs/kazmath/src/vec4.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
 r0
 
+CCopyPlistFile /Users/john/Developer/dev/SpeechAdventure/build/Debug-iphonesimulator/SpeechAdventure.app/SamSheet_2.plist SpeechAdventure/Resources/Art/SamSheet_2.plist
+r0
+
+CCopyPlistFile /Users/john/Developer/dev/SpeechAdventure/build/Debug-iphonesimulator/SpeechAdventure.app/SamSheet_default.plist SpeechAdventure/Resources/Art/SamSheet_default.plist
+r0
+
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/Balloon2.png SpeechAdventure/Resources/PopABalloon/Balloon2.png
 r0
 
@@ -7712,6 +8129,9 @@ r0
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/OpenEars1.dic ../../Libraries/OpenEarsDistribution/OpenEars/framework/OpenEars1.dic
 r0
 
+CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/OpenEars1.dic SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/OpenEars1.dic
+r0
+
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/OpenEars1.gram ../../../Libraries/OpenEarsDistribution/OpenEars/framework/OpenEars1.gram
 r0
 
@@ -7719,6 +8139,9 @@ CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/OpenEars1.gram ../..
 r0
 
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/OpenEars1.gram ../../Libraries/OpenEarsDistribution/OpenEars/framework/OpenEars1.gram
+r0
+
+CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/OpenEars1.gram SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/OpenEars1.gram
 r0
 
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/OpenEars1.languagemodel ../../../Libraries/OpenEarsDistribution/OpenEars/framework/OpenEars1.languagemodel
@@ -7730,6 +8153,9 @@ r0
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/OpenEars1.languagemodel ../../Libraries/OpenEarsDistribution/OpenEars/framework/OpenEars1.languagemodel
 r0
 
+CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/OpenEars1.languagemodel SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/OpenEars1.languagemodel
+r0
+
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/OpenEars2.gram ../../../Libraries/OpenEarsDistribution/OpenEars/framework/OpenEars2.gram
 r0
 
@@ -7737,6 +8163,21 @@ CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/OpenEars2.gram ../..
 r0
 
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/OpenEars2.gram ../../Libraries/OpenEarsDistribution/OpenEars/framework/OpenEars2.gram
+r0
+
+CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/OpenEars2.gram SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/OpenEars2.gram
+r0
+
+CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/PopABalloon2-2.xml SpeechAdventure/Resources/PopABalloon/PopABalloon2-2.xml
+r0
+
+CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/PopABalloon2-3.xml SpeechAdventure/Resources/PopABalloon/PopABalloon2-3.xml
+r0
+
+CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/PopABalloon2-4.xml SpeechAdventure/Resources/PopABalloon/PopABalloon2-4.xml
+r0
+
+CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/PopABalloon2-5.xml SpeechAdventure/Resources/PopABalloon/PopABalloon2-5.xml
 r0
 
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/PoppingBalloon1.wav SpeechAdventure/Resources/SoundEffects/PoppingBalloon1.wav
@@ -7757,6 +8198,12 @@ r0
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/SamNormal.png SpeechAdventure/Resources/PopABalloon/SamNormal.png
 r0
 
+CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/SamSheet_2.png SpeechAdventure/Resources/Art/SamSheet_2.png
+r0
+
+CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/SamSheet_default.png SpeechAdventure/Resources/Art/SamSheet_default.png
+r0
+
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/WholeStage.png SpeechAdventure/Resources/PopABalloon/WholeStage.png
 r0
 
@@ -7769,6 +8216,9 @@ r0
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/cmu07a.dic ../../Libraries/OpenEarsDistribution/OpenEars/framework/cmu07a.dic
 r0
 
+CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/cmu07a.dic SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/cmu07a.dic
+r0
+
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/feat.params ../../../Libraries/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/feat.params
 r0
 
@@ -7776,6 +8226,9 @@ CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/feat.params ../../De
 r0
 
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/feat.params ../../Libraries/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/feat.params
+r0
+
+CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/feat.params SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/feat.params
 r0
 
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/iTunesArtwork SpeechAdventure/Resources/iTunesArtwork
@@ -7790,6 +8243,9 @@ r0
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/mdef ../../Libraries/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/mdef
 r0
 
+CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/mdef SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/mdef
+r0
+
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/means ../../../Libraries/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/means
 r0
 
@@ -7797,6 +8253,9 @@ CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/means ../../Develope
 r0
 
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/means ../../Libraries/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/means
+r0
+
+CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/means SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/means
 r0
 
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/noisedict ../../../Libraries/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/noisedict
@@ -7808,6 +8267,9 @@ r0
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/noisedict ../../Libraries/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/noisedict
 r0
 
+CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/noisedict SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/noisedict
+r0
+
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/sendump ../../../Libraries/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/sendump
 r0
 
@@ -7815,6 +8277,9 @@ CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/sendump ../../Develo
 r0
 
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/sendump ../../Libraries/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/sendump
+r0
+
+CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/sendump SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/sendump
 r0
 
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/transition_matrices ../../../Libraries/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/transition_matrices
@@ -7826,6 +8291,9 @@ r0
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/transition_matrices ../../Libraries/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/transition_matrices
 r0
 
+CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/transition_matrices SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/transition_matrices
+r0
+
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/variances ../../../Libraries/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/variances
 r0
 
@@ -7833,6 +8301,9 @@ CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/variances ../../Deve
 r0
 
 CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/variances ../../Libraries/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/variances
+r0
+
+CCpResource build/Debug-iphonesimulator/SpeechAdventure.app/variances SpeechAdventure/libs/OpenEarsDistribution/OpenEars/framework/hub4wsj_sc_8k/variances
 r0
 
 CGenerateDSYMFile /Users/john/Desktop/SpeechAdventure/build/Debug-iphonesimulator/SpeechAdventure.app.dSYM /Users/john/Desktop/SpeechAdventure/build/Debug-iphonesimulator/SpeechAdventure.app/SpeechAdventure
@@ -7865,7 +8336,13 @@ r0
 CProcessPCH /var/folders/cz/4x77fs4x1xl1c7sxnmg1k24w0000gp/C/com.apple.Xcode.502/SharedPrecompiledHeaders/Prefix-aprqpunqghvuncclsuumwhqjpnhy/Prefix.pch.pth SpeechAdventure/Prefix.pch normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
 r0
 
+CProcessPCH /var/folders/cz/4x77fs4x1xl1c7sxnmg1k24w0000gp/C/com.apple.Xcode.502/SharedPrecompiledHeaders/Prefix-bazjbofwrfybjjeqpimykewhtrty/Prefix.pch.pth SpeechAdventure/Prefix.pch normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
 CProcessPCH /var/folders/cz/4x77fs4x1xl1c7sxnmg1k24w0000gp/C/com.apple.Xcode.502/SharedPrecompiledHeaders/Prefix-cibvcbhijkkrqbdovieskflerede/Prefix.pch.pth SpeechAdventure/Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CProcessPCH /var/folders/cz/4x77fs4x1xl1c7sxnmg1k24w0000gp/C/com.apple.Xcode.502/SharedPrecompiledHeaders/Prefix-cpuqnoscwqwhzvanwqgweudvjbbk/Prefix.pch.pth SpeechAdventure/Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 r0
 
 CProcessPCH /var/folders/cz/4x77fs4x1xl1c7sxnmg1k24w0000gp/C/com.apple.Xcode.502/SharedPrecompiledHeaders/Prefix-efbxibjgcacfomhbzomldndvfeok/Prefix.pch.pth SpeechAdventure/Prefix.pch normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
