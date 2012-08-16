@@ -147,12 +147,14 @@
 }
 
 - (void) setModelWithKeyword:(NSString *) keyword {
-    //Set the paths for 'startListening' to start with
+    //Set the paths for the model without actually enforcing the change
+    //Stopping & starting would enact the new model
     
     OEModel *currentModel = [self.modelsDictionary objectForKey:keyword];
     //verify such a model exists before installing paths
     if (currentModel != nil)
     {
+        self.modelKeyword = keyword;
         self.modelGrammarPath = currentModel.grammarPath;
         self.modelDictionaryPath = currentModel.dictionaryPath;
     }
@@ -189,6 +191,15 @@
             [self startListening];
         }
         }*/
+}
+
+- (void) changeToModelWithKeyword:(NSString *) keyword {
+    //IMMEDIATELY changes to the new model (unlike setModelWithKeyword)
+    //Cycles a stop/start, so should work even if OE isn't listening at call time
+    [self setModelWithKeyword:keyword];
+    [self stopListening];
+    [self startListening];
+    
 }
 
 #pragma mark -

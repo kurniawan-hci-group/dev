@@ -28,6 +28,7 @@
 
 - (void) addModel:(OEModel *)newModel withKeyword:(NSString *)keyword;
 - (void) setModelWithKeyword:(NSString *) keyword;
+- (void) changeToModelWithKeyword:(NSString *) keyword;
 
 - (void) registerDelegate:(id <OEDelegate>) delegate;
 - (void) removeDelegate:(id <OEDelegate>) delegate;
