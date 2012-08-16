@@ -91,6 +91,7 @@
     {
         //add stock models
         OEModel *defaultModel = [[OEModel alloc] initWithDicFile:@"OpenEars1.dic" andGrammerFile:@"OpenEars1.languagemodel"];
+        //OEModel *defaultModel = [[OEModel alloc] initWithDicFile:@"PopABalloonOEModel.dic" andGrammerFile:@"PopABalloonOEModel.languagemodel"];
         [self addModel:defaultModel withKeyword:@"Default"];
          
         //register for OpenEars events
@@ -163,10 +164,16 @@
     //I am removing the autocreating part in favor of precreated files.
     //I suspect the audio model may be missing.
     
-    //The model creation code cause any problems, but installing the newly
+    //The model creation code doesn't cause any problems, but installing the newly
     //created model absolutely does. Because dynamic model creation is not
     //an absolute necessity for the game, I will keep it removed so we can
     //make further progress on the project.
+    
+    //ADDITION!!! (16 August 2012)
+    //XCode seems not to like the "lm" extension used by default by the
+    //online model creator & (probably) by the dynamic creator. Therefore,
+    //it's worth reopening this code area with a CUSTOM extension different
+    //than "lm" to see if that makes a difference.
     
     /*
     NSArray *defaultWords = [[NSArray alloc] initWithObjects:@"TEST", @"ONE", @"TWO", @"THREE", @"STOP", nil]; //be sure words are UPPER-CASE

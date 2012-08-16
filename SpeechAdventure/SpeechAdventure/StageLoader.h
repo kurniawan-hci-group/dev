@@ -16,6 +16,7 @@
 
 #import "OEDelegate.h"
 #import "OEManager.h"
+#import "OEModel.h"
 #import "OEEvent.h"
 
 #import "GameModel/GameStage.h"

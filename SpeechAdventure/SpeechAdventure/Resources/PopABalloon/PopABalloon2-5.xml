@@ -110,17 +110,20 @@
   </narration>
   <voiceToText>
     <model>
-      <name>default</name>
+      <!--<keyword>default</keyword>
       <dictionaryFile>OpenEars1.dic</dictionaryFile>
-      <languageModelFile>OpenEars1.languagemodel</languageModelFile>
+      <languageModelFile>OpenEars1.languagemodel</languageModelFile>-->
+      <keyword>popABalloon</keyword>
+      <dictionaryFile>PopABalloonOEModel.dic</dictionaryFile>
+      <languageModelFile>PopABalloonOEModel.languagemodel</languageModelFile>
     </model>
     <command>
       <name>popBalloon</name>
       <activatingText>LEFT</activatingText>
-      <action>
+      <actionCall>
         <actor>balloon</actor>
         <action>pop</action>
-      </action>
+      </actionCall>
       <supportFile>Support-PopABalloon.wav</supportFile>
     </command>
   </voiceToText>

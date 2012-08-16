@@ -16,6 +16,8 @@
 
 @synthesize layersDictionary = _layersDictionary;
 @synthesize actorsDictionary = _actorsDictionary;
+@synthesize narrationDictionary = _narrationDictionary;
+@synthesize OEModelKeyword = _OEModelKeyword;
 
 - (id) init {
     if (self=[super initWithColor:ccc4(255,255,255,255) width:480 height:320])

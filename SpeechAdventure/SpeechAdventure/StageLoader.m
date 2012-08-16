@@ -160,6 +160,7 @@
             return nil;
         }
         
+        //Add actions with & without sound
         NSArray *actionsArray = [myXMLActor elementsForName:@"action"];
         for (GDataXMLElement *myXMLAction in actionsArray) {
             NSString *actionName = [StageLoader singularXMLElementValueFrom:myXMLAction inTag:@"name"];
@@ -181,9 +182,36 @@
             [newActor.actionsDictionary setObject:newAction forKey:actionName];
         }
         
-        
+        //Add actor to list
+        [newStage.actorsDictionary setObject:newActor forKey:actorName];
     }
     
+    //ADD NARRATION*************************************************************
+    NSArray *narrationSounds = [StageLoader bypassSingularXMLTag:@"narration" toGroupTag:@"sound" inNode:doc.rootElement];
+    for (GDataXMLElement *myXMLSound in narrationSounds) {
+        NSString *soundName = [StageLoader singularXMLElementValueFrom:myXMLSound inTag:@"name"];
+        NSString *file = [StageLoader singularXMLElementValueFrom:myXMLSound inTag:@"file"];
+        
+        [newStage.narrationDictionary setObject:soundName forKey:file];
+    }
+    
+    //OPEN EARS & COMMANDS******************************************************
+    GDataXMLElement *voiceToTextNode = [StageLoader singularXMLElementFrom:doc.rootElement inTag:@"voiceToText"];
+    
+    //Load & set OEModel----------------
+    GDataXMLElement *myXMLOEModel = [StageLoader singularXMLElementFrom:voiceToTextNode inTag:@"model"];
+    NSString *OEModelKeyword = [StageLoader singularXMLElementValueFrom:myXMLOEModel inTag:@"keyword"];
+    NSString *OEModelDictionaryFile = [StageLoader singularXMLElementValueFrom:myXMLOEModel inTag:@"dictionaryFile"];
+    NSString *OEModelLanguageModelFile = [StageLoader singularXMLElementValueFrom:myXMLOEModel inTag:@"languageModelFile"];
+    
+    OEModel *newOEModel = [[OEModel alloc] initWithDicFile:OEModelDictionaryFile andGrammerFile:OEModelLanguageModelFile];
+    
+    //add it to the manager list
+    [[OEManager sharedManager] addModel:newOEModel withKeyword:OEModelKeyword];
+    //set its keyword value in the stage
+    newStage.OEModelKeyword = OEModelKeyword;
+    
+    [[OEManager sharedManager] changeToModelWithKeyword:OEModelKeyword];
     /////////////////////////////////////////////////////////////////////////////
     return newStage;
 }

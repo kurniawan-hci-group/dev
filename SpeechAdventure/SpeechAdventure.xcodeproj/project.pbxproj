@@ -161,6 +161,11 @@
 		52DF85E615DC40C700684D83 /* SamSheet_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52DF85E415DC40C700684D83 /* SamSheet_2.plist */; };
 		52DF85E715DC40C700684D83 /* SamSheet_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 52DF85E515DC40C700684D83 /* SamSheet_2.png */; };
 		52DF85E915DC637000684D83 /* PopABalloon2-5.xml in Resources */ = {isa = PBXBuildFile; fileRef = 52DF85E815DC637000684D83 /* PopABalloon2-5.xml */; };
+		52DF861415DCFAA000684D83 /* PopABalloonOEModel.dic in Resources */ = {isa = PBXBuildFile; fileRef = 52DF860F15DCFAA000684D83 /* PopABalloonOEModel.dic */; };
+		52DF861615DCFAA000684D83 /* PopABalloonOEModel.log_pronounce in Resources */ = {isa = PBXBuildFile; fileRef = 52DF861115DCFAA000684D83 /* PopABalloonOEModel.log_pronounce */; };
+		52DF861715DCFAA000684D83 /* PopABalloonOEModel.sent in Resources */ = {isa = PBXBuildFile; fileRef = 52DF861215DCFAA000684D83 /* PopABalloonOEModel.sent */; };
+		52DF861815DCFAA000684D83 /* PopABalloonOEModel.vocab in Resources */ = {isa = PBXBuildFile; fileRef = 52DF861315DCFAA000684D83 /* PopABalloonOEModel.vocab */; };
+		52DF861C15DCFB6700684D83 /* PopABalloonOEModel.languagemodel in Resources */ = {isa = PBXBuildFile; fileRef = 52DF861B15DCFB6700684D83 /* PopABalloonOEModel.languagemodel */; };
 		52E6483A15CB2908001CBE34 /* SamSheet_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52E6483815CB2908001CBE34 /* SamSheet_default.plist */; };
 		52E6483B15CB2908001CBE34 /* SamSheet_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E6483915CB2908001CBE34 /* SamSheet_default.png */; };
 		52EC246915D90F770096B898 /* StageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC246815D90F770096B898 /* StageLoader.m */; };
@@ -484,6 +489,11 @@
 		52DF85E415DC40C700684D83 /* SamSheet_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SamSheet_2.plist; path = SpeechAdventure/Resources/Art/SamSheet_2.plist; sourceTree = SOURCE_ROOT; };
 		52DF85E515DC40C700684D83 /* SamSheet_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SamSheet_2.png; path = SpeechAdventure/Resources/Art/SamSheet_2.png; sourceTree = SOURCE_ROOT; };
 		52DF85E815DC637000684D83 /* PopABalloon2-5.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PopABalloon2-5.xml"; sourceTree = "<group>"; };
+		52DF860F15DCFAA000684D83 /* PopABalloonOEModel.dic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PopABalloonOEModel.dic; sourceTree = "<group>"; };
+		52DF861115DCFAA000684D83 /* PopABalloonOEModel.log_pronounce */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PopABalloonOEModel.log_pronounce; sourceTree = "<group>"; };
+		52DF861215DCFAA000684D83 /* PopABalloonOEModel.sent */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PopABalloonOEModel.sent; sourceTree = "<group>"; };
+		52DF861315DCFAA000684D83 /* PopABalloonOEModel.vocab */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PopABalloonOEModel.vocab; sourceTree = "<group>"; };
+		52DF861B15DCFB6700684D83 /* PopABalloonOEModel.languagemodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PopABalloonOEModel.languagemodel; sourceTree = "<group>"; };
 		52E6483815CB2908001CBE34 /* SamSheet_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SamSheet_default.plist; sourceTree = "<group>"; };
 		52E6483915CB2908001CBE34 /* SamSheet_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SamSheet_default.png; sourceTree = "<group>"; };
 		52EC246715D90F770096B898 /* StageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageLoader.h; sourceTree = "<group>"; };
@@ -1023,6 +1033,7 @@
 		528371E815C6974800118B5E /* PopABalloon */ = {
 			isa = PBXGroup;
 			children = (
+				52DF860E15DCFAA000684D83 /* OEModel */,
 				52DF85E815DC637000684D83 /* PopABalloon2-5.xml */,
 				52DF85E215DC40BE00684D83 /* PopABalloon2-4.xml */,
 				5275108015DB3D270034A778 /* PopABalloon2-3.xml */,
@@ -1057,6 +1068,18 @@
 			name = GDataXML;
 			path = SpeechAdventure/libs/GDataXML;
 			sourceTree = SOURCE_ROOT;
+		};
+		52DF860E15DCFAA000684D83 /* OEModel */ = {
+			isa = PBXGroup;
+			children = (
+				52DF861B15DCFB6700684D83 /* PopABalloonOEModel.languagemodel */,
+				52DF860F15DCFAA000684D83 /* PopABalloonOEModel.dic */,
+				52DF861115DCFAA000684D83 /* PopABalloonOEModel.log_pronounce */,
+				52DF861215DCFAA000684D83 /* PopABalloonOEModel.sent */,
+				52DF861315DCFAA000684D83 /* PopABalloonOEModel.vocab */,
+			);
+			path = OEModel;
+			sourceTree = "<group>";
 		};
 		52E6483715CB2908001CBE34 /* Art */ = {
 			isa = PBXGroup;
@@ -1150,6 +1173,11 @@
 				52DF85E615DC40C700684D83 /* SamSheet_2.plist in Resources */,
 				52DF85E715DC40C700684D83 /* SamSheet_2.png in Resources */,
 				52DF85E915DC637000684D83 /* PopABalloon2-5.xml in Resources */,
+				52DF861415DCFAA000684D83 /* PopABalloonOEModel.dic in Resources */,
+				52DF861615DCFAA000684D83 /* PopABalloonOEModel.log_pronounce in Resources */,
+				52DF861715DCFAA000684D83 /* PopABalloonOEModel.sent in Resources */,
+				52DF861815DCFAA000684D83 /* PopABalloonOEModel.vocab in Resources */,
+				52DF861C15DCFB6700684D83 /* PopABalloonOEModel.languagemodel in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,6 +16,7 @@
 
 #import "OEDelegate.h"
 #import "OEManager.h"
+#import "OEModel.h"
 #import "OEEvent.h"
 
 
@@ -23,6 +24,8 @@
 
 @property (nonatomic,strong) NSMutableDictionary *layersDictionary;
 @property (nonatomic,strong) NSMutableDictionary *actorsDictionary;
+@property (nonatomic,strong) NSMutableDictionary *narrationDictionary;
+@property (nonatomic,copy) NSString *OEModelKeyword;
 
 - (id) init;
 
