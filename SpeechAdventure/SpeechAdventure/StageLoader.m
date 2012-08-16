@@ -108,7 +108,7 @@
 
     for (GDataXMLElement *myXMLActor in actorsArray) {
         NSString *actorName = [StageLoader singularXMLElementValueFrom:myXMLActor inTag:@"name"];
-        NSLog(@"Actor name %@", actorName);
+        //NSLog(@"Actor name %@", actorName);
         
         GameActor *newActor = [[GameActor alloc] init];
         
@@ -117,7 +117,7 @@
         GDataXMLElement *imageSource = [StageLoader singularXMLElementFrom:myXMLActor inTag:@"imageSource"];
         NSString *sourceType = [StageLoader singularXMLElementValueFrom:imageSource inTag:@"type"];
         newActor.imageSourceType = sourceType;
-        NSLog(@"Image source type: %@", sourceType);
+        //NSLog(@"Image source type: %@", sourceType);
         
         if ([sourceType isEqualToString:@"spriteSheet"]) {
             //PROCESS AN ACTOR WITH SHEET
@@ -126,7 +126,7 @@
             GDataXMLElement *spriteSheetNode = [StageLoader singularXMLElementFrom:imageSource inTag:@"spriteSheet"];
             NSString *imageFile = [StageLoader singularXMLElementValueFrom:spriteSheetNode inTag:@"imageFile"];
             NSString *plistFile = [StageLoader singularXMLElementValueFrom:spriteSheetNode inTag:@"plistFile"];
-            NSLog(@"PListFile value: %@", plistFile);
+            //NSLog(@"PListFile value: %@", plistFile);
             [newActor loadSpriteSheetWithImageFile:imageFile PlistFile:plistFile];
             
             newActor.frameDelay = [StageLoader singularXMLElementValueFrom:imageSource inTag:@"frameDelay"].doubleValue;
@@ -162,7 +162,23 @@
         
         NSArray *actionsArray = [myXMLActor elementsForName:@"action"];
         for (GDataXMLElement *myXMLAction in actionsArray) {
+            NSString *actionName = [StageLoader singularXMLElementValueFrom:myXMLAction inTag:@"name"];
+            NSString *actionType = [StageLoader singularXMLElementValueFrom:myXMLAction inTag:@"type"];
             
+            GameAction *newAction = [[GameAction alloc] init];
+            newAction.type = actionType;
+            
+            if ([actionType isEqualToString:@"animation"]) {
+                newAction.animation = [[GameAnimation alloc] init];
+                NSString *frameNameFormat = [StageLoader singularXMLElementValueFrom:myXMLAction inTag:@"frameNameFormt"];
+                int numberOfFrames = [StageLoader singularXMLElementValueFrom:myXMLAction inTag:@"numberOfFrames"].intValue;
+                
+                [newAction.animation setFramesWithFrameNameFormat:frameNameFormat andNumberOfFrames:numberOfFrames];
+            }
+            
+            newAction.soundFile = [StageLoader singularXMLElementValueFrom:myXMLAction inTag:@"soundFile"];
+            
+            [newActor.actionsDictionary setObject:newAction forKey:actionName];
         }
         
         

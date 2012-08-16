@@ -34,6 +34,23 @@
           <frameDelay>0.5f</frameDelay>
         </spriteSheet>
       </imageSource>
+      <stillFrame>
+        <name>happy</name>
+        <frameFile>SamHappy.png</frameFile>
+      </stillFrame>
+      <stillFrame>
+        <name>normal</name>
+        <frameFile>SamNormal.png</frameFile>
+        <isDefaultStill>YES</isDefaultStill>
+      </stillFrame>
+      <stillFrame>
+        <name>sad</name>
+        <frameFile>SamSad.png</frameFile>
+      </stillFrame>
+      <stillFrame>
+        <name>surprised</name>
+        <frameFile>SamSurprised.png</frameFile>
+      </stillFrame>
       <action>
         <name>walkLeft</name>
         <type>animation</type>
@@ -67,23 +84,6 @@
           <numberOfFrames>2</numberOfFrames>
         </animation>
       </action>
-      <stillFrame>
-        <name>happy</name>
-        <frameFile>SamHappy.png</frameFile>
-      </stillFrame>
-      <stillFrame>
-        <name>normal</name>
-        <frameFile>SamNormal.png</frameFile>
-        <isDefaultStill>YES</isDefaultStill>
-      </stillFrame>
-      <stillFrame>
-        <name>sad</name>
-        <frameFile>SamSad.png</frameFile>
-      </stillFrame>
-      <stillFrame>
-        <name>surprised</name>
-        <frameFile>SamSurprised.png</frameFile>
-      </stillFrame>
     </actor>
     <actor>
       <name>balloon</name>

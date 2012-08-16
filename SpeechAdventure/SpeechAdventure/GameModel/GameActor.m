@@ -29,6 +29,15 @@
 
 /////////////////////////////////////////////////////////////////////////
 // Sprite Sheet Image Source Stuff
+@synthesize spriteBatchNode = _spriteBatchNode;
+@synthesize frameDelay = _frameDelay;
+@synthesize stillFramesDictionary = _stillFramesDictionary;
+@synthesize currentStillFrame = _currentStillFrame;
+
+@synthesize walkActions = _walkActions;
+@synthesize walkActionKeys = _walkActionKeys;
+@synthesize currentWalkAction = _currentWalkAction;
+@synthesize currentMoveAction = _currentMoveAction;
 
 #pragma mark -
 #pragma mark Still frame methods
@@ -46,10 +55,10 @@
 
 - (void) loadSpriteSheetWithImageFile:(NSString *) imageFile PlistFile:(NSString *) plistFile {
     //cache the plist
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:imageFile];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:plistFile];
     
     //create sprite batch
-    self.spriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:plistFile];
+    self.spriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:imageFile];
 }
 
 - (void) loadSpriteSheetWithFilePrefix:(NSString *) filePrefix {
@@ -94,7 +103,7 @@
             }
             CCAnimation *walkAnimation = [CCAnimation animationWithSpriteFrames:walkFrames delay:frameDelay];
             walkAnimation.restoreOriginalFrame = YES;
-            CCAction *walkAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkAnimation]];
+            id walkAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkAnimation]];
             [self.walkActions setObject:walkAction forKey:key];
         }
     }
@@ -112,7 +121,7 @@
     id endMoveCall = [CCCallFuncN actionWithTarget:self selector:@selector(moveDone)];
     id moveSequence = [CCSequence actions:self.currentMoveAction, endMoveCall, nil];
     
-    self.currentWalkAction = (CCAction*)[self.walkActions objectForKey:direction];
+    self.currentWalkAction = (id)[self.walkActions objectForKey:direction];
     
     
     //start moving before animating

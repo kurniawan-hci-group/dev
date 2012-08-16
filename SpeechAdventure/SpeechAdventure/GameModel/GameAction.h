@@ -10,6 +10,7 @@
 
 #import <GameKit/GameKit.h>
 #import "cocos2d.h"
+#import "SimpleAudioEngine.h"
 
 #import "GameAnimation.h"
 
@@ -18,8 +19,9 @@
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *type;
 @property (nonatomic,strong) GameAnimation *animation;
-@property (nonatomic,copy) NSString *sound;
+@property (nonatomic,copy) NSString *soundFile;
 
-- (CCAction *) getCCAction;
+- (id) getCCAction;
+
 
 @end

@@ -32,7 +32,6 @@
 @property (nonatomic,strong) CCSpriteBatchNode *spriteBatchNode;
 @property (nonatomic,strong) NSMutableDictionary *stillFramesDictionary;
 @property (nonatomic,strong) CCSpriteFrame *currentStillFrame;
-
 @property (nonatomic,assign) double frameDelay;
 
 @property (nonatomic,strong) NSMutableDictionary *walkActions;

@@ -17,6 +17,7 @@
 @property (nonatomic,copy) NSMutableArray *frames;
 @property (nonatomic,assign) double frameDelay;
 
+- (void) setFramesWithFrameNameFormat:(NSString *)frameNameFormat andNumberOfFrames:(int)numberOfFrames;
 - (CCAnimation *) getCCAnimation;
 
 @end
