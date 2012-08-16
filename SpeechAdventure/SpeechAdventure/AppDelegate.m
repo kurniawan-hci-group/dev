@@ -107,7 +107,7 @@ void uncaughtExceptionHandler(NSException *exception) {
 	[window_ makeKeyAndVisible];
     
     // setup method stack printing
-    //NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     
     //[self.voiceInputManager registerDelegate:self];
     //[self.voiceInputManager startListening];

@@ -126,10 +126,11 @@
             GDataXMLElement *spriteSheetNode = [StageLoader singularXMLElementFrom:imageSource inTag:@"spriteSheet"];
             NSString *imageFile = [StageLoader singularXMLElementValueFrom:spriteSheetNode inTag:@"imageFile"];
             NSString *plistFile = [StageLoader singularXMLElementValueFrom:spriteSheetNode inTag:@"plistFile"];
+            
+            newActor.spriteSheetImageFile = imageFile;
+            newActor.spriteSheetPListFile = plistFile;
             //NSLog(@"PListFile value: %@", plistFile);
             [newActor loadSpriteSheetWithImageFile:imageFile PlistFile:plistFile];
-            
-            newActor.frameDelay = [StageLoader singularXMLElementValueFrom:imageSource inTag:@"frameDelay"].doubleValue;
             
             //Add stillFrames (which are unique to sprite sheet actors)
             NSArray *myXMLStillFramesArray = [myXMLActor elementsForName:@"stillFrame"];
@@ -138,12 +139,14 @@
                 NSString *frameFile = [StageLoader singularXMLElementValueFrom:myXMLStillFrame inTag:@"frameFile"];
                 BOOL isDefaultStill = [[StageLoader singularXMLElementValueFrom:myXMLStillFrame inTag:@"isDefaultStill"] isEqualToString:@"YES"];
                 
+                //[newActor addStillFrameWithFrameFile:frameFile withKey:stillName];
+                //NSLog(@"Name used for reference: %@", stillName);
                 CCSprite *newStill = [CCSprite spriteWithSpriteFrameName:frameFile];
                 [newActor.stillFramesDictionary setObject:newStill forKey:stillName];
                 
-                
                 //set initial sprite for actor
                 if (isDefaultStill) {
+                    //[newActor setInitialFrameWithKey:stillName];
                     newActor.actualSprite = newStill;
                     [newActor.spriteBatchNode addChild:newActor.actualSprite];
                 }
@@ -154,7 +157,7 @@
             
             NSString *imageFile = [StageLoader singularXMLElementValueFrom:imageSource inTag:@"imageFile"];
             [newActor setActualSpriteWithFile:imageFile];
-            
+            newActor.singleImageFileName = imageFile;
         } else {
             NSLog(@"ERROR: Image source type description for actor %@ invalid in the XML file", actorName);
             return nil;
@@ -198,6 +201,10 @@
         
         [newStage.narrationDictionary setObject:soundName forKey:file];
     }
+    
+    //INIALIZE ACTORS******************************************************
+    //Generate full set of actors (i.e. expand plural actors), and add their
+    //spriteBatchNodes to the activityLayer
     
     //OPEN EARS & COMMANDS******************************************************
     GDataXMLElement *voiceToTextNode = [StageLoader singularXMLElementFrom:doc.rootElement inTag:@"voiceToText"];

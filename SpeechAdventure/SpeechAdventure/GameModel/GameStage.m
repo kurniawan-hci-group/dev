@@ -16,6 +16,7 @@
 
 @synthesize layersDictionary = _layersDictionary;
 @synthesize actorsDictionary = _actorsDictionary;
+@synthesize actorCountsDictionary = _actorCountsDictionary;
 @synthesize narrationDictionary = _narrationDictionary;
 @synthesize OEModelKeyword = _OEModelKeyword;
 

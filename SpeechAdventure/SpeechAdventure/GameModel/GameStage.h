@@ -24,6 +24,7 @@
 
 @property (nonatomic,strong) NSMutableDictionary *layersDictionary;
 @property (nonatomic,strong) NSMutableDictionary *actorsDictionary;
+@property (nonatomic,strong) NSMutableDictionary *actorCountsDictionary;
 @property (nonatomic,strong) NSMutableDictionary *narrationDictionary;
 @property (nonatomic,copy) NSString *OEModelKeyword;
 
