@@ -143,7 +143,13 @@
         actorCopy.spriteSheetPListFile = [self.spriteSheetPListFile copy];
         [actorCopy loadSpriteSheetWithLocalParameters]; //sets spriteBatchNode new w/o relying on copy
         
+        //Should set the copied actor's still frame to the current actor's default
+        //or to the current actor's current?
+        //We're going with current for now.
         actorCopy.stillFramesDictionary = self.stillFramesDictionary;
+        actorCopy.defaultStillFrameKey = [self.defaultStillFrameKey copy];
+        actorCopy.currentStillFrameKey = [self.currentStillFrameKey copy];
+        [actorCopy setCurrentStillFrameKey:actorCopy.currentStillFrameKey];
 
     } else {
         NSLog(@"ERROR WHILE DEEP COPYING ACTORS: Image source type invalid");
