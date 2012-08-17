@@ -144,11 +144,11 @@
                     //CCSprite *newStill = [CCSprite spriteWithSpriteFrameName:frameFile];
                     //[newActor.stillFramesDictionary setObject:newStill forKey:stillName];
                     [newActor addStillFrameWithFrameFile:frameFile withKey:stillName];
-                    NSLog(@"Name used for reference: %@", stillName);
+                    //NSLog(@"Name used for reference: %@", stillName);
                     
                     //Retrieval Test
-                    CCSprite *gottenBack = [newActor.stillFramesDictionary objectForKey:stillName];
-                    NSLog(@"Retrieve test value: %@", gottenBack);
+                    //CCSprite *gottenBack = [newActor.stillFramesDictionary objectForKey:stillName];
+                    //NSLog(@"Retrieve test value: %@", gottenBack);
                     
                     
                     //set initial/default sprite for actor
