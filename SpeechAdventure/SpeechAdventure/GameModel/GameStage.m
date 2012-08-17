@@ -82,6 +82,36 @@
     return [NSString stringWithFormat:@"%@%d", actorName, index];
 }
 
+- (NSMutableArray*) getNamesForPluralActorPrefix:(NSString*)actorNamePrefix {
+    int count = [self getActorCountForActorWithName:actorNamePrefix];
+    if (count == 1) {
+        //This function only works with PLURAL actors
+        return nil;
+    } else {
+        NSMutableArray *actorNames = [[NSMutableArray alloc] init];
+        for (int i = 0; i < count; i++) {
+            NSString *indexedActorName = [GameStage indexedActorNameForActorName:actorNamePrefix withIndex:i];
+            [actorNames addObject:indexedActorName];
+        }
+        return actorNames;
+    }
+}
+
+- (NSMutableArray*) getObjectsForPluralActorPrefix:(NSString*)actorNamePrefix {
+    NSMutableArray *actorNames = [self getNamesForPluralActorPrefix:actorNamePrefix];
+    if (actorNames == nil) {
+        //This function only works with PLURAL actors
+        return nil;
+    } else {
+        NSMutableArray *actorObjects = [[NSMutableArray alloc] init];
+        for (NSString *indexedActorName in actorNames) {
+            GameActor *actorToAdd = [self getActorByName:indexedActorName];
+            [actorObjects addObject:actorToAdd];
+        }
+        return actorObjects;
+    }
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 // OpenEars processing
 

@@ -32,7 +32,7 @@
 
 - (id) init;
 
-//Add actor to dictionary as well as to the activity layer
+//Actor manipulation
 - (void) addActor:(GameActor*)newActor withName:(NSString *)actorName;
 - (void) removeActorWithName:(NSString *)actorName;
 - (GameActor*) getActorByName:(NSString *)actorName;
@@ -42,5 +42,7 @@
 - (void) setActorCount:(int)count forActorWithName:(NSString*)actorName;
 - (int) getActorCountForActorWithName:(NSString*)actorName;
 + (NSString *) indexedActorNameForActorName:(NSString*)actorName withIndex:(int)index;
+- (NSMutableArray*) getNamesForPluralActorPrefix:(NSString*)actorNamePrefix;
+- (NSMutableArray*) getObjectsForPluralActorPrefix:(NSString*)actorNamePrefix;
 
 @end
