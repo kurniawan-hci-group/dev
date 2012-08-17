@@ -78,7 +78,7 @@
     return ((NSNumber*)[self.actorCountsDictionary objectForKey:actorName]).intValue;
 }
 
-+ (NSString *) getPluralActorNameForActorName:(NSString*)actorName withIndex:(int)index {
++ (NSString *) indexedActorNameForActorName:(NSString*)actorName withIndex:(int)index {
     return [NSString stringWithFormat:@"%@%d", actorName, index];
 }
 

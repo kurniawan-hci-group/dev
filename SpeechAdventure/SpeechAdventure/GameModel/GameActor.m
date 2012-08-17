@@ -69,8 +69,10 @@
         self.actualSprite.position = _location;
     } else if ([self.imageSourceType isEqualToString:@"spriteSheet"]) {
         self.spriteBatchNode.position = _location;
+    } else if (self.imageSourceType == nil) {
+        //ImageSourceType will be null when alloc is invoked by copy, but it's not an error. The value gets set immediately after that call.
     } else {
-        NSLog(@"ERROR: imageSourceType invalid (in GameActor-setLocation)");
+        NSLog(@"ERROR: imageSourceType '%@' invalid (in GameActor-setLocation)", self.imageSourceType);
     }
 }
 
@@ -139,7 +141,7 @@
 
 //(somewhat) Deep copy method for plural actors
 - (id) copyWithZone:(NSZone *)zone {
-    GameActor *actorCopy = [super copy];
+    GameActor *actorCopy = [GameActor alloc];
     actorCopy.name = [self.name copy];
     actorCopy.location = CGPointMake(self.location.x, self.location.y);
     actorCopy.state = [self.state copy];

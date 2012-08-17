@@ -41,6 +41,6 @@
 // Plural Actor Stuff
 - (void) setActorCount:(int)count forActorWithName:(NSString*)actorName;
 - (int) getActorCountForActorWithName:(NSString*)actorName;
-+ (NSString *) getPluralActorNameForActorName:(NSString*)actorName withIndex:(int)index;
++ (NSString *) indexedActorNameForActorName:(NSString*)actorName withIndex:(int)index;
 
 @end

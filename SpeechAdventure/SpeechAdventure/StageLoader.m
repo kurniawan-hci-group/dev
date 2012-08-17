@@ -229,13 +229,22 @@
             //Act differently depending on locationCount
             //For quantity==1, simply set location
             //For quantity>1, make copies, add them, and set their locations
-            /*if (myLocationStrings.count == 1) {
+            if (myLocationStrings.count == 1) {
                 myActor.location = [StageLoader pointForText:[myLocationStrings objectAtIndex:0]];
             } else if (myLocationStrings.count > 1){
-                GameActor *templateActor = [newStage getActorByName:actorName];
-                
-            }*/
-            myActor.location = [StageLoader pointForText:[myLocationStrings objectAtIndex:0]];
+                [newStage removeActorWithName:actorName];
+                for (int i = 0; i < myLocationStrings.count; i++) {
+                    GameActor *newActor = [myActor copy];
+                    NSString *locationString = [myLocationStrings objectAtIndex:i];
+                    newActor.location = [StageLoader pointForText:locationString];
+                    
+                    //add new actor by name w/ index appended
+                    NSString *indexedActorName = [GameStage indexedActorNameForActorName:actorName withIndex:i];
+                    [newStage addActor:newActor withName:indexedActorName];
+                }
+            }
+            
+            //myActor.location = [StageLoader pointForText:[myLocationStrings objectAtIndex:0]];
             //only set stillFrame if the actor(s) has a sprite sheet
         }
         
