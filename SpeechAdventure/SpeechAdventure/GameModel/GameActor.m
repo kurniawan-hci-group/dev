@@ -55,8 +55,8 @@
     if (_currentStillFrame == nil){
         _currentStillFrame = currentStillFrame;
         //the below line is most likely the problem
-        //self.actualSprite = [CCSprite spriteWithSpriteFrame:currentStillFrame];
-        //[self.spriteBatchNode addChild:self.actualSprite];
+        self.actualSprite = [CCSprite spriteWithSpriteFrame:currentStillFrame];
+        [self.spriteBatchNode addChild:self.actualSprite];
     } else {
         _currentStillFrame = currentStillFrame;
         [self.actualSprite setDisplayFrame:_currentStillFrame];
@@ -65,12 +65,12 @@
 
 - (void) setLocation:(CGPoint)location {
     _location = location;
-    if ([self.imageSourceType isEqualToString:@"singleImage"]) {
+    if ([self.imageSourceType isEqualToString:@"singleFrame"]) {
         self.actualSprite.position = _location;
     } else if ([self.imageSourceType isEqualToString:@"spriteSheet"]) {
         self.spriteBatchNode.position = _location;
     } else {
-        NSLog(@"ERROR: imageSourceType invalid (in GameActor-setLocation");
+        NSLog(@"ERROR: imageSourceType invalid (in GameActor-setLocation)");
     }
 }
 

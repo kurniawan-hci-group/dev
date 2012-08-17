@@ -19,6 +19,8 @@
 #import "OEModel.h"
 #import "OEEvent.h"
 
+#import "GameActor.h"
+
 
 @interface GameStage : CCLayerColor<OEDelegate>
 
@@ -29,5 +31,16 @@
 @property (nonatomic,copy) NSString *OEModelKeyword;
 
 - (id) init;
+
+//Add actor to dictionary as well as to the activity layer
+- (void) addActor:(GameActor*)newActor withName:(NSString *)actorName;
+- (void) removeActorWithName:(NSString *)actorName;
+- (GameActor*) getActorByName:(NSString *)actorName;
+
+///////////////////////////////////////////////////////////////////////////////
+// Plural Actor Stuff
+- (void) setActorCount:(int)count forActorWithName:(NSString*)actorName;
+- (int) getActorCountForActorWithName:(NSString*)actorName;
++ (NSString *) getPluralActorNameForActorName:(NSString*)actorName withIndex:(int)index;
 
 @end

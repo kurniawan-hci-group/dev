@@ -134,7 +134,9 @@
   <initializer>
     <item>
       <actor>Sam</actor>
-      <location>(-75,-75)</location>
+      <location>(150,150)</location>
+      <!--Changed location for diagnostic reasons
+      <location>(-75,-75)</location>-->
       <stillFrame>normal</stillFrame>
     </item>
     <item>

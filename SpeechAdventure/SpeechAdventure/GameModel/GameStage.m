@@ -32,6 +32,60 @@
     return self;
 }
 
+- (void) addActor:(GameActor*)newActor withName:(NSString *)actorName {
+    //Add the actor itself to the dictionary & its image to the activity layer
+    
+    [self.actorsDictionary setObject:newActor forKey:actorName];
+    
+    if ([newActor.imageSourceType isEqualToString:@"singleFrame"]) {
+        [((CCLayer*)[self.layersDictionary objectForKey:@"activityLayer"]) addChild:newActor.actualSprite];
+    } else if ([newActor.imageSourceType isEqualToString:@"spriteSheet"]) {
+        [((CCLayer*)[self.layersDictionary objectForKey:@"activityLayer"]) addChild:newActor.spriteBatchNode];
+    }
+    
+    //set actor count
+    [self setActorCount:1 forActorWithName:actorName];
+}
+
+- (void) removeActorWithName:(NSString *)actorName {
+    //Remove from dictionary and from activity layer
+    
+    GameActor *actorToRemove = [self getActorByName:actorName];
+    if ([actorToRemove.imageSourceType isEqualToString:@"singleFrame"]) {
+        [((CCLayer*)[self.layersDictionary objectForKey:@"activityLayer"]) removeChild:actorToRemove.actualSprite cleanup:NO];
+    } else if ([actorToRemove.imageSourceType isEqualToString:@"spriteSheet"]) {
+        [((CCLayer*)[self.layersDictionary objectForKey:@"activityLayer"]) removeChild:actorToRemove.spriteBatchNode cleanup:NO];
+    }
+    
+    [self.actorsDictionary removeObjectForKey:actorName];
+    
+}
+
+- (GameActor*) getActorByName:(NSString *) actorName {
+    return (GameActor*)[self.actorsDictionary objectForKey:actorName];
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// ActorCount stuff
+
+- (void) setActorCount:(int)count forActorWithName:(NSString*)actorName {
+    //ONLY sets the value; does not actually expand actors
+    NSNumber *countObject = [[NSNumber alloc] initWithInt:count];
+    [self.actorCountsDictionary setObject:countObject forKey:actorName];
+}
+
+- (int) getActorCountForActorWithName:(NSString*)actorName {
+    return ((NSNumber*)[self.actorCountsDictionary objectForKey:actorName]).intValue;
+}
+
++ (NSString *) getPluralActorNameForActorName:(NSString*)actorName withIndex:(int)index {
+    return [NSString stringWithFormat:@"%@%d", actorName, index];
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// OpenEars processing
+
+
 - (void)receiveOEEvent:(OEEvent*) speechEvent{
     
 }

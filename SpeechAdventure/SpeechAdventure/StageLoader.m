@@ -196,7 +196,7 @@
             }
             
             //Add actor to list
-            [newStage.actorsDictionary setObject:newActor forKey:actorName];
+            [newStage addActor:newActor withName:actorName];
         }
         
         //ADD NARRATION*************************************************************
@@ -211,6 +211,33 @@
         //INIALIZE ACTORS******************************************************
         //Generate full set of actors (i.e. expand plural actors), and add their
         //spriteBatchNodes to the activityLayer
+        NSArray *XMLActorIntializers = [StageLoader bypassSingularXMLTag:@"initializer" toGroupTag:@"item" inNode:doc.rootElement];
+        for (GDataXMLElement *myXMLActorInitializer in XMLActorIntializers) {
+            NSString *actorName = [StageLoader singularXMLElementValueFrom:myXMLActorInitializer inTag:@"actor"];
+            GameActor *myActor = [newStage.actorsDictionary objectForKey:actorName];
+            
+            //get & set the locations------
+            NSArray *myLocationNodes = [myXMLActorInitializer elementsForName:@"location"];
+            NSMutableArray *myLocationStrings = [[NSMutableArray alloc] init];
+            for (GDataXMLElement *myLocationNode in myLocationNodes) {
+                [myLocationStrings addObject:myLocationNode.stringValue];
+            }
+            
+            //set count with stage
+            [newStage setActorCount:myLocationStrings.count forActorWithName:actorName];
+            
+            //Act differently depending on locationCount
+            //For quantity==1, simply set location
+            //For quantity>1, make copies, add them, and set their locations
+            /*if (myLocationStrings.count == 1) {
+                myActor.location = [StageLoader pointForText:[myLocationStrings objectAtIndex:0]];
+            } else if (myLocationStrings.count > 1){
+                GameActor *templateActor = [newStage getActorByName:actorName];
+                
+            }*/
+            myActor.location = [StageLoader pointForText:[myLocationStrings objectAtIndex:0]];
+            //only set stillFrame if the actor(s) has a sprite sheet
+        }
         
         //OPEN EARS & COMMANDS******************************************************
         GDataXMLElement *voiceToTextNode = [StageLoader singularXMLElementFrom:doc.rootElement inTag:@"voiceToText"];
