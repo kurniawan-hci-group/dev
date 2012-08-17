@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		52008A6A15D075C10023BD59 /* GameStage.m in Sources */ = {isa = PBXBuildFile; fileRef = 52008A6915D075C10023BD59 /* GameStage.m */; };
 		52008A6E15D076820023BD59 /* GameCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52008A6D15D076820023BD59 /* GameCharacter.m */; };
+		5208DED915DE44E6006A20B2 /* PopABalloon2-5.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5208DED715DE44E6006A20B2 /* PopABalloon2-5.xml */; };
+		5208DEDA15DE44E6006A20B2 /* PopABalloon2-6.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5208DED815DE44E6006A20B2 /* PopABalloon2-6.xml */; };
 		5216F1DF15C9D05000BE2ACB /* cmu07a.dic in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1D115C9D05000BE2ACB /* cmu07a.dic */; };
 		5216F1E015C9D05000BE2ACB /* feat.params in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1D315C9D05000BE2ACB /* feat.params */; };
 		5216F1E115C9D05000BE2ACB /* mdef in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1D415C9D05000BE2ACB /* mdef */; };
@@ -160,7 +162,6 @@
 		52DF85E315DC40BE00684D83 /* PopABalloon2-4.xml in Resources */ = {isa = PBXBuildFile; fileRef = 52DF85E215DC40BE00684D83 /* PopABalloon2-4.xml */; };
 		52DF85E615DC40C700684D83 /* SamSheet_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52DF85E415DC40C700684D83 /* SamSheet_2.plist */; };
 		52DF85E715DC40C700684D83 /* SamSheet_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 52DF85E515DC40C700684D83 /* SamSheet_2.png */; };
-		52DF85E915DC637000684D83 /* PopABalloon2-5.xml in Resources */ = {isa = PBXBuildFile; fileRef = 52DF85E815DC637000684D83 /* PopABalloon2-5.xml */; };
 		52DF861415DCFAA000684D83 /* PopABalloonOEModel.dic in Resources */ = {isa = PBXBuildFile; fileRef = 52DF860F15DCFAA000684D83 /* PopABalloonOEModel.dic */; };
 		52DF861615DCFAA000684D83 /* PopABalloonOEModel.log_pronounce in Resources */ = {isa = PBXBuildFile; fileRef = 52DF861115DCFAA000684D83 /* PopABalloonOEModel.log_pronounce */; };
 		52DF861715DCFAA000684D83 /* PopABalloonOEModel.sent in Resources */ = {isa = PBXBuildFile; fileRef = 52DF861215DCFAA000684D83 /* PopABalloonOEModel.sent */; };
@@ -179,6 +180,8 @@
 		52008A6915D075C10023BD59 /* GameStage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameStage.m; path = SpeechAdventure/GameModel/GameStage.m; sourceTree = SOURCE_ROOT; };
 		52008A6C15D076820023BD59 /* GameCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCharacter.h; path = GameModel/GameCharacter.h; sourceTree = "<group>"; };
 		52008A6D15D076820023BD59 /* GameCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCharacter.m; path = GameModel/GameCharacter.m; sourceTree = "<group>"; };
+		5208DED715DE44E6006A20B2 /* PopABalloon2-5.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PopABalloon2-5.xml"; sourceTree = "<group>"; };
+		5208DED815DE44E6006A20B2 /* PopABalloon2-6.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PopABalloon2-6.xml"; sourceTree = "<group>"; };
 		5216F1D115C9D05000BE2ACB /* cmu07a.dic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cmu07a.dic; sourceTree = "<group>"; };
 		5216F1D315C9D05000BE2ACB /* feat.params */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = feat.params; sourceTree = "<group>"; };
 		5216F1D415C9D05000BE2ACB /* mdef */ = {isa = PBXFileReference; lastKnownFileType = file; path = mdef; sourceTree = "<group>"; };
@@ -490,7 +493,6 @@
 		52DF85E215DC40BE00684D83 /* PopABalloon2-4.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PopABalloon2-4.xml"; sourceTree = "<group>"; };
 		52DF85E415DC40C700684D83 /* SamSheet_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SamSheet_2.plist; path = SpeechAdventure/Resources/Art/SamSheet_2.plist; sourceTree = SOURCE_ROOT; };
 		52DF85E515DC40C700684D83 /* SamSheet_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SamSheet_2.png; path = SpeechAdventure/Resources/Art/SamSheet_2.png; sourceTree = SOURCE_ROOT; };
-		52DF85E815DC637000684D83 /* PopABalloon2-5.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PopABalloon2-5.xml"; sourceTree = "<group>"; };
 		52DF860F15DCFAA000684D83 /* PopABalloonOEModel.dic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PopABalloonOEModel.dic; sourceTree = "<group>"; };
 		52DF861115DCFAA000684D83 /* PopABalloonOEModel.log_pronounce */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PopABalloonOEModel.log_pronounce; sourceTree = "<group>"; };
 		52DF861215DCFAA000684D83 /* PopABalloonOEModel.sent */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PopABalloonOEModel.sent; sourceTree = "<group>"; };
@@ -1044,7 +1046,8 @@
 			isa = PBXGroup;
 			children = (
 				52DF860E15DCFAA000684D83 /* OEModel */,
-				52DF85E815DC637000684D83 /* PopABalloon2-5.xml */,
+				5208DED815DE44E6006A20B2 /* PopABalloon2-6.xml */,
+				5208DED715DE44E6006A20B2 /* PopABalloon2-5.xml */,
 				52DF85E215DC40BE00684D83 /* PopABalloon2-4.xml */,
 				5275108015DB3D270034A778 /* PopABalloon2-3.xml */,
 				52EC246A15D918C30096B898 /* PopABalloon2-2.xml */,
@@ -1182,12 +1185,13 @@
 				52DF85E315DC40BE00684D83 /* PopABalloon2-4.xml in Resources */,
 				52DF85E615DC40C700684D83 /* SamSheet_2.plist in Resources */,
 				52DF85E715DC40C700684D83 /* SamSheet_2.png in Resources */,
-				52DF85E915DC637000684D83 /* PopABalloon2-5.xml in Resources */,
 				52DF861415DCFAA000684D83 /* PopABalloonOEModel.dic in Resources */,
 				52DF861615DCFAA000684D83 /* PopABalloonOEModel.log_pronounce in Resources */,
 				52DF861715DCFAA000684D83 /* PopABalloonOEModel.sent in Resources */,
 				52DF861815DCFAA000684D83 /* PopABalloonOEModel.vocab in Resources */,
 				52DF861C15DCFB6700684D83 /* PopABalloonOEModel.languagemodel in Resources */,
+				5208DED915DE44E6006A20B2 /* PopABalloon2-5.xml in Resources */,
+				5208DEDA15DE44E6006A20B2 /* PopABalloon2-6.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
