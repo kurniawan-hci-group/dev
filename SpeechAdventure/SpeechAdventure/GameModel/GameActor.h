@@ -57,12 +57,4 @@
 - (void) loadSpriteSheetWithImageFile:(NSString *) imageFile PlistFile:(NSString *) plistFile;
 - (void) loadSpriteSheetWithFilePrefix:(NSString *) filePrefix;
 
-//Old stuff copied from GameCharacter for reference
-@property (nonatomic,strong) NSMutableDictionary *walkActions;
-@property (nonatomic,strong) NSMutableArray *walkActionKeys;
-@property (nonatomic,strong) id currentWalkAction;
-@property (nonatomic,strong) id currentMoveAction;
-//- (id) initWithFilePrefix:(NSString*)filePrefix withName:(NSString*)characterName withNumberOfAnimationFrames:(int)numberOfAnimationFrames;
-//- (void) walkTo:(CGPoint) destinationPoint withDirection:(NSString*)direction;
-
 @end
