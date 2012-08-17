@@ -19,6 +19,7 @@
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *type;
 @property (nonatomic,strong) GameAnimation *animation;
+@property (nonatomic,copy) NSString *stateEffect;
 @property (nonatomic,copy) NSString *soundFile;
 
 - (id) getCCAction;

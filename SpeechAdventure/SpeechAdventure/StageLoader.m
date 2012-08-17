@@ -174,8 +174,10 @@
             for (GDataXMLElement *myXMLAction in actionsArray) {
                 NSString *actionName = [StageLoader singularXMLElementValueFrom:myXMLAction inTag:@"name"];
                 NSString *actionType = [StageLoader singularXMLElementValueFrom:myXMLAction inTag:@"type"];
+                NSString *stateEffect = [StageLoader singularXMLElementValueFrom:myXMLAction inTag:@"stateEffect"];
                 
                 GameAction *newAction = [[GameAction alloc] init];
+                newAction.stateEffect = stateEffect;
                 newAction.type = actionType;
                 
                 if ([actionType isEqualToString:@"animation"]) {

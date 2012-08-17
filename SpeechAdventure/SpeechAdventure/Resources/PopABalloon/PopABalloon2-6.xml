@@ -96,6 +96,7 @@
       </imageSource>
       <action>
         <name>pop</name>
+        <stateEffect>popped</stateEffect>
         <type>hide</type>
         <soundFile>PoppingBalloon1.wav</soundFile>
       </action>

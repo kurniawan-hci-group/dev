@@ -13,6 +13,7 @@
 @synthesize name = _name;
 @synthesize type = _type;
 @synthesize animation = _animation;
+@synthesize stateEffect = _stateEffect;
 @synthesize soundFile = _soundFile;
 
 - (id) init {
