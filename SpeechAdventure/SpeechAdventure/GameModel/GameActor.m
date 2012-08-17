@@ -63,6 +63,17 @@
     }
 }
 
+- (void) setLocation:(CGPoint)location {
+    _location = location;
+    if ([self.imageSourceType isEqualToString:@"singleImage"]) {
+        self.actualSprite.position = _location;
+    } else if ([self.imageSourceType isEqualToString:@"spriteSheet"]) {
+        self.spriteBatchNode.position = _location;
+    } else {
+        NSLog(@"ERROR: imageSourceType invalid (in GameActor-setLocation");
+    }
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 // SingleFrame ImageSource Methods
 
