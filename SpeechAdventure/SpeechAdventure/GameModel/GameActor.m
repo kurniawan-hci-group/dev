@@ -20,9 +20,27 @@
 @synthesize imageSourceType = _imageSourceType;
 
 ///////////////////////////////////////////////////////////////////////////////
-// SingleFrame ImageSource Stuff
+// SpriteSheet ImageSource Synthesis
+
+@synthesize spriteSheetImageFile = _spriteSheetImageFile;
+@synthesize spriteSheetPListFile = _spriteSheetPListFile;
+@synthesize spriteBatchNode = _spriteBatchNode;
+@synthesize stillFramesDictionary = _stillFramesDictionary;
+@synthesize currentStillFrameKey = _currentStillFrameKey;
+@synthesize currentStillFrame = _currentStillFrame;
 
 @synthesize singleImageFileName = _singleImageFileName;
+
+- (id)init {
+    if (self=[super init]) {
+        self.actionsDictionary = [[NSMutableDictionary alloc] init];
+        self.stillFramesDictionary = [[NSMutableDictionary alloc] init];
+    }
+    return self;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// SingleFrame ImageSource Methods
 
 #pragma mark -
 #pragma mark Single frame setup
@@ -35,30 +53,21 @@
 }
 
 /////////////////////////////////////////////////////////////////////////
-// SpriteSheet ImageSource Stuff
+// SpriteSheet ImageSource Methods
 
-@synthesize spriteSheetImageFile = _spriteSheetImageFile;
-@synthesize spriteSheetPListFile = _spriteSheetPListFile;
-@synthesize spriteBatchNode = _spriteBatchNode;
-@synthesize stillFramesDictionary = _stillFramesDictionary;
-@synthesize currentStillFrameKey = _currentStillFrameKey;
-@synthesize currentStillFrame = _currentStillFrame;
+
 
 #pragma mark -
 #pragma mark Still frame methods
 - (void) addStillFrameWithFrameFile:(NSString *) frameFile withKey:(NSString *)key{
     CCSprite *newStill = [CCSprite spriteWithSpriteFrameName:frameFile];
-    [self addStillFrame:newStill withKey:key];
-}
-- (void) addStillFrame:(CCSprite*)newFrame withKey:(NSString *)key{
-    [self.stillFramesDictionary setObject:newFrame forKey:key];
+    [self.stillFramesDictionary setObject:newStill forKey:key];
 }
 
 - (void) setInitialFrameWithKey:(NSString *)key {
     //MUST be run during initialization before adding to the stage
     self.actualSprite = [self.stillFramesDictionary objectForKey:key];
     self.currentStillFrameKey = key;
-    NSLog(@"Got to here");
     [self.spriteBatchNode addChild:self.actualSprite];
 }
 

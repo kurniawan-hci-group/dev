@@ -22,6 +22,8 @@
 
 @property (nonatomic,copy) NSString *imageSourceType;
 
+- (id) init;
+
 //(somewhat) Deep copy method for plural actors
 - (id) copyWithZone:(NSZone *)zone;
 
@@ -45,7 +47,6 @@
 
 //Still frame methods
 - (void) addStillFrameWithFrameFile:(NSString *) frameFile withKey:(NSString *)key;
-- (void) addStillFrame:(CCSprite*)newFrame withKey:(NSString *)key;
 - (void) setInitialFrameWithKey:(NSString *)key;
 - (void) setStillFrameWithKey:(NSString *)key;
 - (void) displayStillFrame;

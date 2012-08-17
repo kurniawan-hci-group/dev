@@ -14,9 +14,11 @@
 @interface GameAnimation : NSObject
 
 @property (nonatomic,copy) NSString *name;
-@property (nonatomic,copy) NSMutableArray *frames;
+@property (nonatomic,strong) NSMutableArray *frames;
 @property (nonatomic,assign) double frameDelay;
 
+
+- (id) init;
 - (void) setFramesWithFrameNameFormat:(NSString *)frameNameFormat andNumberOfFrames:(int)numberOfFrames;
 - (CCAnimation *) getCCAnimation;
 

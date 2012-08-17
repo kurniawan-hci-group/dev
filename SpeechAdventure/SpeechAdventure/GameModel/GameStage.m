@@ -23,7 +23,11 @@
 - (id) init {
     if (self=[super initWithColor:ccc4(255,255,255,255) width:480 height:320])
     {
-        
+        //***ALL NSMutableDictionaries must be allocated and initialized before they can actually store anything. This is probably true of all objects, and I just assumed that ObjC was automatically running the intializer method on them anyway since they were properties.
+        self.layersDictionary = [[NSMutableDictionary alloc] init];
+        self.actorsDictionary = [[NSMutableDictionary alloc] init];
+        self.actorCountsDictionary = [[NSMutableDictionary alloc] init];
+        self.narrationDictionary = [[NSMutableDictionary alloc] init];
     }
     return self;
 }

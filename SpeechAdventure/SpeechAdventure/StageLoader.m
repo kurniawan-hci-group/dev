@@ -51,185 +51,198 @@
 
 + (GameStage *) loadStageWithXMLFilePrefix: (NSString*) XMLFilePrefix{
     GameStage *newStage = [GameStage node];
-    
-    //****************************************************************************
-    //
-    // Process XML Stage File
-    //
-    //****************************************************************************
-    
-    NSString *path = [StageLoader XMLFilePathForPrefix:XMLFilePrefix];
-    NSData *xmlData = [[NSMutableData alloc] initWithContentsOfFile:path];
-    NSError *error;
-    GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithData:xmlData
-                                                           options:0 error:&error];
-    /*Old troubleshooting code for when file is not found
-     if (doc == nil) {
-     NSLog(@"XML file %@ not found", path);
-     return nil;
-     }*/
-    
-    //NSLog(@"XML Root Element: %@", doc.rootElement);
-    
-    //PROCESS SCENERY*************************************************************
-    NSArray *layersArray = [StageLoader bypassSingularXMLTag:@"scenery" toGroupTag:@"layer" inNode:doc.rootElement];
-    
-    //Process XML layer elements
-    for (GDataXMLElement *myXMLLayer in layersArray) {
-        CCLayer *myCCLayer = [CCLayer node];
-        
-        //get XML layer name
-        NSString *layerName = [StageLoader singularXMLElementValueFrom:myXMLLayer inTag:@"name"];
-        
-        //add layer
-        [newStage.layersDictionary setObject:myCCLayer forKey:layerName];
-        [newStage addChild:myCCLayer];
-        
-        //get and add layer sprites ('items')
-        NSArray *itemsArray = [myXMLLayer elementsForName:@"item"];
-        for (GDataXMLElement *myItemXML in itemsArray) {
-            //NSString *itemName = [GameStage singularXMLElementValueFrom:myItemXML inTag:@"name"];
-            NSString *anchorPointString = [StageLoader singularXMLElementValueFrom:myItemXML inTag:@"anchorPoint"];
-            NSString *positionString = [StageLoader singularXMLElementValueFrom:myItemXML inTag:@"position"];
-            NSString *fileString = [StageLoader singularXMLElementValueFrom:myItemXML inTag:@"file"];
-            CGPoint anchorPoint = [StageLoader pointForText:anchorPointString];
-            CGPoint position = [StageLoader pointForText:positionString];
-            
-            CCSprite *mySprite = [CCSprite spriteWithFile:fileString];
-            mySprite.anchorPoint = anchorPoint;
-            mySprite.position = position;
-            [myCCLayer addChild:mySprite];
-        }
-        
-    }
-    
-    //PROCESS ACTORS*************************************************************
-    NSArray *actorsArray = [StageLoader bypassSingularXMLTag:@"actorList" toGroupTag:@"actor" inNode:doc.rootElement];
 
-    for (GDataXMLElement *myXMLActor in actorsArray) {
-        NSString *actorName = [StageLoader singularXMLElementValueFrom:myXMLActor inTag:@"name"];
-        //NSLog(@"Actor name %@", actorName);
+    @try {
         
-        GameActor *newActor = [[GameActor alloc] init];
+        //****************************************************************************
+        //
+        // Process XML Stage File
+        //
+        //****************************************************************************
         
-        //Load images from ImageSource
-        //Process differently depending on whether is fixed image or sprite sheet style
-        GDataXMLElement *imageSource = [StageLoader singularXMLElementFrom:myXMLActor inTag:@"imageSource"];
-        NSString *sourceType = [StageLoader singularXMLElementValueFrom:imageSource inTag:@"type"];
-        newActor.imageSourceType = sourceType;
-        //NSLog(@"Image source type: %@", sourceType);
+        NSString *path = [StageLoader XMLFilePathForPrefix:XMLFilePrefix];
+        NSData *xmlData = [[NSMutableData alloc] initWithContentsOfFile:path];
+        NSError *error;
+        GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithData:xmlData
+                                                               options:0 error:&error];
+        /*Old troubleshooting code for when file is not found
+         if (doc == nil) {
+         NSLog(@"XML file %@ not found", path);
+         return nil;
+         }*/
         
-        if ([sourceType isEqualToString:@"spriteSheet"]) {
-            //PROCESS AN ACTOR WITH SHEET
+        //NSLog(@"XML Root Element: %@", doc.rootElement);
+        
+        //PROCESS SCENERY*************************************************************
+        NSArray *layersArray = [StageLoader bypassSingularXMLTag:@"scenery" toGroupTag:@"layer" inNode:doc.rootElement];
+        
+        //Process XML layer elements
+        for (GDataXMLElement *myXMLLayer in layersArray) {
+            CCLayer *myCCLayer = [CCLayer node];
             
-            //enter spriteSheet node
-            GDataXMLElement *spriteSheetNode = [StageLoader singularXMLElementFrom:imageSource inTag:@"spriteSheet"];
-            NSString *imageFile = [StageLoader singularXMLElementValueFrom:spriteSheetNode inTag:@"imageFile"];
-            NSString *plistFile = [StageLoader singularXMLElementValueFrom:spriteSheetNode inTag:@"plistFile"];
+            //get XML layer name
+            NSString *layerName = [StageLoader singularXMLElementValueFrom:myXMLLayer inTag:@"name"];
             
-            newActor.spriteSheetImageFile = imageFile;
-            newActor.spriteSheetPListFile = plistFile;
-            //NSLog(@"PListFile value: %@", plistFile);
-            [newActor loadSpriteSheetWithImageFile:imageFile PlistFile:plistFile];
+            //add layer
+            [newStage.layersDictionary setObject:myCCLayer forKey:layerName];
+            [newStage addChild:myCCLayer];
             
-            //Add stillFrames (which are unique to sprite sheet actors)
-            NSArray *myXMLStillFramesArray = [myXMLActor elementsForName:@"stillFrame"];
-            for (GDataXMLElement *myXMLStillFrame in myXMLStillFramesArray) {
-                NSString *stillName = [StageLoader singularXMLElementValueFrom:myXMLStillFrame inTag:@"name"];
-                NSString *frameFile = [StageLoader singularXMLElementValueFrom:myXMLStillFrame inTag:@"frameFile"];
-                BOOL isDefaultStill = [[StageLoader singularXMLElementValueFrom:myXMLStillFrame inTag:@"isDefaultStill"] isEqualToString:@"YES"];
+            //get and add layer sprites ('items')
+            NSArray *itemsArray = [myXMLLayer elementsForName:@"item"];
+            for (GDataXMLElement *myItemXML in itemsArray) {
+                //NSString *itemName = [GameStage singularXMLElementValueFrom:myItemXML inTag:@"name"];
+                NSString *anchorPointString = [StageLoader singularXMLElementValueFrom:myItemXML inTag:@"anchorPoint"];
+                NSString *positionString = [StageLoader singularXMLElementValueFrom:myItemXML inTag:@"position"];
+                NSString *fileString = [StageLoader singularXMLElementValueFrom:myItemXML inTag:@"file"];
+                CGPoint anchorPoint = [StageLoader pointForText:anchorPointString];
+                CGPoint position = [StageLoader pointForText:positionString];
                 
-                //[newActor addStillFrameWithFrameFile:frameFile withKey:stillName];
-                //NSLog(@"Name used for reference: %@", stillName);
-                CCSprite *newStill = [CCSprite spriteWithSpriteFrameName:frameFile];
-                [newActor.stillFramesDictionary setObject:newStill forKey:stillName];
+                CCSprite *mySprite = [CCSprite spriteWithFile:fileString];
+                mySprite.anchorPoint = anchorPoint;
+                mySprite.position = position;
+                [myCCLayer addChild:mySprite];
+            }
+            
+        }
+        
+        //PROCESS ACTORS*************************************************************
+        NSArray *actorsArray = [StageLoader bypassSingularXMLTag:@"actorList" toGroupTag:@"actor" inNode:doc.rootElement];
+
+        for (GDataXMLElement *myXMLActor in actorsArray) {
+            NSString *actorName = [StageLoader singularXMLElementValueFrom:myXMLActor inTag:@"name"];
+            //NSLog(@"Actor name %@", actorName);
+            
+            GameActor *newActor = [[GameActor alloc] init];
+            
+            //Load images from ImageSource
+            //Process differently depending on whether is fixed image or sprite sheet style
+            GDataXMLElement *imageSource = [StageLoader singularXMLElementFrom:myXMLActor inTag:@"imageSource"];
+            NSString *sourceType = [StageLoader singularXMLElementValueFrom:imageSource inTag:@"type"];
+            newActor.imageSourceType = sourceType;
+            //NSLog(@"Image source type: %@", sourceType);
+            
+            if ([sourceType isEqualToString:@"spriteSheet"]) {
+                //PROCESS AN ACTOR WITH SHEET
                 
-                //set initial sprite for actor
-                if (isDefaultStill) {
-                    //[newActor setInitialFrameWithKey:stillName];
-                    newActor.actualSprite = newStill;
-                    [newActor.spriteBatchNode addChild:newActor.actualSprite];
+                //enter spriteSheet node
+                GDataXMLElement *spriteSheetNode = [StageLoader singularXMLElementFrom:imageSource inTag:@"spriteSheet"];
+                NSString *imageFile = [StageLoader singularXMLElementValueFrom:spriteSheetNode inTag:@"imageFile"];
+                NSString *plistFile = [StageLoader singularXMLElementValueFrom:spriteSheetNode inTag:@"plistFile"];
+                
+                newActor.spriteSheetImageFile = imageFile;
+                newActor.spriteSheetPListFile = plistFile;
+                //NSLog(@"PListFile value: %@", plistFile);
+                [newActor loadSpriteSheetWithImageFile:imageFile PlistFile:plistFile];
+                
+                //Add stillFrames (which are unique to sprite sheet actors)
+                NSArray *myXMLStillFramesArray = [myXMLActor elementsForName:@"stillFrame"];
+                for (GDataXMLElement *myXMLStillFrame in myXMLStillFramesArray) {
+                    NSString *stillName = [StageLoader singularXMLElementValueFrom:myXMLStillFrame inTag:@"name"];
+                    NSString *frameFile = [StageLoader singularXMLElementValueFrom:myXMLStillFrame inTag:@"frameFile"];
+                    BOOL isDefaultStill = [[StageLoader singularXMLElementValueFrom:myXMLStillFrame inTag:@"isDefaultStill"] isEqualToString:@"YES"];
+                    
+                    CCSprite *newStill = [CCSprite spriteWithSpriteFrameName:frameFile];
+                     [newActor.stillFramesDictionary setObject:newStill forKey:stillName];
+                    /*[newActor addStillFrameWithFrameFile:frameFile withKey:stillName];*/
+                    NSLog(@"Name used for reference: %@", stillName);
+                    
+                    //Retrieval Test
+                    CCSprite *gottenBack = [newActor.stillFramesDictionary objectForKey:stillName];
+                    NSLog(@"Retrieve test value: %@", gottenBack);
+                    
+                    
+                    //set initial sprite for actor
+                    if (isDefaultStill) {
+                        //[newActor setInitialFrameWithKey:stillName];
+                        /*newActor.actualSprite = newStill;
+                        [newActor.spriteBatchNode addChild:newActor.actualSprite];*/
+                    }
                 }
+                
+            } else if ([sourceType isEqualToString:@"singleFrame"]) {
+                //PROCESS AN ACTOR WITH NO SHEET
+                
+                NSString *imageFile = [StageLoader singularXMLElementValueFrom:imageSource inTag:@"imageFile"];
+                [newActor setActualSpriteWithFile:imageFile];
+                newActor.singleImageFileName = imageFile;
+            } else {
+                NSLog(@"ERROR: Image source type description for actor %@ invalid in the XML file", actorName);
+                return nil;
             }
             
-        } else if ([sourceType isEqualToString:@"singleFrame"]) {
-            //PROCESS AN ACTOR WITH NO SHEET
-            
-            NSString *imageFile = [StageLoader singularXMLElementValueFrom:imageSource inTag:@"imageFile"];
-            [newActor setActualSpriteWithFile:imageFile];
-            newActor.singleImageFileName = imageFile;
-        } else {
-            NSLog(@"ERROR: Image source type description for actor %@ invalid in the XML file", actorName);
-            return nil;
-        }
-        
-        //Add actions with & without sound
-        NSArray *actionsArray = [myXMLActor elementsForName:@"action"];
-        for (GDataXMLElement *myXMLAction in actionsArray) {
-            NSString *actionName = [StageLoader singularXMLElementValueFrom:myXMLAction inTag:@"name"];
-            NSString *actionType = [StageLoader singularXMLElementValueFrom:myXMLAction inTag:@"type"];
-            
-            GameAction *newAction = [[GameAction alloc] init];
-            newAction.type = actionType;
-            
-            if ([actionType isEqualToString:@"animation"]) {
-                newAction.animation = [[GameAnimation alloc] init];
+            //Add actions with & without sound
+            NSArray *actionsArray = [myXMLActor elementsForName:@"action"];
+            for (GDataXMLElement *myXMLAction in actionsArray) {
+                NSString *actionName = [StageLoader singularXMLElementValueFrom:myXMLAction inTag:@"name"];
+                NSString *actionType = [StageLoader singularXMLElementValueFrom:myXMLAction inTag:@"type"];
                 
-                GDataXMLElement *animationNode = [StageLoader singularXMLElementFrom:myXMLAction inTag:@"animation"];
+                GameAction *newAction = [[GameAction alloc] init];
+                newAction.type = actionType;
                 
-                NSString *frameNameFormat = [StageLoader singularXMLElementValueFrom:animationNode inTag:@"frameNameFormat"];
-                int numberOfFrames = [StageLoader singularXMLElementValueFrom:animationNode inTag:@"numberOfFrames"].intValue;
-                [newAction.animation setFramesWithFrameNameFormat:frameNameFormat andNumberOfFrames:numberOfFrames];
+                if ([actionType isEqualToString:@"animation"]) {
+                    newAction.animation = [[GameAnimation alloc] init];
+                    
+                    GDataXMLElement *animationNode = [StageLoader singularXMLElementFrom:myXMLAction inTag:@"animation"];
+                    
+                    NSString *frameNameFormat = [StageLoader singularXMLElementValueFrom:animationNode inTag:@"frameNameFormat"];
+                    int numberOfFrames = [StageLoader singularXMLElementValueFrom:animationNode inTag:@"numberOfFrames"].intValue;
+                    [newAction.animation setFramesWithFrameNameFormat:frameNameFormat andNumberOfFrames:numberOfFrames];
+                    
+                    newAction.animation.frameDelay = [StageLoader singularXMLElementValueFrom:animationNode inTag:@"frameDelay"].doubleValue;
+                }
                 
-                newAction.animation.frameDelay = [StageLoader singularXMLElementValueFrom:animationNode inTag:@"frameDelay"].doubleValue;
+                newAction.soundFile = [StageLoader singularXMLElementValueFrom:myXMLAction inTag:@"soundFile"];
+                
+                [newActor.actionsDictionary setObject:newAction forKey:actionName];
             }
             
-            newAction.soundFile = [StageLoader singularXMLElementValueFrom:myXMLAction inTag:@"soundFile"];
-            
-            [newActor.actionsDictionary setObject:newAction forKey:actionName];
+            //Add actor to list
+            [newStage.actorsDictionary setObject:newActor forKey:actorName];
         }
         
-        //Add actor to list
-        [newStage.actorsDictionary setObject:newActor forKey:actorName];
-    }
-    
-    //ADD NARRATION*************************************************************
-    NSArray *narrationSounds = [StageLoader bypassSingularXMLTag:@"narration" toGroupTag:@"sound" inNode:doc.rootElement];
-    for (GDataXMLElement *myXMLSound in narrationSounds) {
-        NSString *soundName = [StageLoader singularXMLElementValueFrom:myXMLSound inTag:@"name"];
-        NSString *file = [StageLoader singularXMLElementValueFrom:myXMLSound inTag:@"file"];
+        //ADD NARRATION*************************************************************
+        NSArray *narrationSounds = [StageLoader bypassSingularXMLTag:@"narration" toGroupTag:@"sound" inNode:doc.rootElement];
+        for (GDataXMLElement *myXMLSound in narrationSounds) {
+            NSString *soundName = [StageLoader singularXMLElementValueFrom:myXMLSound inTag:@"name"];
+            NSString *file = [StageLoader singularXMLElementValueFrom:myXMLSound inTag:@"file"];
+            
+            [newStage.narrationDictionary setObject:soundName forKey:file];
+        }
         
-        [newStage.narrationDictionary setObject:soundName forKey:file];
+        //INIALIZE ACTORS******************************************************
+        //Generate full set of actors (i.e. expand plural actors), and add their
+        //spriteBatchNodes to the activityLayer
+        
+        //OPEN EARS & COMMANDS******************************************************
+        GDataXMLElement *voiceToTextNode = [StageLoader singularXMLElementFrom:doc.rootElement inTag:@"voiceToText"];
+        
+        //Load & set OEModel----------------
+        GDataXMLElement *myXMLOEModel = [StageLoader singularXMLElementFrom:voiceToTextNode inTag:@"model"];
+        NSString *OEModelKeyword = [StageLoader singularXMLElementValueFrom:myXMLOEModel inTag:@"keyword"];
+        NSString *OEModelDictionaryFile = [StageLoader singularXMLElementValueFrom:myXMLOEModel inTag:@"dictionaryFile"];
+        NSString *OEModelLanguageModelFile = [StageLoader singularXMLElementValueFrom:myXMLOEModel inTag:@"languageModelFile"];
+        
+        OEModel *newOEModel = [[OEModel alloc] initWithDicFile:OEModelDictionaryFile andGrammerFile:OEModelLanguageModelFile];
+        
+        //add it to the manager list
+        [[OEManager sharedManager] addModel:newOEModel withKeyword:OEModelKeyword];
+        //set its keyword value in the stage
+        newStage.OEModelKeyword = OEModelKeyword;
+        
+        //Process commands specifically--------
+        
+        
+        //***The stage should learn to switch to its model independently of the StageLoader,
+        //but we'll keep the model change here for now since the StageLoader is the only way
+        //that I currently expect these stages to be switched to.
+        [[OEManager sharedManager] changeToModelWithKeyword:OEModelKeyword];
+        /////////////////////////////////////////////////////////////////////////////
+        
+    }
+    @catch (NSException *e) {
+        NSLog(@"ERROR LOADING XML STAGE: %@", e);
     }
     
-    //INIALIZE ACTORS******************************************************
-    //Generate full set of actors (i.e. expand plural actors), and add their
-    //spriteBatchNodes to the activityLayer
-    
-    //OPEN EARS & COMMANDS******************************************************
-    GDataXMLElement *voiceToTextNode = [StageLoader singularXMLElementFrom:doc.rootElement inTag:@"voiceToText"];
-    
-    //Load & set OEModel----------------
-    GDataXMLElement *myXMLOEModel = [StageLoader singularXMLElementFrom:voiceToTextNode inTag:@"model"];
-    NSString *OEModelKeyword = [StageLoader singularXMLElementValueFrom:myXMLOEModel inTag:@"keyword"];
-    NSString *OEModelDictionaryFile = [StageLoader singularXMLElementValueFrom:myXMLOEModel inTag:@"dictionaryFile"];
-    NSString *OEModelLanguageModelFile = [StageLoader singularXMLElementValueFrom:myXMLOEModel inTag:@"languageModelFile"];
-    
-    OEModel *newOEModel = [[OEModel alloc] initWithDicFile:OEModelDictionaryFile andGrammerFile:OEModelLanguageModelFile];
-    
-    //add it to the manager list
-    [[OEManager sharedManager] addModel:newOEModel withKeyword:OEModelKeyword];
-    //set its keyword value in the stage
-    newStage.OEModelKeyword = OEModelKeyword;
-    
-    //Process commands specifically--------
-    
-    
-    //***The stage should learn to switch to its model independently of the StageLoader,
-    //but we'll keep the model change here for now since the StageLoader is the only way
-    //that I currently expect these stages to be switched to.
-    [[OEManager sharedManager] changeToModelWithKeyword:OEModelKeyword];
-    /////////////////////////////////////////////////////////////////////////////
     return newStage;
 }
 

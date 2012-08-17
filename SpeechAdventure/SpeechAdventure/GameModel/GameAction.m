@@ -15,6 +15,13 @@
 @synthesize animation = _animation;
 @synthesize soundFile = _soundFile;
 
+- (id) init {
+    if (self=[super init]) {
+        self.animation = [[GameAnimation alloc] init];
+    }
+    return self;
+}
+
 - (id) getCCAction {
     id returnAction;
     id actionWithoutSound;
