@@ -41,14 +41,15 @@
 @property (nonatomic,copy) NSString *spriteSheetImageFile;
 @property (nonatomic,copy) NSString *spriteSheetPListFile;
 @property (nonatomic,strong) CCSpriteBatchNode *spriteBatchNode;
+
 @property (nonatomic,strong) NSMutableDictionary *stillFramesDictionary;
+@property (nonatomic,copy) NSString *defaultStillFrameKey;
 @property (nonatomic,copy) NSString *currentStillFrameKey;
 @property (nonatomic,strong) CCSpriteFrame *currentStillFrame;
 
 //Still frame methods
 - (void) addStillFrameWithFrameFile:(NSString *) frameFile withKey:(NSString *)key;
-- (void) setInitialFrameWithKey:(NSString *)key;
-- (void) setStillFrameWithKey:(NSString *)key;
+- (void) setCurrentStillFrameWithKey:(NSString *)key;
 - (void) displayStillFrame;
 
 //Sprite sheet loading

@@ -141,9 +141,9 @@
                     NSString *frameFile = [StageLoader singularXMLElementValueFrom:myXMLStillFrame inTag:@"frameFile"];
                     BOOL isDefaultStill = [[StageLoader singularXMLElementValueFrom:myXMLStillFrame inTag:@"isDefaultStill"] isEqualToString:@"YES"];
                     
-                    CCSprite *newStill = [CCSprite spriteWithSpriteFrameName:frameFile];
-                     [newActor.stillFramesDictionary setObject:newStill forKey:stillName];
-                    /*[newActor addStillFrameWithFrameFile:frameFile withKey:stillName];*/
+                    //CCSprite *newStill = [CCSprite spriteWithSpriteFrameName:frameFile];
+                    //[newActor.stillFramesDictionary setObject:newStill forKey:stillName];
+                    [newActor addStillFrameWithFrameFile:frameFile withKey:stillName];
                     NSLog(@"Name used for reference: %@", stillName);
                     
                     //Retrieval Test
@@ -151,11 +151,10 @@
                     NSLog(@"Retrieve test value: %@", gottenBack);
                     
                     
-                    //set initial sprite for actor
+                    //set initial/default sprite for actor
                     if (isDefaultStill) {
-                        //[newActor setInitialFrameWithKey:stillName];
-                        /*newActor.actualSprite = newStill;
-                        [newActor.spriteBatchNode addChild:newActor.actualSprite];*/
+                        [newActor setCurrentStillFrameWithKey:stillName];
+                        newActor.defaultStillFrameKey = stillName;
                     }
                 }
                 

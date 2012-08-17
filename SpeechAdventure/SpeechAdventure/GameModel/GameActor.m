@@ -20,23 +20,47 @@
 @synthesize imageSourceType = _imageSourceType;
 
 ///////////////////////////////////////////////////////////////////////////////
-// SpriteSheet ImageSource Synthesis
+// SpriteSheet ImageSource Property Members
+@synthesize singleImageFileName = _singleImageFileName;
+
+///////////////////////////////////////////////////////////////////////////////
+// SpriteSheet ImageSource Property Members
 
 @synthesize spriteSheetImageFile = _spriteSheetImageFile;
 @synthesize spriteSheetPListFile = _spriteSheetPListFile;
 @synthesize spriteBatchNode = _spriteBatchNode;
+
 @synthesize stillFramesDictionary = _stillFramesDictionary;
+@synthesize defaultStillFrameKey = _defaultStillFrameKey;
 @synthesize currentStillFrameKey = _currentStillFrameKey;
 @synthesize currentStillFrame = _currentStillFrame;
 
-@synthesize singleImageFileName = _singleImageFileName;
+///////////////////////////////////////////////////////////////////////////////
+// Initializers
+
 
 - (id)init {
+    //General intializer for both types
     if (self=[super init]) {
         self.actionsDictionary = [[NSMutableDictionary alloc] init];
         self.stillFramesDictionary = [[NSMutableDictionary alloc] init];
     }
     return self;
+}
+
+- (void) setCurrentStillFrame:(CCSpriteFrame *)currentStillFrame {
+    //Special intializer for SpriteSheet types
+    //Sets actual sprite on first call
+    
+    if (_currentStillFrame == nil){
+        _currentStillFrame = currentStillFrame;
+        //the below line is most likely the problem
+        //self.actualSprite = [CCSprite spriteWithSpriteFrame:currentStillFrame];
+        //[self.spriteBatchNode addChild:self.actualSprite];
+    } else {
+        _currentStillFrame = currentStillFrame;
+        [self.actualSprite setDisplayFrame:_currentStillFrame];
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -55,34 +79,6 @@
 /////////////////////////////////////////////////////////////////////////
 // SpriteSheet ImageSource Methods
 
-
-
-#pragma mark -
-#pragma mark Still frame methods
-- (void) addStillFrameWithFrameFile:(NSString *) frameFile withKey:(NSString *)key{
-    CCSprite *newStill = [CCSprite spriteWithSpriteFrameName:frameFile];
-    [self.stillFramesDictionary setObject:newStill forKey:key];
-}
-
-- (void) setInitialFrameWithKey:(NSString *)key {
-    //MUST be run during initialization before adding to the stage
-    self.actualSprite = [self.stillFramesDictionary objectForKey:key];
-    self.currentStillFrameKey = key;
-    [self.spriteBatchNode addChild:self.actualSprite];
-}
-
-- (void) setStillFrameWithKey:(NSString *)key {
-    //Use this to MODIFY the still frame you want to post and POST it
-    self.currentStillFrame = [self.stillFramesDictionary objectForKey:key];
-    self.currentStillFrameKey = key;
-    [self.actualSprite setDisplayFrame:self.currentStillFrame];
-}
-
-- (void) displayStillFrame {
-    //Use this to POST the CURRENT still frame (like after running an animation)
-    [self.actualSprite setDisplayFrame:self.currentStillFrame];
-}
-
 #pragma mark -
 #pragma mark Sprite Sheet Processing
 - (void) loadSpriteSheetWithLocalParameters {
@@ -99,6 +95,32 @@
 
 - (void) loadSpriteSheetWithFilePrefix:(NSString *) filePrefix {
     [self loadSpriteSheetWithImageFile:[NSString stringWithFormat:@"%@.plist",filePrefix] PlistFile:[NSString stringWithFormat:@"%@.png",filePrefix]];
+}
+
+#pragma mark -
+#pragma mark Still frame methods
+- (void) addStillFrameWithFrameFile:(NSString *) frameFile withKey:(NSString *)key{
+    //Must add a still before you can use it
+    CCSpriteFrame *newStill = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameFile];
+    //Possible error line
+    //CCSprite *newStill = [CCSprite spriteWithSpriteFrameName:frameFile];
+    [self.stillFramesDictionary setObject:newStill forKey:key];
+}
+
+- (void) setCurrentStillFrameWithKey:(NSString *)key {
+    //Only set the new still frame if the key has an associated value
+    CCSpriteFrame *frameToSet = [self.stillFramesDictionary objectForKey:key];
+    if (!(frameToSet == nil)) {
+        self.currentStillFrameKey = key;
+        self.currentStillFrame = frameToSet;
+        [self displayStillFrame];
+    }
+}
+
+- (void) displayStillFrame {
+    //Use this to post a still frame that is already set
+    //Often helpful after running an animation)
+    [self.actualSprite setDisplayFrame:self.currentStillFrame];
 }
 
 #pragma mark -
@@ -187,19 +209,17 @@
     actorCopy.actionsDictionary = self.actionsDictionary;
     actorCopy.imageSourceType = [self.imageSourceType copy];
     
-    if ([self.imageSourceType isEqualToString:@"spriteSheet"]){
+    if ([self.imageSourceType isEqualToString:@"singleFrame"]) {
+        actorCopy.singleImageFileName = [self.singleImageFileName copy];
+        [actorCopy setActualSpriteWithLocalParameter];
+    } else if ([self.imageSourceType isEqualToString:@"spriteSheet"]){
         
         actorCopy.spriteSheetImageFile = [self.spriteSheetImageFile copy];
         actorCopy.spriteSheetPListFile = [self.spriteSheetPListFile copy];
         [actorCopy loadSpriteSheetWithLocalParameters]; //sets spriteBatchNode new w/o relying on copy
         
         actorCopy.stillFramesDictionary = self.stillFramesDictionary;
-        
-        
-        
-    } else if ([self.imageSourceType isEqualToString:@"singleFrame"]) {
-        actorCopy.singleImageFileName = [self.singleImageFileName copy];
-        [actorCopy setActualSpriteWithLocalParameter];
+
     } else {
         NSLog(@"ERROR WHILE DEEP COPYING ACTORS: Image source type invalid");
     }
