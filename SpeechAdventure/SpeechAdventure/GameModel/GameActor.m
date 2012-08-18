@@ -89,6 +89,11 @@
     [self.actionsDictionary removeObjectForKey:actionName];
 }
 
+//Running Actions
+- (void) runAction:(GameAction *)myAction {
+    [self.actualSprite runAction:[myAction getCCAction]];
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 // SingleFrame ImageSource Methods
 

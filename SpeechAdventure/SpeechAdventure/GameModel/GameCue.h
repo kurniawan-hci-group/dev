@@ -22,17 +22,21 @@
 @property (nonatomic,copy) NSString *cueCollectionType; 
 
 //Properties for a single
-@property (nonatomic,strong) GameActor *targetActor;
+@property (nonatomic,strong) NSMutableDictionary *actorsDictionary;
+@property (nonatomic,copy) NSString *actorName;
 @property (nonatomic,copy) NSString *actorMultiplicityType; //Determines how this call deals with plural actors. Value is either single, pluralAllAtOnce, or pluralOneAtATime
-@property (nonatomic,strong) GameAction *actionToPerform;
+@property (nonatomic,copy) NSString *actionName;
+@property (nonatomic,strong) GameAction *action;
 @property (nonatomic,strong) NSString *endStillFrame;
 
-@property (nonatomic,assign) int duration;
+@property (nonatomic,assign) double duration;
 @property (nonatomic,strong) NSString *soundFile;
 
 @property (nonatomic,strong) GameMove *move;
 
 //Property(s) for sequence & spawn
 @property (nonatomic,strong) NSMutableArray *containedCues;
+
+- (id) init;
 
 @end

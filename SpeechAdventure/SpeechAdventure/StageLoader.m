@@ -319,8 +319,25 @@
     return newStage;
 }
 
-+ (GameCue *) loadCueWithXMLData: (GDataXMLElement *) XMLGameActionCall {
-    //Recursively process game action calls
++ (GameCue *) loadCueWithXMLData: (GDataXMLElement *) XMLGameCue withStage: (GameStage*) theStage {
+    //Recursively process game cues
+    GameCue *newCue = [[GameCue alloc] init];
+    
+    //process singles, spawns, & sequences differently
+    newCue.cueCollectionType = [StageLoader singularXMLElementValueFrom:XMLGameCue inTag:@"cueCollectionType"];
+    if ([newCue.cueCollectionType isEqualToString:@"single"]) {
+        newCue.actorsDictionary = theStage.actorsDictionary;
+        newCue.actorName = [StageLoader singularXMLElementValueFrom:XMLGameCue inTag:@"actor"];
+        newCue.actorMultiplicityType = [StageLoader singularXMLElementValueFrom:XMLGameCue inTag:@"actorMultiplicityType"];
+        newCue.actionName = [StageLoader singularXMLElementValueFrom:XMLGameCue inTag:@"action"];
+        newCue.duration = [StageLoader singularXMLElementValueFrom:XMLGameCue inTag:@"duration"].doubleValue;
+    }
+    
+    return newCue;
+}
+
++ (GameCue *) loadMoveWithXMLData: (GDataXMLElement *) XMLMove {
+    
 }
 
 #pragma mark -

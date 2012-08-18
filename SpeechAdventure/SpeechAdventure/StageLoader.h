@@ -24,6 +24,7 @@
 #import "GameModel/GameAnimation.h"
 #import "GameModel/GameAction.h"
 #import "GameModel/GameCue.h"
+#import "GameModel/GameMove.h"
 #import "GameModel/GameCommand.h"
 
 @interface StageLoader : NSObject
@@ -35,7 +36,8 @@
 
 //Actual loader methods
 + (GameStage *) loadStageWithXMLFilePrefix: (NSString*) XMLStageDescriptor;
-+ (GameCue *) loadCueWithXMLData: (GDataXMLElement *) XMLGameActionCall;
++ (GameCue *) loadCueWithXMLData: (GDataXMLElement *) XMLGameCue withStage: (GameStage*) theStage;
++ (GameCue *) loadMoveWithXMLData: (GDataXMLElement *) XMLMove;
 + (CCScene *) sceneWithXMLPrefix:(NSString*)XMLPrefix;
 
 @end

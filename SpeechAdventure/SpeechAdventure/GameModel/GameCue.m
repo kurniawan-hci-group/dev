@@ -16,9 +16,11 @@
 //Maybe have a CollectionType & a separate type indicating whether the target is plural or not?
 
 //Properties for a single
-@synthesize targetActor = _targetActor;
+@synthesize actorsDictionary = _actorsDictionary;
+@synthesize actorName = _actorName;
 @synthesize actorMultiplicityType = _actorMultiplicityType; //Either single, pluralAllAtOnce, or pluralOneAtATime
-@synthesize actionToPerform = _actionToPerform;
+@synthesize actionName = _actionName;
+@synthesize action = _action;
 @synthesize endStillFrame = _endStillFrame;
 
 @synthesize duration = _duration;
@@ -30,7 +32,7 @@
 //Property(s) for sequence & spawn
 @synthesize containedCues = _containedCues;
 
-- (id)init {
+- (id) init {
     if (self=[super init]) {
         self.containedCues = [[NSMutableArray alloc] init];
     }
@@ -39,7 +41,9 @@
 
 //recursive method to build CCAction from cue
 - (id) getCCAction {
+    id assembledAction;
     
+    return assembledAction;
 }
 
 @end

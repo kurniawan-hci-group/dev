@@ -28,6 +28,7 @@
     id actionWithoutSound;
     id soundAction;
     
+    //Should be careful that this repeatForever animation action type doesn't cause problems down the line
     if ([self.type isEqualToString:@"animation"]) {
         actionWithoutSound = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:[self.animation getCCAnimation]]];
     } else if ([self.type isEqualToString:@"hide"]) {
