@@ -11,6 +11,8 @@
 #import <GameKit/GameKit.h>
 #import "cocos2d.h"
 
+#import "GameAction.h"
+
 @interface GameActor : NSObject<NSCopying>
 
 @property (nonatomic,copy) NSString *name;
@@ -26,6 +28,11 @@
 
 //(somewhat) Deep copy method for plural actors
 - (id) copyWithZone:(NSZone *)zone;
+
+//ActionsDictionary methods
+- (GameAction *) getActionWithName:(NSString *)actionName;
+- (void) addAction:(GameAction*)newAction withName:(NSString *)actionName;
+- (void) removeActionWithName:(NSString *)actionName;
 
 ///////////////////////////////////////////////////////////////////////////////
 // SingleFrame Image Source Stuff

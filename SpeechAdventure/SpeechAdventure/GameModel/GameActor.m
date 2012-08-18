@@ -76,6 +76,19 @@
     }
 }
 
+//ActionsDictionary methods
+- (GameAction *) getActionWithName:(NSString *)actionName {
+    return (GameAction *)[self.actionsDictionary objectForKey:actionName];
+}
+
+- (void) addAction:(GameAction*)newAction withName:(NSString *)actionName {
+    [self.actionsDictionary setObject:newAction forKey:actionName];
+}
+
+- (void) removeActionWithName:(NSString *)actionName {
+    [self.actionsDictionary removeObjectForKey:actionName];
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 // SingleFrame ImageSource Methods
 
