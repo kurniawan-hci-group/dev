@@ -209,33 +209,80 @@
             NSString *actorName = [StageLoader singularXMLElementValueFrom:myXMLActorInitializer inTag:@"actor"];
             GameActor *myActor = [newStage.actorsDictionary objectForKey:actorName];
             
-            //get & set the locations------
-            NSArray *myLocationNodes = [myXMLActorInitializer elementsForName:@"location"];
-            NSMutableArray *myLocationStrings = [[NSMutableArray alloc] init];
-            for (GDataXMLElement *myLocationNode in myLocationNodes) {
-                [myLocationStrings addObject:myLocationNode.stringValue];
-            }
+            //Act differently depending on whether actor is a spriteSheet actor is singleFrame
+            //SpriteSheet - has instance syntax because may have a different stillFrame for each
+            //SingleFrame - only has locations
             
-            //set count with stage
-            [newStage setActorCount:myLocationStrings.count forActorWithName:actorName];
-            
-            //Act differently depending on locationCount
-            //For quantity==1, simply set location
-            //For quantity>1, make copies, add them, and set their locations
-            if (myLocationStrings.count == 1) {
-                myActor.location = [StageLoader pointForText:[myLocationStrings objectAtIndex:0]];
-            } else if (myLocationStrings.count > 1){
-                [newStage removeActorWithName:actorName];
-                for (int i = 0; i < myLocationStrings.count; i++) {
-                    GameActor *newActor = [myActor copy];
-                    NSString *locationString = [myLocationStrings objectAtIndex:i];
-                    newActor.location = [StageLoader pointForText:locationString];
-                    
-                    //add new actor by name w/ index appended
-                    NSString *indexedActorName = [GameStage indexedActorNameForActorName:actorName withIndex:i];
-                    [newStage addActor:newActor withName:indexedActorName];
+            if ([myActor.imageSourceType isEqualToString:@"singleFrame"]){
+                //get & set the locations------
+                NSArray *myLocationNodes = [myXMLActorInitializer elementsForName:@"location"];
+                NSMutableArray *myLocationStrings = [[NSMutableArray alloc] init];
+                for (GDataXMLElement *myLocationNode in myLocationNodes) {
+                    [myLocationStrings addObject:myLocationNode.stringValue];
                 }
+                
+                //set count with stage
+                [newStage setActorCount:myLocationStrings.count forActorWithName:actorName];
+                
+                
+                //Act differently depending on locationCount
+                //For quantity==1, simply set location
+                //For quantity>1, make copies, add them, and set their locations
+                if (myLocationStrings.count == 1) {
+                    myActor.location = [StageLoader pointForText:[myLocationStrings objectAtIndex:0]];
+                } else if (myLocationStrings.count > 1){
+                    [newStage removeActorWithName:actorName];
+                    for (int i = 0; i < myLocationStrings.count; i++) {
+                        GameActor *newActor = [myActor copy];
+                        NSString *locationString = [myLocationStrings objectAtIndex:i];
+                        newActor.location = [StageLoader pointForText:locationString];
+                        
+                        //add new actor by name w/ index appended
+                        NSString *indexedActorName = [GameStage indexedActorNameForActorName:actorName withIndex:i];
+                        [newStage addActor:newActor withName:indexedActorName];
+                    }
+                }
+            } else if ([myActor.imageSourceType isEqualToString:@"spriteSheet"]) {
+                //Get instances
+                NSArray *myInstanceNodes = [myXMLActorInitializer elementsForName:@"instance"];
+                
+                //Set count
+                [newStage setActorCount:myInstanceNodes.count forActorWithName:actorName];
+                
+                //Act differently if count==1 vs. count>1
+                //Either way, sets location & stillFrame (with key)
+                if (myInstanceNodes.count == 1) {
+                    GDataXMLElement *myXMLInstance = [myInstanceNodes objectAtIndex:0];
+                    NSString *locationString = [StageLoader singularXMLElementValueFrom:myXMLInstance inTag:@"location"];
+                    NSString *stillFrameKey = [StageLoader singularXMLElementValueFrom:myXMLInstance inTag:@"stillFrame"];
+                    
+                    myActor.location = [StageLoader pointForText:locationString];
+                    [myActor setCurrentStillFrameWithKey:stillFrameKey];
+                } else {
+                    //Copy actors & set location & stillFrame
+                    [newStage removeActorWithName:actorName];
+                    for (int i=0; i<myInstanceNodes.count; i++) {
+                        GDataXMLElement *myXMLInstance = [myInstanceNodes objectAtIndex:i];
+                        NSString *locationString = [StageLoader singularXMLElementValueFrom:myXMLInstance inTag:@"location"];
+                        NSString *stillFrameKey = [StageLoader singularXMLElementValueFrom:myXMLInstance inTag:@"stillFrame"];
+                        
+                        GameActor *newActor = [myActor copy];
+                        NSString *indexedActorName = [GameStage indexedActorNameForActorName:actorName withIndex:i];
+                        
+                        newActor.location = [StageLoader pointForText:locationString];
+                        [newActor setCurrentStillFrameWithKey:stillFrameKey];
+                        
+                        //actually add the actor
+                        [newStage addActor:newActor withName:indexedActorName];
+                    }
+                }
+                
+                
+                
+            } else {
+                NSLog(@"ERROR: Invalid imageSourceType %@ in StageLoader", myActor.imageSourceType);
             }
+            
             
             //myActor.location = [StageLoader pointForText:[myLocationStrings objectAtIndex:0]];
             //only set stillFrame if the actor(s) has a sprite sheet

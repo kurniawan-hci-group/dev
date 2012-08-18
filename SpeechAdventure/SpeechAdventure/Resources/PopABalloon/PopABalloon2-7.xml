@@ -125,11 +125,14 @@
   <initializer>
     <item>
       <actor>Sam</actor>
-      <location>(150,150)</location>
+      <instance>
+        <location>(150,150)</location>
 <!--Multiple locations don't yet work for spriteSheet actors
       <location>(300,300)</location>--><!--Changed location for diagnostic reasons
-      <location>(-75,-75)</location>-->      <stillFrame>normal</stillFrame>
-<!--Still frame modifications aren't yet registering here because they may be different per actor-->
+      <location>(-75,-75)</location>-->
+        <stillFrame>normal</stillFrame>
+      </instance>
+<!--Instance syntax is strictly for spriteSheet actors-->
     </item>
     <item>
       <actor>balloon</actor>
