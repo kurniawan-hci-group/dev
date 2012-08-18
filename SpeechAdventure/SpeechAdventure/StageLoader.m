@@ -326,6 +326,8 @@
     //process singles, spawns, & sequences differently
     newCue.cueCollectionType = [StageLoader singularXMLElementValueFrom:XMLGameCue inTag:@"cueCollectionType"];
     if ([newCue.cueCollectionType isEqualToString:@"single"]) {
+        //load single cues
+        
         newCue.actorsDictionary = theStage.actorsDictionary;
         newCue.actorName = [StageLoader singularXMLElementValueFrom:XMLGameCue inTag:@"actor"];
         newCue.actorMultiplicityType = [StageLoader singularXMLElementValueFrom:XMLGameCue inTag:@"actorMultiplicityType"];
@@ -336,6 +338,14 @@
         if (XMLmove != nil) {
             newCue.move = [StageLoader loadMoveWithXMLData:XMLmove];
         }
+    } else if ([newCue.cueCollectionType isEqualToString:@"spawn"] || ([newCue.cueCollectionType isEqualToString:@"sequence"])) {
+        //load spawns & sequences -- basically just load all the subCues to this one's NSMutableArray
+        NSArray *XMLcues = [XMLGameCue elementsForName:@"cue"];
+        for (GDataXMLElement *subCue in XMLcues) {
+            [newCue.containedCues addObject:[StageLoader loadCueWithXMLData:subCue withStage:theStage]];
+        }
+    } else {
+        NSLog(@"ERROR: Invalid GameCue type %@ (in StageLoader-loadCueWithXMLData", newCue.cueCollectionType);
     }
     
     return newCue;
