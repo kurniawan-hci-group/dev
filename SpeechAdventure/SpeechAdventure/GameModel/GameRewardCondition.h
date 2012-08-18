@@ -15,6 +15,8 @@
 @property (nonatomic,strong) NSMutableDictionary *actorStateDictionary;
 @property (nonatomic,strong) GameStage *parentStage;
 
+//Considering modifying this to better support plural state requirements
+
 - (id) initWithStage:(GameStage*)parentStage;
 - (void) addRequiredState:(NSString*)state forActorName:(NSString*)actorName;
 - (BOOL) isConditionSatisfiedWithStage:(GameStage*)myGameStage;

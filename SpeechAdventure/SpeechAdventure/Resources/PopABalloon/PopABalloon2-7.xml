@@ -103,13 +103,12 @@
     </actor>
   </actorList>
   <voiceToText>
+<!--WATCH OUT HERE!!! Xcode HATES the "lm" extention that comes default on OE language models-->
     <model>
-<!--<keyword>default</keyword>
-      <dictionaryFile>OpenEars1.dic</dictionaryFile>
-      <languageModelFile>OpenEars1.languagemodel</languageModelFile>-->      <keyword>popABalloon</keyword>
+      <keyword>popABalloon</keyword>
       <dictionaryFile>PopABalloonOEModel.dic</dictionaryFile>
       <languageModelFile>PopABalloonOEModel.languagemodel</languageModelFile>
-<!--WATCH OUT HERE!!! Xcode HATES the "lm" extention that comes default on these-->    </model>
+    </model>
     <command>
       <name>popBalloon</name>
       <activatingText>POP A BALLOON</activatingText>
@@ -130,6 +129,7 @@
 <!--Multiple locations don't yet work for spriteSheet actors
       <location>(300,300)</location>--><!--Changed location for diagnostic reasons
       <location>(-75,-75)</location>-->      <stillFrame>normal</stillFrame>
+<!--Still frame modifications aren't yet registering here because they may be different per actor-->
     </item>
     <item>
       <actor>balloon</actor>
