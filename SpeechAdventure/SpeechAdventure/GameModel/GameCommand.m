@@ -10,4 +10,8 @@
 
 @implementation GameCommand
 
+@synthesize activatingText = _activatingText;
+@synthesize responseActionCall = _responseActionCall;
+@synthesize supportSoundFile = _supportSoundFile;
+
 @end

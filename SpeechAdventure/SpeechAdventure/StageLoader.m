@@ -283,6 +283,10 @@
     return newStage;
 }
 
++ (GameCue *) loadCueWithXMLData: (GDataXMLElement *) XMLGameActionCall {
+    //Recursively process game action calls
+}
+
 #pragma mark -
 #pragma mark Cocos2D Methods
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.

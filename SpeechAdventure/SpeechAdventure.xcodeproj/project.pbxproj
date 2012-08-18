@@ -11,6 +11,7 @@
 		52008A6E15D076820023BD59 /* GameCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52008A6D15D076820023BD59 /* GameCharacter.m */; };
 		5208DED915DE44E6006A20B2 /* PopABalloon2-5.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5208DED715DE44E6006A20B2 /* PopABalloon2-5.xml */; };
 		5208DEDA15DE44E6006A20B2 /* PopABalloon2-6.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5208DED815DE44E6006A20B2 /* PopABalloon2-6.xml */; };
+		5208DEDC15DF7C8A006A20B2 /* PopABalloon2-7.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5208DEDB15DF7C89006A20B2 /* PopABalloon2-7.xml */; };
 		5216F1DF15C9D05000BE2ACB /* cmu07a.dic in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1D115C9D05000BE2ACB /* cmu07a.dic */; };
 		5216F1E015C9D05000BE2ACB /* feat.params in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1D315C9D05000BE2ACB /* feat.params */; };
 		5216F1E115C9D05000BE2ACB /* mdef in Resources */ = {isa = PBXBuildFile; fileRef = 5216F1D415C9D05000BE2ACB /* mdef */; };
@@ -167,7 +168,7 @@
 		52DF861715DCFAA000684D83 /* PopABalloonOEModel.sent in Resources */ = {isa = PBXBuildFile; fileRef = 52DF861215DCFAA000684D83 /* PopABalloonOEModel.sent */; };
 		52DF861815DCFAA000684D83 /* PopABalloonOEModel.vocab in Resources */ = {isa = PBXBuildFile; fileRef = 52DF861315DCFAA000684D83 /* PopABalloonOEModel.vocab */; };
 		52DF861C15DCFB6700684D83 /* PopABalloonOEModel.languagemodel in Resources */ = {isa = PBXBuildFile; fileRef = 52DF861B15DCFB6700684D83 /* PopABalloonOEModel.languagemodel */; };
-		52DF861F15DD048A00684D83 /* GameActionCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DF861E15DD048900684D83 /* GameActionCall.m */; };
+		52DF861F15DD048A00684D83 /* GameCue.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DF861E15DD048900684D83 /* GameCue.m */; };
 		52DF862215DD04A700684D83 /* GameRewardCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DF862115DD04A600684D83 /* GameRewardCondition.m */; };
 		52E6483A15CB2908001CBE34 /* SamSheet_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52E6483815CB2908001CBE34 /* SamSheet_default.plist */; };
 		52E6483B15CB2908001CBE34 /* SamSheet_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E6483915CB2908001CBE34 /* SamSheet_default.png */; };
@@ -182,6 +183,7 @@
 		52008A6D15D076820023BD59 /* GameCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCharacter.m; path = GameModel/GameCharacter.m; sourceTree = "<group>"; };
 		5208DED715DE44E6006A20B2 /* PopABalloon2-5.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PopABalloon2-5.xml"; sourceTree = "<group>"; };
 		5208DED815DE44E6006A20B2 /* PopABalloon2-6.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PopABalloon2-6.xml"; sourceTree = "<group>"; };
+		5208DEDB15DF7C89006A20B2 /* PopABalloon2-7.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PopABalloon2-7.xml"; sourceTree = "<group>"; };
 		5216F1D115C9D05000BE2ACB /* cmu07a.dic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cmu07a.dic; sourceTree = "<group>"; };
 		5216F1D315C9D05000BE2ACB /* feat.params */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = feat.params; sourceTree = "<group>"; };
 		5216F1D415C9D05000BE2ACB /* mdef */ = {isa = PBXFileReference; lastKnownFileType = file; path = mdef; sourceTree = "<group>"; };
@@ -498,8 +500,8 @@
 		52DF861215DCFAA000684D83 /* PopABalloonOEModel.sent */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PopABalloonOEModel.sent; sourceTree = "<group>"; };
 		52DF861315DCFAA000684D83 /* PopABalloonOEModel.vocab */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PopABalloonOEModel.vocab; sourceTree = "<group>"; };
 		52DF861B15DCFB6700684D83 /* PopABalloonOEModel.languagemodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PopABalloonOEModel.languagemodel; sourceTree = "<group>"; };
-		52DF861D15DD048800684D83 /* GameActionCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameActionCall.h; path = GameModel/GameActionCall.h; sourceTree = "<group>"; };
-		52DF861E15DD048900684D83 /* GameActionCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameActionCall.m; path = GameModel/GameActionCall.m; sourceTree = "<group>"; };
+		52DF861D15DD048800684D83 /* GameCue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCue.h; path = GameModel/GameCue.h; sourceTree = "<group>"; };
+		52DF861E15DD048900684D83 /* GameCue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCue.m; path = GameModel/GameCue.m; sourceTree = "<group>"; };
 		52DF862015DD04A600684D83 /* GameRewardCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameRewardCondition.h; path = GameModel/GameRewardCondition.h; sourceTree = "<group>"; };
 		52DF862115DD04A600684D83 /* GameRewardCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameRewardCondition.m; path = GameModel/GameRewardCondition.m; sourceTree = "<group>"; };
 		52E6483815CB2908001CBE34 /* SamSheet_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SamSheet_default.plist; sourceTree = "<group>"; };
@@ -546,8 +548,8 @@
 				52A1C47315D5D4FF00F5BFC2 /* GameAnimation.m */,
 				52A1C47515D5D51800F5BFC2 /* GameAction.h */,
 				52A1C47615D5D51800F5BFC2 /* GameAction.m */,
-				52DF861D15DD048800684D83 /* GameActionCall.h */,
-				52DF861E15DD048900684D83 /* GameActionCall.m */,
+				52DF861D15DD048800684D83 /* GameCue.h */,
+				52DF861E15DD048900684D83 /* GameCue.m */,
 				52A1C47815D5D52700F5BFC2 /* GameCommand.h */,
 				52A1C47915D5D52700F5BFC2 /* GameCommand.m */,
 			);
@@ -1045,6 +1047,7 @@
 		528371E815C6974800118B5E /* PopABalloon */ = {
 			isa = PBXGroup;
 			children = (
+				5208DEDB15DF7C89006A20B2 /* PopABalloon2-7.xml */,
 				52DF860E15DCFAA000684D83 /* OEModel */,
 				5208DED815DE44E6006A20B2 /* PopABalloon2-6.xml */,
 				5208DED715DE44E6006A20B2 /* PopABalloon2-5.xml */,
@@ -1192,6 +1195,7 @@
 				52DF861C15DCFB6700684D83 /* PopABalloonOEModel.languagemodel in Resources */,
 				5208DED915DE44E6006A20B2 /* PopABalloon2-5.xml in Resources */,
 				5208DEDA15DE44E6006A20B2 /* PopABalloon2-6.xml in Resources */,
+				5208DEDC15DF7C8A006A20B2 /* PopABalloon2-7.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1319,7 +1323,7 @@
 				52A1C47A15D5D52700F5BFC2 /* GameCommand.m in Sources */,
 				52A1C47D15D5D7F600F5BFC2 /* GameActor.m in Sources */,
 				52EC246915D90F770096B898 /* StageLoader.m in Sources */,
-				52DF861F15DD048A00684D83 /* GameActionCall.m in Sources */,
+				52DF861F15DD048A00684D83 /* GameCue.m in Sources */,
 				52DF862215DD04A700684D83 /* GameRewardCondition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
