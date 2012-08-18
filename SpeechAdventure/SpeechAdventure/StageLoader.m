@@ -331,13 +331,41 @@
         newCue.actorMultiplicityType = [StageLoader singularXMLElementValueFrom:XMLGameCue inTag:@"actorMultiplicityType"];
         newCue.actionName = [StageLoader singularXMLElementValueFrom:XMLGameCue inTag:@"action"];
         newCue.duration = [StageLoader singularXMLElementValueFrom:XMLGameCue inTag:@"duration"].doubleValue;
+        
+        GDataXMLElement *XMLmove = [StageLoader singularXMLElementFrom:XMLGameCue inTag:@"move"];
+        if (XMLmove != nil) {
+            newCue.move = [StageLoader loadMoveWithXMLData:XMLmove];
+        }
     }
     
     return newCue;
 }
 
-+ (GameCue *) loadMoveWithXMLData: (GDataXMLElement *) XMLMove {
++ (GameMove *) loadMoveWithXMLData: (GDataXMLElement *) XMLMove {
+    GameMove *newMove = [[GameMove alloc] init];
     
+    newMove.moveType = [StageLoader singularXMLElementValueFrom:XMLMove inTag:@"type"];
+    
+    //FOR NOW, ALL DESTINATION TYPES WILL BE ABSOLUTE
+    newMove.destinationType = @"absolute";
+    
+    if ([newMove.moveType isEqualToString:@"bezier"]) {
+        NSString *controlPoint1String = [StageLoader singularXMLElementValueFrom:XMLMove inTag:@"controlPoint1"];
+        newMove.controlPoint1 = [StageLoader pointForText:controlPoint1String];
+        
+        NSString *controlPoint2String = [StageLoader singularXMLElementValueFrom:XMLMove inTag:@"controlPoint2"];
+        newMove.controlPoint2 = [StageLoader pointForText:controlPoint2String];
+        
+        NSString *endPositionString = [StageLoader singularXMLElementValueFrom:XMLMove inTag:@"endPosition"];
+        newMove.endPosition = [StageLoader pointForText:endPositionString];
+    } else if ([newMove.moveType isEqualToString:@"straight"]) {
+        NSString *endPositionString = [StageLoader singularXMLElementValueFrom:XMLMove inTag:@"endPosition"];
+        newMove.endPosition = [StageLoader pointForText:endPositionString];
+    } else {
+        NSLog(@"ERROR: moveType %@ is invalid (in StageLoader-loadMoveWithXMLData)",newMove.moveType);
+    }
+    
+    return newMove;
 }
 
 #pragma mark -

@@ -37,7 +37,7 @@
 //Actual loader methods
 + (GameStage *) loadStageWithXMLFilePrefix: (NSString*) XMLStageDescriptor;
 + (GameCue *) loadCueWithXMLData: (GDataXMLElement *) XMLGameCue withStage: (GameStage*) theStage;
-+ (GameCue *) loadMoveWithXMLData: (GDataXMLElement *) XMLMove;
++ (GameMove *) loadMoveWithXMLData: (GDataXMLElement *) XMLMove;
 + (CCScene *) sceneWithXMLPrefix:(NSString*)XMLPrefix;
 
 @end

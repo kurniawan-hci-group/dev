@@ -180,8 +180,8 @@
         <duration>3</duration>
         <move>
           <type>bezier</type>
-          <controlPoint>(227,161)</controlPoint>
-          <controlPoint>(280,214)</controlPoint>
+          <controlPoint1>(227,161)</controlPoint1>
+          <controlPoint2>(280,214)</controlPoint2>
           <endPosition>(327,244)</endPosition>
         </move>
       </cue>
