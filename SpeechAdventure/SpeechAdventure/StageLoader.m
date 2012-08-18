@@ -201,16 +201,7 @@
             [newStage addActor:newActor withName:actorName];
         }
         
-        //ADD NARRATION*************************************************************
-        NSArray *narrationSounds = [StageLoader bypassSingularXMLTag:@"narration" toGroupTag:@"sound" inNode:doc.rootElement];
-        for (GDataXMLElement *myXMLSound in narrationSounds) {
-            NSString *soundName = [StageLoader singularXMLElementValueFrom:myXMLSound inTag:@"name"];
-            NSString *file = [StageLoader singularXMLElementValueFrom:myXMLSound inTag:@"file"];
-            
-            [newStage.narrationDictionary setObject:soundName forKey:file];
-        }
-        
-        //INIALIZE ACTORS******************************************************
+        //INITIALIZE ACTORS******************************************************
         //Generate full set of actors (i.e. expand plural actors), and add their
         //spriteBatchNodes to the activityLayer
         NSArray *XMLActorIntializers = [StageLoader bypassSingularXMLTag:@"initializer" toGroupTag:@"item" inNode:doc.rootElement];

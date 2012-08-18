@@ -102,35 +102,24 @@
       </action>
     </actor>
   </actorList>
-  <narration>
-    <sound>
-      <name>prompt</name>
-      <file>S1Prompt.wav</file>
-    </sound>
-    <sound>
-      <name>reward</name>
-      <file>S1Reward.wav</file>
-    </sound>
-  </narration>
   <voiceToText>
     <model>
-      <!--<keyword>default</keyword>
+<!--<keyword>default</keyword>
       <dictionaryFile>OpenEars1.dic</dictionaryFile>
-      <languageModelFile>OpenEars1.languagemodel</languageModelFile>-->
-      <keyword>popABalloon</keyword>
+      <languageModelFile>OpenEars1.languagemodel</languageModelFile>-->      <keyword>popABalloon</keyword>
       <dictionaryFile>PopABalloonOEModel.dic</dictionaryFile>
       <languageModelFile>PopABalloonOEModel.languagemodel</languageModelFile>
-      <!--WATCH OUT HERE!!! Xcode HATES the "lm" extention that comes default on these-->
-    </model>
+<!--WATCH OUT HERE!!! Xcode HATES the "lm" extention that comes default on these-->    </model>
     <command>
       <name>popBalloon</name>
       <activatingText>POP A BALLOON</activatingText>
-      <actionCall>
-        <actionCollectionType>single</actionCollectionType>
-        <actorMultiplicityType>pluralOneAtATime</actorMultiplicityType>
+      <correctThreshold>-500</correctThreshold>
+      <cue>
+        <cueCollectionType>single</cueCollectionType>
         <actor>balloon</actor>
+        <actorMultiplicityType>pluralOneAtATime</actorMultiplicityType>
         <action>pop</action>
-      </actionCall>
+      </cue>
       <supportFile>Support-PopABalloon.wav</supportFile>
     </command>
   </voiceToText>
@@ -138,11 +127,9 @@
     <item>
       <actor>Sam</actor>
       <location>(150,150)</location>
-      <!--Multiple locations don't yet work for spriteSheet actors
-      <location>(300,300)</location>-->
-      <!--Changed location for diagnostic reasons
-      <location>(-75,-75)</location>-->
-      <stillFrame>normal</stillFrame>
+<!--Multiple locations don't yet work for spriteSheet actors
+      <location>(300,300)</location>--><!--Changed location for diagnostic reasons
+      <location>(-75,-75)</location>-->      <stillFrame>normal</stillFrame>
     </item>
     <item>
       <actor>balloon</actor>
@@ -150,71 +137,72 @@
       <location>(265,150)</location>
       <location>(290,180)</location>
     </item>
+    <cue>intro</cue>
   </initializer>
-  <actList>
-    <act>
+  <cueList>
+    <cue>
       <name>intro</name>
+      <cueCollectionType>sequence</cueCollectionType>
       <cue>
-        <type>sequence</type>
-        <cue>
-          <type>move</type>
-          <name>moveSam</name>
-          <actor>Sam</actor>
-          <action>walkRight</action>
-          <move>
-            <duration>3</duration>
-            <type>bezier</type>
-            <controlPoint>(77,30)</controlPoint>
-            <controlPoint>(146,78)</controlPoint>
-            <endPosition>(202,115)</endPosition>
-          </move>
-          <endStillFrame>normal</endStillFrame>
-        </cue>
-        <cue>
-          <type>playSound</type>
-          <name>playPrompt</name>
-          <sound>prompt</sound>
-        </cue>
+        <name>moveSam</name>
+        <cueCollectionType>single</cueCollectionType>
+        <actor>Sam</actor>
+        <actorMultiplicityType>single</actorMultiplicityType>
+        <action>walkRight</action>
+        <duration>3</duration>
+        <move>
+          <type>bezier</type>
+          <controlPoint>(77,30)</controlPoint>
+          <controlPoint>(146,78)</controlPoint>
+          <endPosition>(202,115)</endPosition>
+        </move>
+        <endStillFrame>normal</endStillFrame>
       </cue>
-    </act>
-    <act>
+      <cue>
+        <name>playPrompt</name>
+        <cueCollectionType>single</cueCollectionType>
+        <sound>S1Prompt.wav</sound>
+      </cue>
+    </cue>
+    <cue>
       <name>rewardAndExit</name>
+      <cueCollectionType>sequence</cueCollectionType>
       <cue>
-        <type>sequence</type>
-        <name>crossAndExit</name>
-        <cue>
-          <type>move</type>
-          <name>crossBridge</name>
-          <actor>Sam</actor>
-          <action>walkRight</action>
-          <sound>reward</sound>
-          <move>
-            <duration>3</duration>
-            <type>bezier</type>
-            <controlPoint>(227,161)</controlPoint>
-            <controlPoint>(280,214)</controlPoint>
-            <endPosition>(327,244)</endPosition>
-          </move>
-        </cue>
-        <cue>
-          <type>move</type>
-          <name>exit</name>
-          <actor>Sam</actor>
-          <action>walkRight</action>
-          <move>
-            <duration>3</duration>
-            <type>straight</type>
-            <endPosition>(327,244)</endPosition>
-          </move>
-        </cue>
+        <name>crossBridge</name>
+        <cueCollectionType>single</cueCollectionType>
+        <actor>Sam</actor>
+        <actorMultiplicityType>single</actorMultiplicityType>
+        <action>walkRight</action>
+        <sound>S1Reward.wav</sound>
+        <duration>3</duration>
+        <move>
+          <type>bezier</type>
+          <controlPoint>(227,161)</controlPoint>
+          <controlPoint>(280,214)</controlPoint>
+          <endPosition>(327,244)</endPosition>
+        </move>
       </cue>
-    </act>
-  </actList>
+      <cue>
+        <name>exit</name>
+        <cueCollectionType>single</cueCollectionType>
+        <actor>Sam</actor>
+        <actorMultiplicityType>single</actorMultiplicityType>
+        <action>walkRight</action>
+        <duration>3</duration>
+        <move>
+          <type>straight</type>
+          <endPosition>(327,244)</endPosition>
+        </move>
+      </cue>
+    </cue>
+  </cueList>
   <rewardCondition>
-    <type>count</type>
-    <actor>balloon</actor>
-    <quantity>0</quantity>
-    <act>rewardAndExit</act>
+    <item>
+      <actor>balloon</actor>
+      <actorMultiplicityType>plural</actorMultiplicityType>
+      <state>popped</state>
+    </item>
+    <cue>rewardAndExit</cue>
   </rewardCondition>
   <support>
     <suggestCommand>

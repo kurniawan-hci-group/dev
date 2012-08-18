@@ -11,7 +11,8 @@
 @implementation GameCommand
 
 @synthesize activatingText = _activatingText;
-@synthesize responseActionCall = _responseActionCall;
+@synthesize correctThreshold = _correctThreshold;
+@synthesize responseCue = _responseCue;
 @synthesize supportSoundFile = _supportSoundFile;
 
 @end

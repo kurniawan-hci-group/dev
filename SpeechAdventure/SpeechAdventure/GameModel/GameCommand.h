@@ -13,7 +13,8 @@
 @interface GameCommand : NSObject
 
 @property (nonatomic,copy) NSString *activatingText;
-@property (nonatomic,strong) GameCue *responseActionCall;
+@property (nonatomic,assign) int correctThreshold;
+@property (nonatomic,strong) GameCue *responseCue;
 @property (nonatomic,copy) NSString *supportSoundFile;
 
 @end

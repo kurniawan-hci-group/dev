@@ -17,7 +17,6 @@
 @synthesize layersDictionary = _layersDictionary;
 @synthesize actorsDictionary = _actorsDictionary;
 @synthesize actorCountsDictionary = _actorCountsDictionary;
-@synthesize narrationDictionary = _narrationDictionary;
 @synthesize OEModelKeyword = _OEModelKeyword;
 
 - (id) init {
@@ -27,7 +26,6 @@
         self.layersDictionary = [[NSMutableDictionary alloc] init];
         self.actorsDictionary = [[NSMutableDictionary alloc] init];
         self.actorCountsDictionary = [[NSMutableDictionary alloc] init];
-        self.narrationDictionary = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
