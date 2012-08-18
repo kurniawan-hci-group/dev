@@ -18,6 +18,7 @@
 @synthesize actorsDictionary = _actorsDictionary;
 @synthesize actorCountsDictionary = _actorCountsDictionary;
 @synthesize OEModelKeyword = _OEModelKeyword;
+@synthesize commandsDictionary = _commandsDictionary;
 @synthesize introCueKey = _introCueKey;
 
 - (id) init {
@@ -27,7 +28,12 @@
         self.layersDictionary = [[NSMutableDictionary alloc] init];
         self.actorsDictionary = [[NSMutableDictionary alloc] init];
         self.actorCountsDictionary = [[NSMutableDictionary alloc] init];
+        self.commandsDictionary = [[NSMutableDictionary alloc] init];
     }
+    
+    //register for OE events
+    [[OEManager sharedManager] registerDelegate:self];
+    
     return self;
 }
 
@@ -116,6 +122,20 @@
 
 
 - (void)receiveOEEvent:(OEEvent*) speechEvent{
+    GameCommand *potentialCommand = [self.commandsDictionary objectForKey:speechEvent.text];
+    
+    if (potentialCommand != nil) {
+        //Tell the command to run itself
+        
+        //Should also put support system stuff in here
+    }
+    
+    /*//Test to ensure actions are functioning properly -- NOT CODE FOR SHIPPING
+    if ([speechEvent.text isEqualToString:@"POP A BALLOON"]) {
+        GameActor *actor = [self getActorByName:@"balloon0"];
+        GameAction *action = [actor getActionWithName:@"pop"];
+        [actor runAction:action];
+    }*/
     
 }
 

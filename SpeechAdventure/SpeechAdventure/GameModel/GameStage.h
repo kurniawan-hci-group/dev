@@ -20,6 +20,7 @@
 #import "OEEvent.h"
 
 #import "GameActor.h"
+#import "GameCommand.h"
 
 
 @interface GameStage : CCLayerColor<OEDelegate>
@@ -28,6 +29,7 @@
 @property (nonatomic,strong) NSMutableDictionary *actorsDictionary;
 @property (nonatomic,strong) NSMutableDictionary *actorCountsDictionary;
 @property (nonatomic,copy) NSString *OEModelKeyword;
+@property (nonatomic,strong) NSMutableDictionary *commandsDictionary;
 @property (nonatomic,copy) NSString *introCueKey;
 
 - (id) init;
