@@ -18,6 +18,7 @@
 @synthesize actorsDictionary = _actorsDictionary;
 @synthesize actorCountsDictionary = _actorCountsDictionary;
 @synthesize OEModelKeyword = _OEModelKeyword;
+@synthesize introCueKey = _introCueKey;
 
 - (id) init {
     if (self=[super initWithColor:ccc4(255,255,255,255) width:480 height:320])

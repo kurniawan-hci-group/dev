@@ -28,6 +28,7 @@
 @property (nonatomic,strong) NSMutableDictionary *actorsDictionary;
 @property (nonatomic,strong) NSMutableDictionary *actorCountsDictionary;
 @property (nonatomic,copy) NSString *OEModelKeyword;
+@property (nonatomic,copy) NSString *introCueKey;
 
 - (id) init;
 

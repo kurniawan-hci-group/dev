@@ -277,16 +277,14 @@
                     }
                 }
                 
-                
-                
             } else {
                 NSLog(@"ERROR: Invalid imageSourceType %@ in StageLoader", myActor.imageSourceType);
             }
-            
-            
-            //myActor.location = [StageLoader pointForText:[myLocationStrings objectAtIndex:0]];
-            //only set stillFrame if the actor(s) has a sprite sheet
         }
+        
+        GDataXMLElement *initializer = [StageLoader singularXMLElementFrom:doc.rootElement inTag:@"initializer"];
+        newStage.introCueKey = [StageLoader singularXMLElementValueFrom:initializer inTag:@"cue"];
+        
         
         //OPEN EARS & COMMANDS******************************************************
         GDataXMLElement *voiceToTextNode = [StageLoader singularXMLElementFrom:doc.rootElement inTag:@"voiceToText"];
