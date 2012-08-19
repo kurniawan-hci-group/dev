@@ -23,6 +23,7 @@
 
 //Properties for a single
 @property (nonatomic,strong) NSMutableDictionary *actorsDictionary;
+@property (nonatomic,strong) NSMutableDictionary *actorCountsDictionary;
 @property (nonatomic,copy) NSString *actorName;
 @property (nonatomic,copy) NSString *actorMultiplicityType; //Determines how this call deals with plural actors. Value is either single, pluralAllAtOnce, or pluralOneAtATime
 @property (nonatomic,copy) NSString *actionName;

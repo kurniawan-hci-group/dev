@@ -17,6 +17,7 @@
 
 //Properties for a single
 @synthesize actorsDictionary = _actorsDictionary;
+@synthesize actorCountsDictionary = _actorCountsDictionary;
 @synthesize actorName = _actorName;
 @synthesize actorMultiplicityType = _actorMultiplicityType; //Either single, pluralAllAtOnce, or pluralOneAtATime
 @synthesize actionName = _actionName;

@@ -120,7 +120,7 @@
         <actorMultiplicityType>pluralOneAtATime</actorMultiplicityType>
         <action>pop</action>
       </cue>
-      <supportFile>Support-PopABalloon.wav</supportFile>
+      <supportSoundFile>Support-PopABalloon.wav</supportSoundFile>
     </command>
   </voiceToText>
   <initializer>

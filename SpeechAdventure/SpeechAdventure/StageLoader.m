@@ -303,7 +303,16 @@
         newStage.OEModelKeyword = OEModelKeyword;
         
         //Process commands specifically--------
-        
+        NSArray *XMLCommandsArray = [voiceToTextNode elementsForName:@"command"];
+        for (GDataXMLElement *XMLCommand in XMLCommandsArray) {
+            GameCommand *newCommand = [[GameCommand alloc] init];
+            
+            newCommand.activatingText = [StageLoader singularXMLElementValueFrom:XMLCommand inTag:@"activatingText"];
+            newCommand.correctThreshold = [StageLoader singularXMLElementValueFrom:XMLCommand inTag:@"correctThreshold"].intValue;
+            GDataXMLElement *responseCue = [StageLoader singularXMLElementFrom:XMLCommand inTag:@"cue"];
+            newCommand.responseCue = [StageLoader loadCueWithXMLData:responseCue withStage:newStage];
+            newCommand.supportSoundFile = [StageLoader singularXMLElementValueFrom:XMLCommand inTag:@"supportSoundFile"];
+        }
         
         //***The stage should learn to switch to its model independently of the StageLoader,
         //but we'll keep the model change here for now since the StageLoader is the only way
@@ -329,6 +338,7 @@
         //load single cues
         
         newCue.actorsDictionary = theStage.actorsDictionary;
+        newCue.actorCountsDictionary = theStage.actorCountsDictionary;
         newCue.actorName = [StageLoader singularXMLElementValueFrom:XMLGameCue inTag:@"actor"];
         newCue.actorMultiplicityType = [StageLoader singularXMLElementValueFrom:XMLGameCue inTag:@"actorMultiplicityType"];
         newCue.actionName = [StageLoader singularXMLElementValueFrom:XMLGameCue inTag:@"action"];
