@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><stage>
+  <name>PopABalloon</name>
   <scenery>
     <layer>
       <name>baseStageLayer</name>
@@ -222,4 +223,5 @@
       <command>popBalloon</command>
     </autoComplete>
   </support>
+  <transitionStage>PopABalloon</transitionStage>
 </stage>

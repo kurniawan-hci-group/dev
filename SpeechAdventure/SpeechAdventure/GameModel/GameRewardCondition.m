@@ -8,41 +8,34 @@
 
 #import "GameRewardCondition.h"
 
+@interface GameRewardCondition()
+
+//Methods copied from GameStage for plural actors; maybe should move these to GameActor
+- (NSMutableArray*) getNamesForPluralActorPrefix:(NSString*)actorNamePrefix;
+- (NSMutableArray*) getObjectsForPluralActorPrefix:(NSString*)actorNamePrefix;
+- (GameActor*) getActorByName:(NSString *) actorName;
+
+
+@end
+
 @implementation GameRewardCondition
 
-@synthesize actorStateDictionary = _actorStateDictionary;
-@synthesize parentStage = _parentStage;
+@synthesize conditionItemsArray = _conditionItemsArray;
 
 - (id) init {
     if (self=[super init]) {
-        self.actorStateDictionary = [[NSMutableDictionary alloc] init];
+        self.conditionItemsArray = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
-- (id) initWithStage:(GameStage*) parentStage {
-    if (self=[self init]) {
-        self.parentStage = parentStage;
-    }
-    return self;
-}
-
-- (void) addRequiredState:(NSString*)state forActorName:(NSString*)actorName {
-    [self.actorStateDictionary setObject:state forKey:actorName];
-}
-
-- (BOOL) isConditionSatisfiedWithStage:(GameStage*)myGameStage {
-    //For now, this only checks whether the required actor states match the current ones
-    for (NSString *actorName in self.actorStateDictionary) {
-        NSString *currentActorState = [myGameStage getActorByName:actorName].state;
-        NSString *requiredState = [self.actorStateDictionary objectForKey:actorName];
-        
-        if (![requiredState isEqualToString:currentActorState]) {
-            return NO;
-        }
-    }
+- (void) addRequiredState:(NSString*)state forActorName:(NSString*)actorName actorIsPlural:(BOOL)actorIsPlural {
+    GameRewardConditionItem *newItem = [[GameRewardConditionItem alloc] init];
+    newItem.requiredState = state;
+    newItem.actorName = actorName;
+    newItem.actorIsPlural = actorIsPlural;
     
-    return YES;
+    [self.conditionItemsArray addObject:newItem];
 }
 
 @end

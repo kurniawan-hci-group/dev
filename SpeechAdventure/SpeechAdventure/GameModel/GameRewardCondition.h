@@ -8,17 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-#import "GameStage.h"
+#import "GameRewardConditionItem.h"
 
 @interface GameRewardCondition : NSObject
 
-@property (nonatomic,strong) NSMutableDictionary *actorStateDictionary;
-@property (nonatomic,strong) GameStage *parentStage;
+@property (nonatomic,strong) NSMutableArray *conditionItemsArray;
 
 //Considering modifying this to better support plural state requirements
 
-- (id) initWithStage:(GameStage*)parentStage;
-- (void) addRequiredState:(NSString*)state forActorName:(NSString*)actorName;
-- (BOOL) isConditionSatisfiedWithStage:(GameStage*)myGameStage;
+- (id) init;
+- (void) addRequiredState:(NSString*)state forActorName:(NSString*)actorName actorIsPlural:(BOOL) actorIsPlural;
 
 @end

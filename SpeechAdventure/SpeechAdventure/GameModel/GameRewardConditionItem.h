@@ -10,4 +10,8 @@
 
 @interface GameRewardConditionItem : NSObject
 
+@property (nonatomic,copy) NSString *actorName;
+@property (nonatomic,assign) BOOL actorIsPlural;
+@property (nonatomic,copy) NSString *requiredState;
+
 @end

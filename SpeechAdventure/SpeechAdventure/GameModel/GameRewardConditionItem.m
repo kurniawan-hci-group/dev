@@ -10,4 +10,8 @@
 
 @implementation GameRewardConditionItem
 
+@synthesize actorName = _actorName;
+@synthesize actorIsPlural = _actorIsPlural;
+@synthesize requiredState = _requiredState;
+
 @end
