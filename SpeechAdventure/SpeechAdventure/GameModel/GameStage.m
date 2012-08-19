@@ -37,6 +37,9 @@
     return self;
 }
 
+///////////////////////////////////////////////////////////////////////////////
+//Actor dictionary manipulation
+
 - (void) addActor:(GameActor*)newActor withName:(NSString *)actorName {
     //Add the actor itself to the dictionary & its image to the activity layer
     
@@ -68,6 +71,21 @@
 
 - (GameActor*) getActorByName:(NSString *) actorName {
     return (GameActor*)[self.actorsDictionary objectForKey:actorName];
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//Command dictionary stuff
+
+- (void) addCommand:(GameCommand*)newCommand withActivatingText:(NSString *)activatingText {
+    [self.commandsDictionary setObject:newCommand forKey:activatingText];
+}
+
+- (void) removeCommandWithActivatingText:(NSString *) activatingText {
+    [self.commandsDictionary removeObjectForKey:activatingText];
+}
+
+- (GameCommand *) getGameCommandWithActivatingText:(NSString *) activatingText {
+    return [self.commandsDictionary objectForKey:activatingText];
 }
 
 ///////////////////////////////////////////////////////////////////////////////

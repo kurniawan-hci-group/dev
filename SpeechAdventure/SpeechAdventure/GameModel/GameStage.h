@@ -34,10 +34,17 @@
 
 - (id) init;
 
-//Actor manipulation
+///////////////////////////////////////////////////////////////////////////////
+//Actor dictionary manipulation
 - (void) addActor:(GameActor*)newActor withName:(NSString *)actorName;
 - (void) removeActorWithName:(NSString *)actorName;
 - (GameActor*) getActorByName:(NSString *)actorName;
+
+///////////////////////////////////////////////////////////////////////////////
+//Command dictionary stuff
+- (void) addCommand:(GameCommand*)newCommand withActivatingText:(NSString *)activatingText;
+- (void) removeCommandWithActivatingText:(NSString *) activatingText;
+- (GameCommand *) getGameCommandWithActivatingText:(NSString *) activatingText;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Plural Actor Stuff
