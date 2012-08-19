@@ -8,16 +8,6 @@
 
 #import "GameRewardCondition.h"
 
-@interface GameRewardCondition()
-
-//Methods copied from GameStage for plural actors; maybe should move these to GameActor
-- (NSMutableArray*) getNamesForPluralActorPrefix:(NSString*)actorNamePrefix;
-- (NSMutableArray*) getObjectsForPluralActorPrefix:(NSString*)actorNamePrefix;
-- (GameActor*) getActorByName:(NSString *) actorName;
-
-
-@end
-
 @implementation GameRewardCondition
 
 @synthesize conditionItemsArray = _conditionItemsArray;
