@@ -312,6 +312,8 @@
             GDataXMLElement *responseCue = [StageLoader singularXMLElementFrom:XMLCommand inTag:@"cue"];
             newCommand.responseCue = [StageLoader loadCueWithXMLData:responseCue withStage:newStage];
             newCommand.supportSoundFile = [StageLoader singularXMLElementValueFrom:XMLCommand inTag:@"supportSoundFile"];
+            
+            [newStage.commandsDictionary setObject:newCommand forKey:newCommand.activatingText];
         }
         
         //CUES BY NAME******************************************************
