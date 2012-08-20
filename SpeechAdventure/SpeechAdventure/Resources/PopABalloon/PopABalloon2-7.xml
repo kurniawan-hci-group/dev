@@ -113,28 +113,12 @@
       <name>popBalloon</name>
       <activatingText>POP A BALLOON</activatingText>
       <correctThreshold>-500</correctThreshold>
-      <!--<cue>
+      <cue>
         <cueCollectionType>single</cueCollectionType>
         <actor>balloon</actor>
         <actorMultiplicityType>pluralOneAtATime</actorMultiplicityType>
         <action>pop</action>
-      </cue>-->
-        <cue>
-            <name>moveSam</name>
-            <cueCollectionType>single</cueCollectionType>
-            <actor>Sam</actor>
-            <actorMultiplicityType>single</actorMultiplicityType>
-            <!--<action>walkRight</action>
-            <duration>3</duration>
-            <move>
-                <type>bezier</type>
-                <destinationType>absolute</destinationType>
-                <controlPoint>(77,30)</controlPoint>
-                <controlPoint>(146,78)</controlPoint>
-                <endPosition>(202,115)</endPosition>
-            </move>-->
-            <endStillFrame>sad</endStillFrame>
-        </cue>
+      </cue>
       <supportSoundFile>Support-PopABalloon.wav</supportSoundFile>
     </command>
   </voiceToText>
