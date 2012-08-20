@@ -23,7 +23,7 @@
 @property (nonatomic,copy) NSString *soundFile;
 
 - (id) getCCActionRepeatForever;
-- (id) getCCActionWithDuration:(int)duration;
+- (id) getCCActionWithDuration:(double)duration;
 
 + (id) callBlockActionForSoundFile:(NSString *) mySoundFile;
 

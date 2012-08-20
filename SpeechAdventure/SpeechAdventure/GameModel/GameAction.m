@@ -49,7 +49,7 @@
     return returnAction;
 }
 
-- (id) getCCActionWithDuration:(int)duration {
+- (id) getCCActionWithDuration:(double)duration {
     id returnAction;
     id actionWithoutSound;
     id soundAction;
