@@ -90,8 +90,8 @@
 }
 
 //Running Actions
-- (void) runAction:(GameAction *)myAction {
-    [self.actualSprite runAction:[myAction getCCAction]];
+- (void) runAction:(GameAction *)myAction withDuration:(double)duration {
+    [self.actualSprite runAction:[myAction getCCActionWithDuration:duration]];
 }
 
 ///////////////////////////////////////////////////////////////////////////////

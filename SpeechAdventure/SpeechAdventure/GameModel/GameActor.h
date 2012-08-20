@@ -35,7 +35,7 @@
 - (void) removeActionWithName:(NSString *)actionName;
 
 //Running Actions
-- (void) runAction:(GameAction *)myAction;
+- (void) runAction:(GameAction *)myAction withDuration:(double)duration;
 
 ///////////////////////////////////////////////////////////////////////////////
 // SingleFrame Image Source Stuff
