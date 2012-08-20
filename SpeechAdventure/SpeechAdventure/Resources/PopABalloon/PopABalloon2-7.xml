@@ -104,8 +104,7 @@
     </actor>
   </actorList>
   <voiceToText>
-<!--WATCH OUT HERE!!! Xcode HATES the "lm" extention that comes default on OE language models-->
-    <model>
+<!--WATCH OUT HERE!!! Xcode HATES the "lm" extention that comes default on OE language models-->    <model>
       <keyword>popABalloon</keyword>
       <dictionaryFile>PopABalloonOEModel.dic</dictionaryFile>
       <languageModelFile>PopABalloonOEModel.languagemodel</languageModelFile>
@@ -130,11 +129,9 @@
         <location>(150,150)</location>
 <!--Multiple locations don't yet work for spriteSheet actors
       <location>(300,300)</location>--><!--Changed location for diagnostic reasons
-      <location>(-75,-75)</location>-->
-        <stillFrame>normal</stillFrame>
+      <location>(-75,-75)</location>-->        <stillFrame>normal</stillFrame>
       </instance>
-<!--Instance syntax is strictly for spriteSheet actors-->
-    </item>
+<!--Instance syntax is strictly for spriteSheet actors-->    </item>
     <item>
       <actor>balloon</actor>
       <location>(240,170)</location>
@@ -206,7 +203,7 @@
   <rewardCondition>
     <item>
       <actor>balloon</actor>
-      <actorMultiplicityType>plural</actorMultiplicityType>
+      <actorIsPlural>YES</actorIsPlural>
       <state>popped</state>
     </item>
     <cue>rewardAndExit</cue>

@@ -21,6 +21,7 @@
 @synthesize commandsDictionary = _commandsDictionary;
 @synthesize introCueKey = _introCueKey;
 @synthesize cuesDictionary = _cuesDictionary;
+@synthesize rewardCondition = _rewardCondition;
 
 - (id) init {
     if (self=[super initWithColor:ccc4(255,255,255,255) width:480 height:320])
@@ -31,6 +32,7 @@
         self.actorCountsDictionary = [[NSMutableDictionary alloc] init];
         self.commandsDictionary = [[NSMutableDictionary alloc] init];
         self.cuesDictionary = [[NSMutableDictionary alloc] init];
+        self.rewardCondition = [[GameRewardCondition alloc] init];
     }
     
     //register for OE events

@@ -26,6 +26,8 @@
 #import "GameModel/GameCue.h"
 #import "GameModel/GameMove.h"
 #import "GameModel/GameCommand.h"
+#import "GameModel/GameRewardCondition.h"
+#import "GameModel/GameRewardConditionItem.h"
 
 @interface StageLoader : NSObject
 

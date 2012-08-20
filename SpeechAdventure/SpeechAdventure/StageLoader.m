@@ -322,7 +322,16 @@
         }
         
         //REWARD CONDITION**************************************************
-        
+        GDataXMLElement *rewardConditionNode = [StageLoader singularXMLElementFrom:doc.rootElement inTag:@"rewardCondition"];
+        newStage.rewardCondition = [[GameRewardCondition alloc] init];
+        NSArray *XMLItemsArray = [rewardConditionNode elementsForName:@"item"];
+        for (GDataXMLElement *XMLItem in XMLItemsArray) {
+            NSString *state = [StageLoader singularXMLElementValueFrom:XMLItem inTag:@"state"];
+            NSString *actorName = [StageLoader singularXMLElementValueFrom:XMLItem inTag:@"actor"];
+            BOOL actorIsPlural = [StageLoader singularXMLElementValueFrom:XMLItem inTag:@"actorIsPlural"].boolValue;
+            [newStage.rewardCondition addRequiredState:state forActorName:actorName actorIsPlural:actorIsPlural];
+        }
+        newStage.rewardCondition.rewardCue = [StageLoader singularXMLElementValueFrom:rewardConditionNode inTag:@"cue"];
 
         //ACTUAL STARTUP****************************************************
         

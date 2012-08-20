@@ -13,6 +13,7 @@
 @interface GameRewardCondition : NSObject
 
 @property (nonatomic,strong) NSMutableArray *conditionItemsArray;
+@property (nonatomic,copy) NSString *rewardCue;
 
 //Considering modifying this to better support plural state requirements
 

@@ -11,6 +11,7 @@
 @implementation GameRewardCondition
 
 @synthesize conditionItemsArray = _conditionItemsArray;
+@synthesize rewardCue = _rewardCue;
 
 - (id) init {
     if (self=[super init]) {

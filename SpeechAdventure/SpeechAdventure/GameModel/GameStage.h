@@ -21,6 +21,8 @@
 
 #import "GameActor.h"
 #import "GameCommand.h"
+#import "GameRewardCondition.h"
+#import "GameRewardConditionItem.h"
 
 
 @interface GameStage : CCLayerColor<OEDelegate>
@@ -32,6 +34,7 @@
 @property (nonatomic,strong) NSMutableDictionary *commandsDictionary;
 @property (nonatomic,copy) NSString *introCueKey;
 @property (nonatomic,strong) NSMutableDictionary *cuesDictionary;
+@property (nonatomic,strong) GameRewardCondition *rewardCondition;
 
 - (id) init;
 
