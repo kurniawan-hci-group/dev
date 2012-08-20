@@ -50,6 +50,7 @@
     return  self;
 }
 
+//****This implementation only supports ONE level of NESTING****
 - (void) runCue {
     //Simply run the cue
     
@@ -57,33 +58,47 @@
     //The inner if handles plural vs. singular actors
     if ([self.cueCollectionType isEqualToString:@"single"]) {
         //get the target, but only set it if it's state is not already in effect
-        self.actorNameExtended = @"";
-        if ([self.actorMultiplicityType isEqualToString:@"single"]) {
-            if (![self actorStateIsAlreadyInPlaceForActorWithExtendedName:self.actorName]){
-                self.actorNameExtended = self.actorName;
-            }
-        } else if ([self.actorMultiplicityType isEqualToString:@"pluralOneAtATime"]) {
-            NSMutableArray *possibleActorExtendedNames = [self getNamesForPluralActorPrefix:self.actorName];
-            for (NSString *possibleName in possibleActorExtendedNames) {
-                if (![self actorStateIsAlreadyInPlaceForActorWithExtendedName:possibleName]) {
-                    self.actorNameExtended = possibleName;
-                    break;
-                }
-            }
-        } else {
-            NSLog(@"ERROR: Invalid actorMultiplicityType %@ in GameCue-runCue", self.actorMultiplicityType);
-        }
+        [GameCue setupCue:self];
         
-        if (![self.actorNameExtended isEqualToString:@""]){
-            [self setActualActorAndActionWithExtendedActorName:self.actorNameExtended];
+        BOOL soundIsPresent = ![self.soundFile isEqualToString:@""] && !(self.soundFile == nil);
+        
+        if (![self.actorNameExtended isEqualToString:@""] || soundIsPresent){
             [self.actualActor.actualSprite runAction:[self getCCAction]];
         }
         
         //check its state and only run the cue if there is an actor who has not yet had that state put on it
-    } else if ([self.cueCollectionType isEqualToString:@"sequence"]) {
-        //Assemble MULTI-ACTOR action sequence
-    } else if ([self.cueCollectionType isEqualToString:@"spawn"]) {
-        //Assemble MULTI-ACTOR action spawn
+    } else if ([self.cueCollectionType isEqualToString:@"spawn"] || [self.cueCollectionType isEqualToString:@"sequence"]) {
+        //Assemble MULTI-ACTOR action spawn or sequence
+        id actionToRun;
+        NSMutableArray *myActorActionCueCalls = [[NSMutableArray alloc] init];
+        for (GameCue *myCue in self.containedCues) {
+            [GameCue setupCue:myCue];
+            NSLog(@"Loading cue %@", myCue.name);
+            BOOL soundIsPresent = ![myCue.soundFile isEqualToString:@""] && !(myCue.soundFile == nil);
+            //only add cues that aren't blocked by state conditions
+            if (![myCue.actorNameExtended isEqualToString:@""] || soundIsPresent) {
+                id call = [GameCue callBlockFullActorActionForCue:myCue];
+                [myActorActionCueCalls addObject:call];
+            }
+        }
+        if (myActorActionCueCalls.count > 1) {
+            if ([self.cueCollectionType isEqualToString:@"sequence"]) {
+                actionToRun = [GameCue getActionSequence:myActorActionCueCalls];
+            } else if ([self.cueCollectionType isEqualToString:@"spawn"]) {
+                actionToRun = [GameCue getActionSpawn:myActorActionCueCalls];
+            } else {
+                NSLog(@"ERROR: Invalid cueCollectionType %@ in GameCue-runCue", self.cueCollectionType);
+            }
+            //need an arbitrary actor to run the action on
+            self.actualActor = ((GameCue*)[self.containedCues objectAtIndex:0]).actualActor;
+            [self.actualActor.actualSprite runAction:actionToRun];
+        } else if (myActorActionCueCalls.count == 1) {
+            actionToRun = [myActorActionCueCalls objectAtIndex:0];
+            self.actualActor = ((GameCue*)[self.containedCues objectAtIndex:0]).actualActor;
+            [self.actualActor.actualSprite runAction:actionToRun];
+        } else {
+            NSLog(@"NOTE: Empty spawn in XML file (reported from GameCue-runCue");
+        }
     } else {
         NSLog(@"ERROR: Invalid cueCollectionType %@ in GameCue-runCue",self.cueCollectionType);
     }
@@ -96,6 +111,7 @@
     //assumes the target actor has been established beforehand and stored in self.actualActor
     id assembledAction;
     
+    NSLog(@"Getting CCAction for GameCue %@", self.name);
     /*GameActor *targetActor = self.actualActor;
     
     assembledAction = [[targetActor getActionWithName:self.actionName] getCCActionWithDuration:self.duration];*/
@@ -126,6 +142,13 @@
     id myMoveCCAction = [self.move getCCActionWithDuration:self.duration withActor:self.actualActor];
     if (!(myMoveCCAction == nil)) {
         [actionsToAdd addObject:myMoveCCAction];
+    }
+    
+    //sound
+    if (![self.soundFile isEqualToString:@""] && !(self.soundFile == nil)) {
+        NSLog(@"Adding sound action call in %@", self.name);
+        id mySoundAction = [GameCue callBlockActionForSoundFile:self.soundFile];
+        [actionsToAdd addObject:mySoundAction];
     }
     
     //assemble component actions
@@ -214,9 +237,15 @@
     }];
 }
 
-+ (id) callBlockActorAction:(GameAction*)action onActor:(GameActor*)actor forDuration:(double)duration {
++ (id) callBlockActorCCAction:(GameAction*)action onActor:(GameActor*)actor forDuration:(double)duration {
     return [CCCallBlock actionWithBlock:^{
         [actor.actualSprite runAction:[action getCCActionWithDuration:duration]];
+    }];
+}
+
++ (id) callBlockFullActorActionForCue:(GameCue*)myCue {
+    return [CCCallBlock actionWithBlock:^{
+        [myCue.actualActor.actualSprite runAction:[myCue getCCAction]];
     }];
 }
 
@@ -288,6 +317,32 @@
     GameActor *myActor = [self getActorByName:actorExtendedName];
     GameAction *myAction = [myActor getActionWithName:self.actionName];
     return [myActor.state isEqualToString:myAction.stateEffect];
+}
+
++ (void) setupCue:(GameCue*)myCue {
+    //get the target, but only set it if it's state is not already in effect
+    myCue.actorNameExtended = @"";
+    if ([myCue.actorMultiplicityType isEqualToString:@"single"]) {
+        if (![myCue actorStateIsAlreadyInPlaceForActorWithExtendedName:myCue.actorName]){
+            myCue.actorNameExtended = myCue.actorName;
+        }
+    } else if ([myCue.actorMultiplicityType isEqualToString:@"pluralOneAtATime"]) {
+        NSMutableArray *possibleActorExtendedNames = [myCue getNamesForPluralActorPrefix:myCue.actorName];
+        for (NSString *possibleName in possibleActorExtendedNames) {
+            if (![myCue actorStateIsAlreadyInPlaceForActorWithExtendedName:possibleName]) {
+                myCue.actorNameExtended = possibleName;
+                break;
+            }
+        }
+    } else if (myCue.actorMultiplicityType == nil) {
+        //there is no actor & the cue is used strictly for sound
+    } else {
+        NSLog(@"ERROR: Invalid actorMultiplicityType %@ in GameCue-setupCue", myCue.actorMultiplicityType);
+    }
+    
+    if (![myCue.actorNameExtended isEqualToString:@""]){
+        [myCue setActualActorAndActionWithExtendedActorName:myCue.actorNameExtended];
+    }
 }
 
 @end

@@ -126,7 +126,7 @@
     <item>
       <actor>Sam</actor>
       <instance>
-        <location>(150,150)</location>
+        <location>(-75,-75)</location>
 <!--Multiple locations don't yet work for spriteSheet actors
       <location>(300,300)</location>--><!--Changed location for diagnostic reasons
       <location>(-75,-75)</location>-->        <stillFrame>normal</stillFrame>
@@ -162,8 +162,10 @@
       </cue>
       <cue>
         <name>playPrompt</name>
+        <actor>Sam</actor>
+        <actorMultiplicityType>single</actorMultiplicityType>
         <cueCollectionType>single</cueCollectionType>
-        <sound>S1Prompt.wav</sound>
+        <soundFile>S1Prompt.wav</soundFile>
       </cue>
     </cue>
     <cue>
@@ -175,7 +177,7 @@
         <actor>Sam</actor>
         <actorMultiplicityType>single</actorMultiplicityType>
         <action>walkRight</action>
-        <sound>S1Reward.wav</sound>
+        <soundFile>S1Reward.wav</soundFile>
         <duration>3</duration>
         <move>
           <type>bezier</type>

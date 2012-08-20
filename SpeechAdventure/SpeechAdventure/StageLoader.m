@@ -336,11 +336,7 @@
         newStage.rewardCondition.rewardCue = [StageLoader singularXMLElementValueFrom:rewardConditionNode inTag:@"cue"];
 
         //ACTUAL STARTUP****************************************************
-        
-        //***The stage should learn to switch to its model independently of the StageLoader,
-        //but we'll keep the model change here for now since the StageLoader is the only way
-        //that I currently expect these stages to be switched to.
-        [[OEManager sharedManager] changeToModelWithKeyword:OEModelKeyword];
+        [newStage startStage];
         /////////////////////////////////////////////////////////////////////////////
         
     }
@@ -373,6 +369,8 @@
             newCue.move = [StageLoader loadMoveWithXMLData:XMLmove];
         }
         newCue.endStillFrame = [StageLoader singularXMLElementValueFrom:XMLGameCue inTag:@"endStillFrame"];
+        newCue.soundFile = [StageLoader singularXMLElementValueFrom:XMLGameCue inTag:@"soundFile"];
+        //NSLog(@"Loaded soundFile: %@ for cue: %@", newCue.soundFile, newCue.name);
     } else if ([newCue.cueCollectionType isEqualToString:@"spawn"] || ([newCue.cueCollectionType isEqualToString:@"sequence"])) {
         //load spawns & sequences -- basically just load all the subCues to this one's NSMutableArray
         NSArray *XMLcues = [XMLGameCue elementsForName:@"cue"];

@@ -63,7 +63,8 @@
 // Call Block stuff
 + (id) callBlockActionForSoundFile:(NSString *) mySoundFile;
 + (id) callBlockSetStillFrameWithKey:(NSString*)key forActor:(GameActor*)actor;
-+ (id) callBlockActorAction:(GameAction*)action onActor:(GameActor*)actor forDuration:(double)duration;
++ (id) callBlockActorCCAction:(GameAction*)action onActor:(GameActor*)actor forDuration:(double)duration;
++ (id) callBlockFullActorActionForCue:(GameCue*)myCue;
 + (id) callBlockSetStateForActor:(GameActor*)actor withAction:(GameAction*)action;
 
 ////////////////////////////////////////////////////////////////////////
@@ -77,5 +78,6 @@
 
 - (void) setActualActorAndActionWithExtendedActorName:(NSString*)extendedActorName;
 - (BOOL) actorStateIsAlreadyInPlaceForActorWithExtendedName:(NSString*)actorExtendedName;
++ (void) setupCue:(GameCue*)myCue;
 
 @end

@@ -42,6 +42,22 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+//Actually starting the stage
+
+- (void) startStage {
+    //***The stage should learn to switch to its model independently of the StageLoader,
+    //but we'll keep the model change here for now since the StageLoader is the only way
+    //that I currently expect these stages to be switched to.
+    [[OEManager sharedManager] changeToModelWithKeyword:self.OEModelKeyword];
+    [self playIntroCue];
+}
+
+- (void) playIntroCue {
+    GameCue *introCue = [self getCueByName:self.introCueKey];
+    [introCue runCue];
+}
+
+///////////////////////////////////////////////////////////////////////////////
 //Cue dictionary stuff
 - (void) addCue:(GameCue*)newCue withName:(NSString*)cueName {
     [self.cuesDictionary setObject:newCue forKey:cueName];
@@ -163,6 +179,7 @@
     if (potentialCommand != nil) {
         //Run its cue
         [potentialCommand.responseCue runCue];
+        [[self getCueByName:self.rewardCondition.rewardCue] runCue];
         //Should also put support system stuff in here
     }
     
@@ -178,5 +195,10 @@
     }*/
     
 }
+
+///////////////////////////////////////////////////////////////////////////////
+// Reward Condition testing
+
+
 
 @end
