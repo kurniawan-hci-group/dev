@@ -25,5 +25,6 @@
 - (id) getCCActionRepeatForever;
 - (id) getCCActionWithDuration:(int)duration;
 
++ (id) callBlockActionForSoundFile:(NSString *) mySoundFile;
 
 @end

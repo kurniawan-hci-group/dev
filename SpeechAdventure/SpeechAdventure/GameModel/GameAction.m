@@ -82,7 +82,7 @@
         [[SimpleAudioEngine sharedEngine] playEffect:mySoundFile];
         }];
 }
-;
+
 
 
 @end
