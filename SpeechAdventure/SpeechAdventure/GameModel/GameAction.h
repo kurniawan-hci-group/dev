@@ -22,7 +22,8 @@
 @property (nonatomic,copy) NSString *stateEffect;
 @property (nonatomic,copy) NSString *soundFile;
 
-- (id) getCCAction;
+- (id) getCCActionRepeatForever;
+- (id) getCCActionWithDuration:(int)duration;
 
 
 @end
