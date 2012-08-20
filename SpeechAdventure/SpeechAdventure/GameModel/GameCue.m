@@ -128,14 +128,25 @@
         [actionsToAdd addObject:myMoveCCAction];
     }
     
-    //endStillFrame
-    if (![self.endStillFrame isEqualToString:@""] && !(self.endStillFrame == nil)) {
-        id setStillFrameCCAction = [GameCue callBlockSetStillFrameWithKey:self.endStillFrame forActor:targetActor];
-        [actionsToAdd addObject:setStillFrameCCAction];
+    //assemble component actions
+    id nonStillFrameActions;
+    if (actionsToAdd.count == 1) {
+        nonStillFrameActions = [actionsToAdd objectAtIndex:0];
+    } else if (actionsToAdd.count > 1) {
+        nonStillFrameActions = [GameCue getActionSpawn:actionsToAdd];
     }
     
-    //assemble the action as a spawn
-    assembledAction = [GameCue getActionSpawn:actionsToAdd];
+    //add endStillFrame as appropriate
+    if (![self.endStillFrame isEqualToString:@""]) {
+        id setStillFrameCCAction = [GameCue callBlockSetStillFrameWithKey:self.endStillFrame forActor:targetActor];
+        if (actionsToAdd.count == 0) {
+            assembledAction = setStillFrameCCAction;
+        } else {
+            assembledAction = [CCSequence actionOne:nonStillFrameActions two:setStillFrameCCAction];
+        }
+    } else {
+        assembledAction = nonStillFrameActions;
+    }
     
     return assembledAction;
 }
@@ -222,9 +233,9 @@
 }
 
 //extra method not yet implemented
-+ (id) callBlockMultiActorSequenceComponent {
+/*+ (id) callBlockActorAction {
     return nil;
-}
+}*/
 
 ////////////////////////////////////////////////////////////////////////
 // Generating action sequences and spawns of dynamic length

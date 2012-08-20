@@ -372,6 +372,7 @@
         if (XMLmove != nil) {
             newCue.move = [StageLoader loadMoveWithXMLData:XMLmove];
         }
+        newCue.endStillFrame = [StageLoader singularXMLElementValueFrom:XMLGameCue inTag:@"endStillFrame"];
     } else if ([newCue.cueCollectionType isEqualToString:@"spawn"] || ([newCue.cueCollectionType isEqualToString:@"sequence"])) {
         //load spawns & sequences -- basically just load all the subCues to this one's NSMutableArray
         NSArray *XMLcues = [XMLGameCue elementsForName:@"cue"];

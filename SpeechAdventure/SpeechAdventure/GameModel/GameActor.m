@@ -145,6 +145,8 @@
         self.currentStillFrameKey = key;
         self.currentStillFrame = frameToSet;
         [self displayStillFrame];
+    } else {
+        NSLog(@"ERROR: invalid still frame value %@", key);
     }
 }
 
