@@ -27,9 +27,11 @@
 @property (nonatomic,strong) NSMutableDictionary *actorsDictionary;
 @property (nonatomic,strong) NSMutableDictionary *actorCountsDictionary;
 @property (nonatomic,copy) NSString *actorName;
+@property (nonatomic,copy) NSString *actorNameExtended;
+@property (nonatomic,strong) GameActor *actualActor;
 @property (nonatomic,copy) NSString *actorMultiplicityType; //Determines how this call deals with plural actors. Value is either single or pluralOneAtATime
 @property (nonatomic,copy) NSString *actionName;
-@property (nonatomic,strong) GameAction *action;
+@property (nonatomic,strong) GameAction *actualAction;
 @property (nonatomic,strong) NSString *endStillFrame;
 
 @property (nonatomic,assign) double duration;
@@ -42,8 +44,7 @@
 
 - (id) init;
 
-- (void) runCue;
-- (id) getCCAction;
+- (void) runCue; //Use this method to actually run the Cue
 
 ///////////////////////////////////////////////////////////////////////////////
 //Actor dictionary manipulation
@@ -55,5 +56,24 @@
 + (NSString *) indexedActorNameForActorName:(NSString*)actorName withIndex:(int)index;
 - (NSMutableArray*) getNamesForPluralActorPrefix:(NSString*)actorNamePrefix;
 - (NSMutableArray*) getObjectsForPluralActorPrefix:(NSString*)actorNamePrefix;
+
+////////////////////////////////////////////////////////////////////////
+// Call Block stuff
++ (id) callBlockActionForSoundFile:(NSString *) mySoundFile;
++ (id) callBlockSetStillFrameWithKey:(NSString*)key forActor:(GameActor*)actor;
++ (id) callBlockActorAction:(GameAction*)action onActor:(GameActor*)actor forDuration:(double)duration;
++ (id) callBlockSetStateForActor:(GameActor*)actor withAction:(GameAction*)action;
+
+////////////////////////////////////////////////////////////////////////
+// Generating action sequences and spawns of dynamic length
+
++(CCFiniteTimeAction *) getActionSequence: (NSArray *) actions;
++(CCFiniteTimeAction *) getActionSpawn: (NSArray *) actions;
+
+////////////////////////////////////////////////////////////////////////
+// General Convenience Methods
+
+- (void) setActualActorAndActionWithExtendedActorName:(NSString*)extendedActorName;
+- (BOOL) actorStateIsAlreadyInPlaceForActorWithExtendedName:(NSString*)actorExtendedName;
 
 @end
