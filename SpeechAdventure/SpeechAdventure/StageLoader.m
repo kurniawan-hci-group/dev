@@ -370,7 +370,7 @@
         
         GDataXMLElement *XMLmove = [StageLoader singularXMLElementFrom:XMLGameCue inTag:@"move"];
         if (XMLmove != nil) {
-            newCue.move = [StageLoader loadMoveWithXMLData:XMLmove withStage:(GameStage*)theStage];
+            newCue.move = [StageLoader loadMoveWithXMLData:XMLmove];
         }
         newCue.endStillFrame = [StageLoader singularXMLElementValueFrom:XMLGameCue inTag:@"endStillFrame"];
     } else if ([newCue.cueCollectionType isEqualToString:@"spawn"] || ([newCue.cueCollectionType isEqualToString:@"sequence"])) {
