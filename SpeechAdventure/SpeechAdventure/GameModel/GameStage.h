@@ -31,8 +31,16 @@
 @property (nonatomic,copy) NSString *OEModelKeyword;
 @property (nonatomic,strong) NSMutableDictionary *commandsDictionary;
 @property (nonatomic,copy) NSString *introCueKey;
+@property (nonatomic,strong) NSMutableDictionary *cuesDictionary;
 
 - (id) init;
+
+///////////////////////////////////////////////////////////////////////////////
+//Cue dictionary stuff
+- (void) addCue:(GameCue*)newCue withName:(NSString*)cueName;
+- (void) removeCueWithName:(NSString*)cueName;
+- (GameCue*) getCueByName:(NSString*)cueName;
+
 
 ///////////////////////////////////////////////////////////////////////////////
 //Actor dictionary manipulation

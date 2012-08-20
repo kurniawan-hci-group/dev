@@ -18,6 +18,8 @@
 
 @interface GameCue : NSObject
 
+@property (nonatomic,copy) NSString *name;
+
 //The different types: sequence, spawn, single
 @property (nonatomic,copy) NSString *cueCollectionType; 
 

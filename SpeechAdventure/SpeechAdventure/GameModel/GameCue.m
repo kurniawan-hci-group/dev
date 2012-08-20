@@ -10,6 +10,8 @@
 
 @implementation GameCue
 
+@synthesize name = _name;
+
 //The different types: sequence, spawn, single
 @synthesize cueCollectionType = _cueCollectionType;
 

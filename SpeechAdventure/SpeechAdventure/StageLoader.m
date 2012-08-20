@@ -314,6 +314,18 @@
             newCommand.supportSoundFile = [StageLoader singularXMLElementValueFrom:XMLCommand inTag:@"supportSoundFile"];
         }
         
+        //CUES BY NAME******************************************************
+        NSArray *XMLCuesArray = [StageLoader bypassSingularXMLTag:@"cueList" toGroupTag:@"cue" inNode:doc.rootElement];
+        for (GDataXMLElement *XMLCue in XMLCuesArray) {
+            GameCue *newCue = [StageLoader loadCueWithXMLData:XMLCue withStage:newStage];
+            [newStage addCue:newCue withName:newCue.name];
+        }
+        
+        //REWARD CONDITION**************************************************
+        
+
+        //ACTUAL STARTUP****************************************************
+        
         //***The stage should learn to switch to its model independently of the StageLoader,
         //but we'll keep the model change here for now since the StageLoader is the only way
         //that I currently expect these stages to be switched to.
@@ -332,6 +344,7 @@
     //Recursively process game cues
     GameCue *newCue = [[GameCue alloc] init];
     
+    newCue.name = [StageLoader singularXMLElementValueFrom:XMLGameCue inTag:@"name"];
     //process singles, spawns, & sequences differently
     newCue.cueCollectionType = [StageLoader singularXMLElementValueFrom:XMLGameCue inTag:@"cueCollectionType"];
     if ([newCue.cueCollectionType isEqualToString:@"single"]) {
@@ -366,7 +379,6 @@
     
     newMove.moveType = [StageLoader singularXMLElementValueFrom:XMLMove inTag:@"type"];
     
-    //FOR NOW, ALL DESTINATION TYPES WILL BE ABSOLUTE
     newMove.destinationType = [StageLoader singularXMLElementValueFrom:XMLMove inTag:@"destinationType"];
     
     if ([newMove.moveType isEqualToString:@"bezier"]) {

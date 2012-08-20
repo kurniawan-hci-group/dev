@@ -20,6 +20,7 @@
 @synthesize OEModelKeyword = _OEModelKeyword;
 @synthesize commandsDictionary = _commandsDictionary;
 @synthesize introCueKey = _introCueKey;
+@synthesize cuesDictionary = _cuesDictionary;
 
 - (id) init {
     if (self=[super initWithColor:ccc4(255,255,255,255) width:480 height:320])
@@ -29,12 +30,27 @@
         self.actorsDictionary = [[NSMutableDictionary alloc] init];
         self.actorCountsDictionary = [[NSMutableDictionary alloc] init];
         self.commandsDictionary = [[NSMutableDictionary alloc] init];
+        self.cuesDictionary = [[NSMutableDictionary alloc] init];
     }
     
     //register for OE events
     [[OEManager sharedManager] registerDelegate:self];
     
     return self;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//Cue dictionary stuff
+- (void) addCue:(GameCue*)newCue withName:(NSString*)cueName {
+    [self.cuesDictionary setObject:newCue forKey:cueName];
+}
+
+- (void) removeCueWithName:(NSString*)cueName {
+    [self.cuesDictionary removeObjectForKey:cueName];
+}
+
+- (GameCue*) getCueByName:(NSString*)cueName {
+    return [self.cuesDictionary objectForKey:cueName];
 }
 
 ///////////////////////////////////////////////////////////////////////////////
