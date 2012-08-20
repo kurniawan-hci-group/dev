@@ -166,6 +166,10 @@
         //Should also put support system stuff in here
     }
     
+    /*//Test to directly ensure cues are working
+     GameCommand *popABalloon = [self.commandsDictionary objectForKey:@"POP A BALLOON"];
+    [popABalloon.responseCue runCue];*/
+    
     /*//Test to ensure actions are functioning properly -- NOT CODE FOR SHIPPING
     if ([speechEvent.text isEqualToString:@"POP A BALLOON"]) {
         GameActor *actor = [self getActorByName:@"balloon0"];
