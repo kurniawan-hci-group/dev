@@ -161,8 +161,8 @@
     GameCommand *potentialCommand = [self.commandsDictionary objectForKey:speechEvent.text];
     
     if (potentialCommand != nil) {
-        //Tell the command to run itself
-        
+        //Run its cue
+        [potentialCommand.responseCue runCue];
         //Should also put support system stuff in here
     }
     
