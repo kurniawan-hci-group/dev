@@ -156,6 +156,7 @@
         <duration>3</duration>
         <move>
           <type>bezier</type>
+          <destinationType>absolute</destinationType>
           <controlPoint>(77,30)</controlPoint>
           <controlPoint>(146,78)</controlPoint>
           <endPosition>(202,115)</endPosition>
@@ -181,6 +182,7 @@
         <duration>3</duration>
         <move>
           <type>bezier</type>
+          <destinationType>absolute</destinationType>
           <controlPoint1>(227,161)</controlPoint1>
           <controlPoint2>(280,214)</controlPoint2>
           <endPosition>(327,244)</endPosition>
@@ -195,6 +197,7 @@
         <duration>3</duration>
         <move>
           <type>straight</type>
+          <destinationType>absolute</destinationType>
           <endPosition>(327,244)</endPosition>
         </move>
       </cue>

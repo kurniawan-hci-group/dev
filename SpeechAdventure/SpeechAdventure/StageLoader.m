@@ -367,7 +367,7 @@
     newMove.moveType = [StageLoader singularXMLElementValueFrom:XMLMove inTag:@"type"];
     
     //FOR NOW, ALL DESTINATION TYPES WILL BE ABSOLUTE
-    newMove.destinationType = @"absolute";
+    newMove.destinationType = [StageLoader singularXMLElementValueFrom:XMLMove inTag:@"destinationType"];
     
     if ([newMove.moveType isEqualToString:@"bezier"]) {
         NSString *controlPoint1String = [StageLoader singularXMLElementValueFrom:XMLMove inTag:@"controlPoint1"];
