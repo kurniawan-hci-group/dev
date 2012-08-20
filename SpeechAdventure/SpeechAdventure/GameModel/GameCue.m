@@ -137,7 +137,7 @@
     }
     
     //add endStillFrame as appropriate
-    if (![self.endStillFrame isEqualToString:@""]) {
+    if (![self.endStillFrame isEqualToString:@""] && !(self.endStillFrame == nil)) {
         id setStillFrameCCAction = [GameCue callBlockSetStillFrameWithKey:self.endStillFrame forActor:targetActor];
         if (actionsToAdd.count == 0) {
             assembledAction = setStillFrameCCAction;
