@@ -204,6 +204,7 @@
 		5216F1DD15C9D05000BE2ACB /* OpenEars1.languagemodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenEars1.languagemodel; sourceTree = "<group>"; };
 		5216F1DE15C9D05000BE2ACB /* OpenEars2.gram */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenEars2.gram; sourceTree = "<group>"; };
 		5275108015DB3D270034A778 /* PopABalloon2-3.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PopABalloon2-3.xml"; sourceTree = "<group>"; };
+		5275AF4915E26FB90036EB10 /* PointConverter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PointConverter.h; path = GameModel/PointConverter.h; sourceTree = "<group>"; };
 		52836FF915C695CF00118B5E /* SpeechAdventure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeechAdventure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52836FFD15C695CF00118B5E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		52836FFF15C695CF00118B5E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -546,6 +547,7 @@
 				52008A6D15D076820023BD59 /* GameCharacter.m */,
 				52008A6815D075C10023BD59 /* GameStage.h */,
 				52008A6915D075C10023BD59 /* GameStage.m */,
+				5275AF4915E26FB90036EB10 /* PointConverter.h */,
 				52DF862015DD04A600684D83 /* GameRewardCondition.h */,
 				52DF862115DD04A600684D83 /* GameRewardCondition.m */,
 				5208DEE015DF8AA5006A20B2 /* GameRewardConditionItem.h */,

@@ -17,7 +17,7 @@
 @implementation GameCue
 
 @synthesize name = _name;
-
+@synthesize referenceNode = _referenceNode;
 //The different types: sequence, spawn, single
 @synthesize cueCollectionType = _cueCollectionType;
 
@@ -123,7 +123,7 @@
     }
     
     //move
-    id myMoveCCAction = [self.move getCCActionWithDuration:self.duration withStartPoint:targetActor.actualSprite.position];
+    id myMoveCCAction = [self.move getCCActionWithDuration:self.duration withActor:self.actualActor];
     if (!(myMoveCCAction == nil)) {
         [actionsToAdd addObject:myMoveCCAction];
     }

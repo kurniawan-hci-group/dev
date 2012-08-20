@@ -354,7 +354,7 @@
 + (GameCue *) loadCueWithXMLData: (GDataXMLElement *) XMLGameCue withStage: (GameStage*) theStage {
     //Recursively process game cues
     GameCue *newCue = [[GameCue alloc] init];
-    
+    newCue.referenceNode = theStage;
     newCue.name = [StageLoader singularXMLElementValueFrom:XMLGameCue inTag:@"name"];
     //process singles, spawns, & sequences differently
     newCue.cueCollectionType = [StageLoader singularXMLElementValueFrom:XMLGameCue inTag:@"cueCollectionType"];
@@ -370,7 +370,7 @@
         
         GDataXMLElement *XMLmove = [StageLoader singularXMLElementFrom:XMLGameCue inTag:@"move"];
         if (XMLmove != nil) {
-            newCue.move = [StageLoader loadMoveWithXMLData:XMLmove];
+            newCue.move = [StageLoader loadMoveWithXMLData:XMLmove withStage:(GameStage*)theStage];
         }
         newCue.endStillFrame = [StageLoader singularXMLElementValueFrom:XMLGameCue inTag:@"endStillFrame"];
     } else if ([newCue.cueCollectionType isEqualToString:@"spawn"] || ([newCue.cueCollectionType isEqualToString:@"sequence"])) {
@@ -386,7 +386,7 @@
     return newCue;
 }
 
-+ (GameMove *) loadMoveWithXMLData: (GDataXMLElement *) XMLMove {
++ (GameMove *) loadMoveWithXMLData: (GDataXMLElement *) XMLMove{
     GameMove *newMove = [[GameMove alloc] init];
     
     newMove.moveType = [StageLoader singularXMLElementValueFrom:XMLMove inTag:@"type"];

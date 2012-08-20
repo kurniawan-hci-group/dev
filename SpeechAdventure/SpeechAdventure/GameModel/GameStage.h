@@ -19,13 +19,15 @@
 #import "OEModel.h"
 #import "OEEvent.h"
 
+#import "PointConverter.h"
+
 #import "GameActor.h"
 #import "GameCommand.h"
 #import "GameRewardCondition.h"
 #import "GameRewardConditionItem.h"
 
 
-@interface GameStage : CCLayerColor<OEDelegate>
+@interface GameStage : CCLayerColor<OEDelegate,PointConverter>
 
 @property (nonatomic,strong) NSMutableDictionary *layersDictionary;
 @property (nonatomic,strong) NSMutableDictionary *actorsDictionary;

@@ -12,6 +12,8 @@
 #import "cocos2d.h"
 #import "SimpleAudioEngine.h"
 
+#import "PointConverter.h"
+
 #import "GameActor.h"
 #import "GameAction.h"
 #import "GameMove.h"
@@ -19,7 +21,7 @@
 @interface GameCue : NSObject
 
 @property (nonatomic,copy) NSString *name;
-
+@property (nonatomic,strong) id<PointConverter> referenceNode;
 //The different types: sequence, spawn, single
 @property (nonatomic,copy) NSString *cueCollectionType; 
 
