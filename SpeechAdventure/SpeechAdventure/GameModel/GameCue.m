@@ -21,7 +21,7 @@
 @synthesize actorsDictionary = _actorsDictionary;
 @synthesize actorCountsDictionary = _actorCountsDictionary;
 @synthesize actorName = _actorName;
-@synthesize actorMultiplicityType = _actorMultiplicityType; //Either single, pluralAllAtOnce, or pluralOneAtATime
+@synthesize actorMultiplicityType = _actorMultiplicityType; //Either single or pluralOneAtATime
 @synthesize actionName = _actionName;
 @synthesize action = _action;
 @synthesize endStillFrame = _endStillFrame;
@@ -42,11 +42,68 @@
     return  self;
 }
 
-//recursive method to build CCAction from cue
+- (void) runCue {
+    
+}
+
 - (id) getCCAction {
     id assembledAction;
     
+    if ([self.cueCollectionType isEqualToString:@"single"]) {
+        if ([self.actorMultiplicityType isEqualToString:@"single"]) {
+            
+        }
+    }
+    
     return assembledAction;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//Actor dictionary manipulation
+
+- (GameActor*) getActorByName:(NSString *) actorName {
+    return (GameActor*)[self.actorsDictionary objectForKey:actorName];
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// ActorCount stuff
+
+- (int) getActorCountForActorWithName:(NSString*)actorName {
+    return ((NSNumber*)[self.actorCountsDictionary objectForKey:actorName]).intValue;
+}
+
++ (NSString *) indexedActorNameForActorName:(NSString*)actorName withIndex:(int)index {
+    return [NSString stringWithFormat:@"%@%d", actorName, index];
+}
+
+- (NSMutableArray*) getNamesForPluralActorPrefix:(NSString*)actorNamePrefix {
+    int count = [self getActorCountForActorWithName:actorNamePrefix];
+    if (count == 1) {
+        //This function only works with PLURAL actors
+        return nil;
+    } else {
+        NSMutableArray *actorNames = [[NSMutableArray alloc] init];
+        for (int i = 0; i < count; i++) {
+            NSString *indexedActorName = [GameCue indexedActorNameForActorName:actorNamePrefix withIndex:i];
+            [actorNames addObject:indexedActorName];
+        }
+        return actorNames;
+    }
+}
+
+- (NSMutableArray*) getObjectsForPluralActorPrefix:(NSString*)actorNamePrefix {
+    NSMutableArray *actorNames = [self getNamesForPluralActorPrefix:actorNamePrefix];
+    if (actorNames == nil) {
+        //This function only works with PLURAL actors
+        return nil;
+    } else {
+        NSMutableArray *actorObjects = [[NSMutableArray alloc] init];
+        for (NSString *indexedActorName in actorNames) {
+            GameActor *actorToAdd = [self getActorByName:indexedActorName];
+            [actorObjects addObject:actorToAdd];
+        }
+        return actorObjects;
+    }
 }
 
 @end
