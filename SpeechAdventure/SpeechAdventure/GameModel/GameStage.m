@@ -184,7 +184,7 @@
         //[NSThread sleepForTimeInterval:2.0f];
         
         //Test Reward Condition & run if condition is satisfied
-        //PROBLEM HERE: The condition doesn't register as satisfied on the actual time it's supposed to be satisfied.
+        //PROBLEM HERE: Reward condition does not register as complete on the command it actually completes
         if ([self rewardConditionIsSatisfied]) {
             [[self getCueByName:self.rewardCondition.rewardCue] runCue];
         }

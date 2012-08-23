@@ -114,6 +114,7 @@
       <activatingText>POP A BALLOON</activatingText>
       <correctThreshold>-500</correctThreshold>
       <cue>
+        <name>popBalloonCue</name>
         <cueCollectionType>single</cueCollectionType>
         <actor>balloon</actor>
         <actorMultiplicityType>pluralOneAtATime</actorMultiplicityType>
