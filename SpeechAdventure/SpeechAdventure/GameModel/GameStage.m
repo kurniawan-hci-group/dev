@@ -179,7 +179,16 @@
     if (potentialCommand != nil) {
         //Run its cue
         [potentialCommand.responseCue runCue];
-        [[self getCueByName:self.rewardCondition.rewardCue] runCue];
+        
+        //Give the cue time to register before testing
+        //[NSThread sleepForTimeInterval:2.0f];
+        
+        //Test Reward Condition & run if condition is satisfied
+        //PROBLEM HERE: The condition doesn't register as satisfied on the actual time it's supposed to be satisfied.
+        if ([self rewardConditionIsSatisfied]) {
+            [[self getCueByName:self.rewardCondition.rewardCue] runCue];
+        }
+        
         //Should also put support system stuff in here
     }
     
@@ -199,6 +208,21 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Reward Condition testing
 
-
+- (BOOL) rewardConditionIsSatisfied {
+    BOOL conditionIsSatisfied = YES;
+    
+    for (GameRewardConditionItem *myItem in self.rewardCondition.conditionItemsArray) {
+        //get the actors for the item & test for required state
+        NSMutableArray *actorsToTest = [[NSMutableArray alloc] init];
+        
+        if (myItem.actorIsPlural) {
+            actorsToTest = [self getObjectsForPluralActorPrefix:myItem.actorName];
+        } else {
+            [actorsToTest addObject:[self getActorByName:myItem.actorName]];
+        }
+    }
+    
+    return conditionIsSatisfied;
+}
 
 @end

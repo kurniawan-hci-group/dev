@@ -71,4 +71,9 @@
 - (NSMutableArray*) getNamesForPluralActorPrefix:(NSString*)actorNamePrefix;
 - (NSMutableArray*) getObjectsForPluralActorPrefix:(NSString*)actorNamePrefix;
 
+///////////////////////////////////////////////////////////////////////////////
+// Reward Condition testing
+
+- (BOOL) rewardConditionIsSatisfied;
+
 @end
