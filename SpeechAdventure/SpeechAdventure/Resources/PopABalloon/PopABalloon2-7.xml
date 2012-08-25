@@ -122,6 +122,19 @@
       </cue>
       <supportSoundFile>Support-PopABalloon.wav</supportSoundFile>
     </command>
+    <command>
+      <name>shootBalloon</name>
+      <activatingText>SHOOT A BALLOON</activatingText>
+      <correctThreshold>-500</correctThreshold>
+        <cue>
+          <name>popBalloonCue</name>
+          <cueCollectionType>single</cueCollectionType>
+          <actor>balloon</actor>
+          <actorMultiplicityType>pluralOneAtATime</actorMultiplicityType>
+          <action>pop</action>
+        </cue>
+      <supportSoundFile>Support-PopABalloon.wav</supportSoundFile>
+    </command>
   </voiceToText>
   <initializer>
     <item>
